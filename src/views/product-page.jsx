@@ -1,31 +1,25 @@
 import Navbar from "../components/navbar";
 import ProductImage from "../components/productImage";
-import { useState } from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
+
 
 const ProductPage = () => {
 
-    const [product, setProduct] = useState({
-        id: 1,
-        name: "Fotografía Astro",
-        price: 100.00,
-        rating: 4.8,
-        reviews: 67,
-        cartQuantity: 0,
-        likes: 200
-    });
+    const { store, actions } =  useContext(Context);
+    const { product, cart } = store;
 
-    const [cart, setCart] = useState([]);
-
-    const addToCart = (product) => {
+    const addToCart = () => {
+        actions.addToCart(product);
         setCart([...cart, product]);
     }
 
     const removeFromCart = (productId) => {
-        setCart(cart.filter(item => item.id !== productId));
+        actions.removeFromCart(productId);
     }
 
     const clearCart = () => {
-        setCart ([]);
+        actions.clearCart();
     }
     
     return (
