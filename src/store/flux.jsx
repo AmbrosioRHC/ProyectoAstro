@@ -2,16 +2,25 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       
-      product: {
+      products: [{
         id: 1,
         name: "Fotografía Astro",
         price: 100.00,
         rating: 4.8,
         reviews: 67,
         likes: 200
-      },
+      }, 
 
-      
+      {
+        id: 2,
+        name: "Producto 2",
+        price: 50.00,
+        rating: 2.5,
+        reviews: 6,
+        likes: 2
+      }
+    ],
+
       cart: []
     },
 
