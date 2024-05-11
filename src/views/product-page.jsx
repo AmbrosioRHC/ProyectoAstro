@@ -1,32 +1,30 @@
 import Navbar from "../components/navbar";
 import ProductImage from "../components/productImage";
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom"; // Importa useParams para obtener el ID de la URL
+import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const ProductPage = () => {
-    const { id } = useParams(); // Obtiene el ID de la URL
+    const { id } = useParams();
     const { store, actions } = useContext(Context);
     const { products, cart } = store;
 
-    // Buscar el producto por ID
     const product = products.find(product => product.id === parseInt(id));
 
-    // Verificar si el producto existe
     if (!product) {
         return <p>Producto no encontrado</p>;
     }
 
     const addToCart = () => {
-        actions.addToCart(product); // Añade el producto actual al carrito
+        actions.addToCart(product);
     }
 
     const removeFromCart = (productId) => {
-        actions.removeFromCart(productId); // Elimina el producto del carrito
+        actions.removeFromCart(productId);
     }
 
     const clearCart = () => {
-        actions.clearCart(); // Vacía el carrito
+        actions.clearCart();
     }
 
     return (
@@ -36,42 +34,47 @@ const ProductPage = () => {
                 <div className="row justify-content-around mt-5">
                     <div className="containerImage col-5 container">
                         <ProductImage />
-                        <div className="rating mt-3 ">
+                        <div className="rating mt-3">
                             <span>rating {product.rating} <i className="fa-solid fa-star"></i></span>
                         </div>
                     </div>
                     <div className="rightContainer col-5 mt-5 container">
-                        <div className="mt-3" >
+                        <div className="mt-3 product-name" >
                             <div className="row">
                                 <div className="col-8">
                                     <p className="fs-4 fw-semibold"> {product.name}</p>
                                 </div>
                                 <div className="col-4">
-                                    <p className="float-end m-2"><i className="fa-regular fa-share-from-square"></i></p>
-                                    <p className="float-end m-2"><i className="fa-regular fa-bookmark"></i></p>
-                                    <p className="float-end m-2"><i className="fa-solid fa-heart"></i>{product.likes}</p>
+                                    <p className="float-end m-2 share"><i className="fa-regular fa-share-from-square"></i></p>
+                                    <p className="float-end m-2 likes"><i className="fa-solid fa-heart"></i>{product.likes}</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="row mt-3">
-                            <div className="price mt-5 col-6 fs-1 fw-semibold">
-                                <p>$ {product.price.toFixed(2)}</p>
+                        <div className="row product-price">
+                            <div className="col-8">
+                                <div className="price mt-5 fs-1 fw-semibold">
+                                    <p>$ {product.price.toFixed(0)}</p>
+                                </div>
                             </div>
-                            <div className="reviews float-end col-3 mt-5"><p><i className="fa-regular fa-comment-dots"></i> {product.reviews} reviews</p></div>
+                            <div className="col-3">
+                                <p className=" reviews float-end  mt-5 "><i className="fa-regular fa-comment-dots"></i> {product.reviews} reviews</p>
+                            </div>
                         </div>
                         <div className=" mt-5">
-                            <button onClick={addToCart} className="btn btn-primary rounded-pill"><i className="fa-solid fa-cart-shopping"></i>  Agregar al carrito</button>
+                            <button onClick={addToCart} className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page"><i className="fa-solid fa-cart-shopping"></i>  Agregar al carrito</button>
                         </div>
-                        <div className="mt-5">
-                            <button onClick={() => removeFromCart(product.id)} className="btn btn-danger rounded-pill"><i className="fa-solid fa-trash"></i>  Eliminar del carrito</button>
-                        </div>
+                        {cart.length > 0 && ( // Mostrar el botón de eliminar solo si hay elementos en el carrito
+                            <div className="mt-5">
+                                <button onClick={() => removeFromCart(product.id)} className="btn btn-danger rounded-pill" id="btn-product-page"><i className="fa-solid fa-trash"></i> Eliminar del carrito</button>
+                            </div>
+                        )}
                         <div>
                             {cart.length > 0 ? (
                                 <div>
                                     <h2>Carrito</h2>
                                     <ul>
-                                        {cart.map(item => (
-                                            <li key={item.id}>
+                                        {cart.map((item, index) => (
+                                            <li key={`${item.id}-${index}`}>
                                                 {item.name} - ${item.price}
                                                 <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
                                             </li>
