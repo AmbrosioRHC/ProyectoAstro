@@ -9,6 +9,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProductPage from './views/product-page';
+import ForgotPassword from './views/ForgotPassword';
+import SentNotification from './views/SentNotification';
+import ShoppingCart from'./views/ShoppingCart';
 
 function App() {
 
@@ -23,6 +26,10 @@ function App() {
           <Route path="/product-page" element={<ProductPage />} />
           <Route path={"login"} element={<Login />} />
           <Route path={"register"} element={<Register />} />
+          <Route path={"forgotpassword"} element={<ForgotPassword />} />
+          <Route path={"shoppingcart"} element={<ShoppingCart />} />
+          <Route path={"sentnotification"} element={<SentNotification/>} />
+       
         </Routes>
       </BrowserRouter>
 
