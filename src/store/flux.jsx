@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      
+
       products: [{
         id: 1,
         name: "Fotografía Astro",
@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         rating: 4.8,
         reviews: 67,
         likes: 200
-      }, 
+      },
 
       {
         id: 2,
@@ -19,9 +19,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         reviews: 6,
         likes: 2
       }
-    ],
+      ],
 
-    
+
       cart: []
     },
 
@@ -36,8 +36,16 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       addToCart: (product) => {
         const store = getStore();
-        setStore({ cart: [...store.cart, product] });
+        const existingProductIndex = store.cart.findIndex(item => item.id === product.id);
+        if (existingProductIndex >= 0) {
+          const updatedCart = [...store.cart];
+          updatedCart[existingProductIndex].quantity += 1;
+          setStore({ cart: updatedCart });
+        } else {
+          setStore({ cart: [...store.cart, { ...product, quantity: 1 }] });
+        }
       },
+
       removeFromCart: (productId) => {
         const store = getStore();
         setStore({ cart: store.cart.filter(item => item.id !== productId) });
@@ -48,6 +56,6 @@ const getState = ({ getStore, getActions, setStore }) => {
     }
   };
 };
- 
+
 
 export default getState;

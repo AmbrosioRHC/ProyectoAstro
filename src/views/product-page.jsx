@@ -71,28 +71,19 @@ const ProductPage = () => {
                             </div>
                         )}
                         <div className="mt-3 ms-1">
-                            {cart.length > 0 ? (
+                            {cart.some(item => item.id === product.id) && (
                                 <div>
-                                    <h2>Carrito</h2>
-                                    <ul>
-                                        {cart.map((item, index) => (
-                                            <li key={`${item.id}-${index}`}>
-                                                {item.name} - ${item.price}
-                                                <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <button onClick={clearCart}>Vaciar Carrito</button>
+                                    <p>En el carrito: {cart.find(item => item.id === product.id).quantity}</p>
                                 </div>
-                            ) : (
-                                <p>El carrito está vacío</p>
                             )}
                         </div>
-                        <div className="shippingPolicies mt-5">
-                            <p><i className="fa-solid fa-truck"></i> Envío gratis desde $200,00</p>
+                        <div className="product-footer container">
+                        <div className="shippingPolicies mt-3">
+                            <p><i className="fa-solid fa-truck"></i> Envío gratis desde $200</p>
                         </div>
-                        <div className="shippingPolicies mt-2">
+                        <div className="shippingPolicies mt-3">
                             <p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p>
+                        </div>
                         </div>
                     </div>
                 </div>
