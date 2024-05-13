@@ -1,17 +1,21 @@
-import React from 'react';
-
-const Card = () => {
+const Card = ({stockImage}) => {
+  
   return (
     <>
-      <h1>Ir a la lista de tareas</h1>
-      <div className="card" style={{ width: "18rem" }}>
-        <img src="url_de_la_imagen.jpg" className="card-img-top" alt="Descripción de la imagen" />
-        <div className="card-body">
-          <h5 className="card-title">Título de la tarjeta</h5>
-          <p className="card-text">Texto de ejemplo rápido para construir sobre el título de la tarjeta y formar la mayor parte del contenido de las tarjetas.</p>
-          <a href="#" className="btn btn-primary">Ir a algún lugar</a>
-        </div>
+   <div className="card mb-3" style={{"maxWidth": "540px"}}>
+  <div className="row g-0">
+    <div className="col-md-4">
+      <img src={stockImage.img1} className="img-fluid rounded-start" alt="..."/>
+    </div>
+    <div className="col-md-8">
+      <div className="card-body">
+        <h5 className="card-title">{stockImage.name}</h5>
+        <p className="card-text">{stockImage.description}</p>
+        <p className="card-text"><small className="text-muted">{stockImage.price}</small></p>
       </div>
+    </div>
+  </div>
+</div>
     </>
   );
 };

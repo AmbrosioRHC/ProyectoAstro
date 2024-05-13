@@ -1,6 +1,6 @@
-import LogoXl from '../assets/img-logo/Logoxl'
-
+import LogoXl from '../assets/img-logo/logo-xl.png'
 import './Login.css'
+
 const Login = () => {
 
     return (

@@ -1,4 +1,4 @@
-import LogoXl from '../assets/img-logo/Logoxl'
+import LogoXl from '../assets/img-logo/logo-xl.png'
 import './Login.css'
 const sentNotification = () =>{
 
@@ -6,8 +6,8 @@ const sentNotification = () =>{
     return (
         <>
 
-<div className="container-position-absolute" >
-    <div className="">
+<div className="container-send" >
+    <div className="content">
         <img src={LogoXl} alt="Astronap" class="imagen-principal"/>
     </div>
     <h3>Se ha enviado un enlace a su correo electrónico <br /> para recuperar su contraseña<br /> </h3>

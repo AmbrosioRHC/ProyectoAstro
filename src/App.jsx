@@ -11,9 +11,12 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProductPage from './views/product-page';
 import ForgotPassword from './views/ForgotPassword';
 import SentNotification from './views/SentNotification';
-import ShoppingCart from'./views/ShoppingCart';
+import ShoppingCart from './views/ShoppingCart';
+
+
 
 function App() {
+
 
 
   return (
@@ -23,18 +26,17 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product-page" element={<ProductPage />} />
-          <Route path="/product-page" element={<ProductPage />} />
           <Route path={"login"} element={<Login />} />
           <Route path={"register"} element={<Register />} />
           <Route path={"forgotpassword"} element={<ForgotPassword />} />
           <Route path={"shoppingcart"} element={<ShoppingCart />} />
-          <Route path={"sentnotification"} element={<SentNotification/>} />
-       
+          <Route path={"sentnotification"} element={<SentNotification />} />
+
         </Routes>
       </BrowserRouter>
 
     </>
-   
+
   )
 }
 
