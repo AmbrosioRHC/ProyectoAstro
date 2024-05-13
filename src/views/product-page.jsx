@@ -31,10 +31,10 @@ const ProductPage = () => {
         <>
             <Navbar />
             <div className="container m-5 p-1">
-                <div className="row justify-content-around mt-5">
+                <div className="row justify-content-around m-2 mt-5">
                     <div className="containerImage col-5 container">
                         <ProductImage />
-                        <div className="rating mt-3">
+                        <div className="rating mt-3 m-2">
                             <span>rating {product.rating} <i className="fa-solid fa-star"></i></span>
                         </div>
                     </div>
@@ -50,14 +50,16 @@ const ProductPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="row product-price">
+                        <div className="mt-3 product-price">
+                            <div className="row">
                             <div className="col-8">
-                                <div className="price mt-5 fs-1 fw-semibold">
+                                <div className="price fs-1 fw-semibold">
                                     <p>$ {product.price.toFixed(0)}</p>
                                 </div>
                             </div>
-                            <div className="col-3">
-                                <p className=" reviews float-end  mt-5 "><i className="fa-regular fa-comment-dots"></i> {product.reviews} reviews</p>
+                            <div className="col-4">
+                                <p className=" reviews float-end mt-3 m-2"><i className="fa-regular fa-comment-dots"></i> {product.reviews} reviews</p>
+                            </div>
                             </div>
                         </div>
                         <div className=" mt-5">
@@ -68,7 +70,7 @@ const ProductPage = () => {
                                 <button onClick={() => removeFromCart(product.id)} className="btn btn-danger rounded-pill" id="btn-product-page"><i className="fa-solid fa-trash"></i> Eliminar del carrito</button>
                             </div>
                         )}
-                        <div>
+                        <div className="mt-3 ms-1">
                             {cart.length > 0 ? (
                                 <div>
                                     <h2>Carrito</h2>
