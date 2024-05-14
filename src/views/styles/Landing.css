@@ -25,6 +25,10 @@ body {
     justify-content: center;
     align-items: center;
 }
+.header-text img{
+    padding-left: 12px;
+    padding-top: 6px;
+}
 .header-text h2{
     font-size: 40px;
 }
@@ -55,6 +59,7 @@ body {
 
 }
 .img-carrusel {
+    height: 533px;
 	object-fit: cover;
 }
 .description h1{
@@ -126,4 +131,7 @@ body {
 .boton2 {
     background-color:rgba(58, 58, 121, 0.726);
     border-radius: 8px;
+}
+#icon {
+    padding-right: 20px;
 }
