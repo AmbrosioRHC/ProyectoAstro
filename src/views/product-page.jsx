@@ -27,6 +27,14 @@ const ProductPage = () => {
         actions.clearCart();
     }
 
+    const incrementQuantity = () => {
+        actions.incrementQuantity(product.id);
+    }
+
+    const decrementQuantity = () => {
+        actions.decrementQuantity(product.id);
+    }
+
     return (
         <>
             <Navbar />
@@ -74,6 +82,8 @@ const ProductPage = () => {
                             {cart.some(item => item.id === product.id) && (
                                 <div>
                                     <p>En el carrito: {cart.find(item => item.id === product.id).quantity}</p>
+                                    <button onClick={incrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">+</button>
+                                    <button onClick={decrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">-</button>
                                 </div>
                             )}
                         </div>

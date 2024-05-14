@@ -52,6 +52,26 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       clearCart: () => {
         setStore({ cart: [] });
+      },
+      incrementQuantity: (productId) => {
+        const store = getStore();
+        const updatedCart = store.cart.map(item => {
+          if (item.id === productId) {
+            return { ...item, quantity: item.quantity + 1 };
+          }
+          return item;
+        });
+        setStore({ cart: updatedCart });
+      },
+      decrementQuantity: (productId) => {
+        const store = getStore();
+        const updatedCart = store.cart.map(item => {
+          if (item.id === productId && item.quantity > 1) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return item;
+        });
+        setStore({ cart: updatedCart });
       }
     }
   };
