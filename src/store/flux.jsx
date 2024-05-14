@@ -8,7 +8,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         price: 100.00,
         rating: 4.8,
         reviews: 67,
-        likes: 200
+        likes: 200,
+        image: "https://picsum.photos/id/26/600/800"
+        
       },
 
       {
@@ -17,9 +19,52 @@ const getState = ({ getStore, getActions, setStore }) => {
         price: 50.00,
         rating: 2.5,
         reviews: 6,
-        likes: 2
+        likes: 2,
+        image: "https://picsum.photos/id/27/600/800"
+      },
+
+      {
+        id: 3,
+        name: "Producto 3",
+        price: 60.00,
+        rating: 3.5,
+        reviews: 621,
+        likes: 322,
+        image: "https://picsum.photos/id/28/600/800"
+      },
+
+      {
+        id: 4,
+        name: "Producto 4",
+        price: 40.00,
+        rating: 4.5,
+        reviews: 43,
+        likes: 223,
+        image: "https://picsum.photos/id/29/600/800"
+      },
+
+      {
+        id: 5,
+        name: "Producto 5",
+        price: 255.00,
+        rating: 3.5,
+        reviews: 323,
+        likes: 211,
+        image: "https://picsum.photos/id/30/600/800"
+      },
+
+      {
+        id: 6,
+        name: "Producto 6",
+        price: 5.530,
+        rating: 4.9,
+        reviews: 453,
+        likes: 222,
+        image: "https://picsum.photos/id/31/600/800"
       }
       ],
+
+      
 
 
       cart: []
