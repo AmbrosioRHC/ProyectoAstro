@@ -9,10 +9,10 @@ import FAQ from './views/FAQ';
 import AboutUs from './views/about';
 import Privacy from './views/privacy';
 import Terms from './views/terms&conditions';
+import ProductPage from './views/product-page';
+import ProductList from './views/product-list';
 
-function App() {
-
-
+function App({ store }) {
   return (
     <BrowserRouter>
       <>
@@ -24,10 +24,16 @@ function App() {
         <Route path="/terms" element={<Terms/>}/>
         <Route path="/" element={<Home/>}/>
        </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+            <Route
+              path="/product-page/:id" element={<ProductPage />}
+            />
+            <Route path="/product-list" element={<ProductList />}/>
+        </Routes>
       </>
     </BrowserRouter>
-  )
+  );
 }
-
 
 export default injectContext(App);
