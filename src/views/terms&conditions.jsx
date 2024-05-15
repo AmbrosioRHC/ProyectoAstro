@@ -1,3 +1,5 @@
+import './styles/Documents.css'
+
 const Terms = () => {
     return (
   <>

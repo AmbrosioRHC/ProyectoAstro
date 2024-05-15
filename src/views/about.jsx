@@ -4,7 +4,7 @@ const AboutUs = () => {
     return (
   <>
     <div className="container mt-4">
-      <div classNmae="overflow-y-auto document">
+      <div className="overflow-y-auto document">
         <h1>Acerca de nosotros</h1>
         <p>AstroSnap es una empresa innovadora que se especializa en la venta de astrofotografías en línea. Esta empresa única ha revolucionado la forma en que las personas interactúan y aprecian el cosmos.</p>
         <p>Fundada por un grupo de entusiastas de la astronomía, AstroSnap se dedica a capturar la belleza del universo y a compartirla con el mundo. Utilizando tecnología de vanguardia y telescopios de alta potencia, el equipo de AstroSnap captura imágenes impresionantes de galaxias distantes, nebulosas y estrellas.</p>

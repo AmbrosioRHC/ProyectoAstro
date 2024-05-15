@@ -1,8 +1,10 @@
+import './styles/Documents.css'
+
 const Privacy = () => {
     return (
   <>
     <div className="container mt-4">
-      <div className="overflow-y-auto document">
+      <div className="document overflow-y-auto">
         <h1>Política de privacidad de AstroSnap</h1>
         <ul>
           <li><strong>Introducción:</strong> AstroSnap respeta la privacidad de sus usuarios y se compromete a protegerla. Esta Política de Privacidad describe cómo recopilamos, usamos, compartimos y protegemos su información personal cuando utiliza nuestros servicios en línea.</li>
