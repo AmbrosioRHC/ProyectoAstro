@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-
+ 
       products: [{
         id: 1,
         name: "Fotografía Astro",
