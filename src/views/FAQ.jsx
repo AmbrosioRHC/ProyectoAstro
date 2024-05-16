@@ -1,4 +1,6 @@
-import './styles/Documents.css'
+import "./FAQ.css"
+
+
 
 const FAQ = () => {
     return (

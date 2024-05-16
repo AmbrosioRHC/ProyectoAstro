@@ -2,6 +2,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCcMastercard, faCcVisa, faCcPaypal, faCcAmazonPay, faCcApplePay, faCcDinersClub} from '@fortawesome/free-brands-svg-icons';
 import { faWhatsapp, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'; 
+import './Landing.css'
+
 import './styles/Landing.css'
 import Navbar from "../components/navbar"
 import { Link } from "react-router-dom";
@@ -9,6 +11,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
       <>
+ 
         <Navbar/>
         <div id="header" className="text-light">
           <div className="header-text">

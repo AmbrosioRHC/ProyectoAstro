@@ -10,15 +10,22 @@ import AboutUs from './views/about';
 import Privacy from './views/privacy';
 import Terms from './views/terms&conditions';
 import ProductPage from './views/product-page';
+import FAQ from './views/FAQ';
+import Account from './views/Account';
+import PhotographerView from './views/PhotographerView';
 import ProductList from './views/product-list';
 
-function App({ store }) {
+
+  function App({ store }) {
   return (
     <BrowserRouter>
       <>
        <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/FAQ" element={<FAQ/>}/>
+        <Route path="/product-page" element={<ProductPage/>}/>
+        <Route path="/account" element={<Account/>} />
+        <Route path="/profile" element={<PhotographerView />} />
         <Route path="/about_us" element={<AboutUs/>}/>
         <Route path="/privacy" element={<Privacy/>}/>
         <Route path="/terms" element={<Terms/>}/>
