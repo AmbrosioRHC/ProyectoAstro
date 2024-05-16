@@ -6,7 +6,7 @@ const ProductImage = () => {
             <div className="container">
                 <div className="row">
                     <div id="carouselExample" className="carousel slide">
-                        <div className="carousel-inner carrusel">
+                        <div className="carousel-inner carrusel rounded">
                             <div className="carousel-item active">
                                 <img src="https://picsum.photos/id/26/600/800" className="d-block w-100" alt="..." />
                             </div>

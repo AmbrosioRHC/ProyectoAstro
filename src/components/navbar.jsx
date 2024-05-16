@@ -1,10 +1,12 @@
-import "../App.css";
+import './components styles/Navbar.css'
 const Navbar = () => {
   return (
     <div className="navbarCustom">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">AstroGram</a>
+          <a className="navbar-brand" href="#">
+            <img src="../src/assets/img-logo/logo-S.png" class="navbar-logo"/>
+          </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -17,7 +19,7 @@ const Navbar = () => {
                 <a className="nav-link" href="#">Product page</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a className="nav-link" aria-disabled="true">Disabled</a>
               </li>
             </ul>
             <form className="d-flex ms-auto" role="search">

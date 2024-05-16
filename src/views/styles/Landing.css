@@ -1,0 +1,137 @@
+*{
+    margin: o;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body {
+    background-color: #00010ce7;
+}
+#header {
+    height: 850px;
+    width: 100%;
+    background-image: linear-gradient(to top, hsla(180, 63%, 50%, 0.692) 0%, hsla(267, 86%, 22%, 0.63) 100%), url("https://img.odcdn.com.br/wp-content/uploads/2022/04/astrofotografia.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+.header-text {
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header-text img{
+    padding-left: 12px;
+    padding-top: 6px;
+}
+.header-text h2{
+    font-size: 40px;
+}
+.header-text h1{
+    font-size: 80px;
+}
+.header-text p{
+    font-size: 25px;
+}
+.slideshow {
+    margin-top: 20px;
+}
+.learn {
+    height: 533px;
+    background-image: url("https://www.astrofotografía.com/wp-content/uploads/2020/12/Chica-observando-la-Luna-con-su-telescopio-1024x640.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#footer {
+    padding: 10px;
+    font-size: 50px;
+}
+
+.product-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.img-carrusel {
+    height: 533px;
+	object-fit: cover;
+}
+.description h1{
+    font-size: 50px;
+}
+.boton {
+    background-color:rgba(58, 58, 121, 0.726);
+    border-radius: 8px;
+    padding: 30px 80px;
+}
+.svg-landing {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.subscribe {
+    height: 500px;
+    background-image: linear-gradient(to top, hsla(180, 63%, 50%, 0.692) 0%, hsla(267, 86%, 22%, 0.63) 100%), url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?cs=srgb&dl=pexels-felixmittermeier-956981.jpg&fm=jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+.subscribe-text {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.subscribe-text p{
+    font-size: 20px;
+}
+.users {
+    height: 533px;
+    background-image: url("https://tvazteca.brightspotcdn.com/dims4/default/114bada/2147483647/strip/true/crop/1280x728+0+0/resize/968x551!/format/jpg/quality/80/?url=http%3A%2F%2Ftv-azteca-brightspot.s3.amazonaws.com%2F28%2Fb4%2F12d3a33a4a6cbcd13149863ae7bc%2Flluvia-de-estrellas.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.users-text { 
+    width:300px;
+}
+.users-text h3{
+    padding-bottom: 10px;
+
+} 
+.product-info h5{
+    width: 300px;
+    padding-bottom: 10px;
+}
+.title h1{
+    font-size: 50px;
+}
+.product-info {
+    padding-left: 50px
+} 
+.table-title {
+    padding-top: 10px;
+    font-size: 20px;
+}
+.table-body {
+    padding: 10px;
+    padding-bottom: 20px;
+}
+.boton2 {
+    background-color:rgba(58, 58, 121, 0.726);
+    border-radius: 8px;
+}
+#icon {
+    padding-right: 20px;
+}
