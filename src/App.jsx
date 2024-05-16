@@ -10,7 +10,6 @@ import AboutUs from './views/about';
 import Privacy from './views/privacy';
 import Terms from './views/terms&conditions';
 import ProductPage from './views/product-page';
-import FAQ from './views/FAQ';
 import Account from './views/Account';
 import PhotographerView from './views/PhotographerView';
 import ProductList from './views/product-list';

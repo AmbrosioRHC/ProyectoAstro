@@ -46,11 +46,11 @@ const ProductPage = () => {
                             <span>rating {product.rating} <i className="fa-solid fa-star"></i></span>
                         </div>
                     </div>
-                    <div className="rightContainer col-5 mt-5 container">
+                    <div className="rightContainer col-5 mt-5 container fontColor">
                         <div className="mt-3 product-name" >
                             <div className="row">
-                                <div className="col-8">
-                                    <p className="fs-4 fw-semibold"> {product.name}</p>
+                                <div className="col-8 ">
+                                    <p className="fs-4 fw-semibold "> {product.name}</p>
                                 </div>
                                 <div className="col-4">
                                     <p className="float-end m-2 share"><i className="fa-regular fa-share-from-square"></i></p>

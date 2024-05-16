@@ -1,7 +1,15 @@
 import ProductCollection from "../components/productCollection"
+import Navbar from "../components/navbar"
 const ProductList = () => {
-return(
+    return (
+    <>
+    <div >
+    <Navbar/>
+    </div>
+    <div className="container mt-5 paddingTop">
     <ProductCollection/>
+    </div>
+    </>
 )
 }
 

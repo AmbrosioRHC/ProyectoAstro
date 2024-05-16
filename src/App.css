@@ -1,14 +1,22 @@
-<<<<<<< HEAD
-=======
 .navbarCustom {
   width: 100%;
   top: 0;
-  position: fixed;
+  position: fixed!important;
+  z-index: 999;
 }
 
 .btn-custom {
   background-color: #52D467
 }
+
+.fontColor{
+  color:#fff
+}
+
+.paddingTop{
+  padding-top: 60px;
+}
+
 
 .btn-primary {
   --bs-btn-color: #fff;
@@ -105,4 +113,3 @@
     margin-left: 20%;
     margin-top: 20%;
     } */
->>>>>>> 9d0a881371dfab854ca20eb6bfe82ba80ce59fa0

@@ -13,6 +13,7 @@ const Home = () => {
       <>
  
         <Navbar/>
+        <div className="body-landing">
         <div id="header" className="text-light">
           <div className="header-text">
             <h1>Bienvenidos a 
@@ -152,6 +153,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
 
       </>
