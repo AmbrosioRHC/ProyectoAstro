@@ -17,8 +17,8 @@
     padding-left: 20px;
     padding-right: 10px;
 }
-.dropdown-text {
-    font-size: 20px;
+.dropdown-text p{
+    font-size: 100px;
 }
 .dropdown {
     margin-top: 6px;

@@ -30,7 +30,7 @@ const Navbar = () => {
                   <ul className="navbar-nav">
                     <li className="nav-item dropdown">
                       <button className="btn btn-dark dropdown-toggle dropdown-tex" data-bs-toggle="dropdown" aria-expanded="false">
-                        Ingresa
+                        <p>Ingresa</p>
                       </button>
                       <ul className="dropdown-menu dropdown-menu-dark">
                         <li><a className="dropdown-item" href="#">Soy cliente</a></li>
