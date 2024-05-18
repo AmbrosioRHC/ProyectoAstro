@@ -1,4 +1,28 @@
 .navbar-logo {
     height: 25px;
-    width: 72px;
+    width: 100px;
+}
+.subs-bot {
+    font-size: 20px;
+    margin-right: 20px;
+}
+.nav-link {
+    font-size: 20px;
+}
+.navbar-body li{
+    padding-right: 20px;
+}
+.mini-cart {
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+.dropdown-text {
+    font-size: 20px;
+}
+.dropdown {
+    margin-top: 6px;
+}
+.navbarCustom {
+    z-index: 2;
 }

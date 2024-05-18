@@ -1,6 +1,5 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCcMastercard, faCcVisa, faCcPaypal, faCcAmazonPay, faCcApplePay, faCcDinersClub} from '@fortawesome/free-brands-svg-icons';
 import { faWhatsapp, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'; 
 import './styles/Landing.css'
 import Navbar from "../components/navbar"
@@ -18,7 +17,7 @@ const Home = () => {
             <h2>El portal de compra y venta de astrofotografía</h2>
             <p>AstroSnap es un portal donde los astofotógrafos ponen en venta sus fotografías.</p>
             <div className="slideshow container w-50 d-flex align-items-center justify-content-center"> 
-              <button type="button" className="btn btn-lg btn-success boton text-light">Explora</button>
+              <Link to="/product-list"><button type="button" className="btn btn-lg btn-success boton text-light">Explora</button></Link>
             </div>
             <div>
         
