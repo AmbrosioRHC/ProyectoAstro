@@ -1,12 +1,22 @@
 .navbarCustom {
   width: 100%;
   top: 0;
-  position: fixed;
+  position: fixed!important;
+  z-index: 999;
 }
 
 .btn-custom {
   background-color: #52D467
 }
+
+.fontColor{
+  color:#fff
+}
+
+.paddingTop{
+  padding-top: 60px;
+}
+
 
 .btn-primary {
   --bs-btn-color: #fff;

@@ -1,6 +1,8 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWhatsapp, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'; 
+import './Landing.css'
+
 import './styles/Landing.css'
 import Navbar from "../components/navbar"
 import { Link } from "react-router-dom";
@@ -8,7 +10,9 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
       <>
+ 
         <Navbar/>
+        <div className="body-landing">
         <div id="header" className="text-light">
           <div className="header-text">
             <h1>Bienvenidos a 
@@ -148,6 +152,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
 
       </>
