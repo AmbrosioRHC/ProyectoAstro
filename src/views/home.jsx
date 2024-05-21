@@ -11,7 +11,7 @@ const Home = () => {
     return (
       <>
  
-        <Navbar/>
+        
         <div className="body-landing">
         <div id="header" className="text-light">
           <div className="header-text">
@@ -95,7 +95,7 @@ const Home = () => {
                 <div className="users d-flex align-items-center justify-content-center text-light">
                   <div className="users-text">
                     <h3>Revisa los perfiles y valora el trabajo de nuestros astrofotógrafos</h3>
-                    <button type="button" className="btn boton2 btn-success btn-lg">Perfiles</button>
+                    <Link to="/profile"><button type="button" className="btn boton2 btn-success btn-lg">Perfiles</button></Link>
                   </div>
                 </div>
               </div>

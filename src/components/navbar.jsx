@@ -6,7 +6,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping
 const Navbar = () => {
   return (
     <div className="navbarCustom">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark container">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand" href="#">
             <img src="../src/assets/img-logo/logo-S.png" class="navbar-logo"/>
