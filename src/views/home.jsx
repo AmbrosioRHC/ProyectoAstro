@@ -22,7 +22,7 @@ const Home = () => {
             <h2>El portal de compra y venta de astrofotografía</h2>
             <p>AstroSnap es un portal donde los astofotógrafos ponen en venta sus fotografías.</p>
             <div className="slideshow container w-50 d-flex align-items-center justify-content-center"> 
-              <button type="button" className="btn btn-lg btn-success boton text-light">Explora</button>
+              <button type="button" className="btn btn-lg btn-success boton text-light" onClick={() => window.location.href = 'http://localhost:5173/product-list'}>Explora</button>
             </div>
             <div>
         
