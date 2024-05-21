@@ -4,59 +4,50 @@ import './styles/LoginStyle.css'
 import { Link } from "react-router-dom";
 
 
-const Login = () => {
+const RecoverAccount = () => {
+
+
 
     return (
 
-        <>
-            <div className="container-fluid">
-                <div className="row align-items">
-                    <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
-                        <img src={LogoXl} alt="Astronap" className='logoprincipal' />
 
-                    </div>
+        <div className="container-fluid">
+            <div className="row align-items">
+                <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
+                    <img src={LogoXl} alt="Astronap" />
+                </div>
+
+                <div className="col ">
+                    <h2 className="fw-bold text-center py-5  ">Recuperar contraseña</h2>
+                    <p className="fw-bold text-center mt-1  ">Escribe tu correo de registro para enviar un enlace de recuperación:</p>
+                    <form action="">
+                        <div className="mb-4 ">
+                            <input type="email" className="form-control" name="email" placeholder="Correo electronico" />
+                        </div>
+                       
+
+                        <div className="d-grid">
+                            <button type="submit" className="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+
+                    <div className="singup mt-4">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li className="nav-item">
+                                    <Link to="/login">Iniciar Sesion</Link>
+                                </li>
+                            </ul>
+                        </div>
 
 
-                    <div className="col ">
-                        <h1 className="fw-bold text-center py-5  ">Bienvenido </h1>
 
-                        {/* Login */}
-                        <form action="">
-                            <div className="mb-4 ">
-                                <input type="email" className="form-control" name="email" placeholder="Correo electrónico" />
-                            </div>
+                    {/* Información y pie de página */}
 
-                            <div className="mb-4 ">
-                                <input type="password" className="form-control" name="password" placeholder="Contraseña" />
-                            </div>
 
-                            <div className="mb-4 form-check">
-                                <input type="checkbox" name="connected" className="form-check-input" id="connected" />
-                                <label htmlFor="connected" className="form-check-label">Mantenerme conectado</label>
-                            </div>
-
-                            <div className="d-grid">
-                                <button type="submit" className=" btn btn-primary">Iniciar sesión</button>
-                            </div>
-                            <div className="my-3">
-                                <div className="container">
-                                    No tienes cuenta?
-                                </div>
-                                <div className="container">
-                                    <Link to="/accountregister">Regístrate</Link>
-                                </div>
-                                <div className="container">
-                                    <Link to="/recoveraccount">Recuperar contraseña</Link>
-                                </div>
-                            </div>
-                        </form>
+                    <div id="footer" className="d-flex justify-content-between container text-light">
 
                     </div>
                 </div>
-
-
-
-
                 <div className="info text-light">
                     <div className="row">
                         <div className="col-sm-3 d-flex align-items-center justify-content-center border-end">
@@ -68,8 +59,6 @@ const Login = () => {
                                 </div>
                             </div>
                         </div>
-
-
                         <div className="col-sm-9 text-center">
 
 
@@ -97,9 +86,13 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-        </>
-    );
 
-};
+        </div>
 
-export default Login;
+
+
+    )
+}
+
+
+export default RecoverAccount;

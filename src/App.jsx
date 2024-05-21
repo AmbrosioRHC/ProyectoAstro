@@ -1,44 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import Home from './views/home'
-import Login from './views/login'
-import getState from './store/flux'
-import Register from './views/Register'
+
 import './App.css'
 import injectContext from './store/appContext'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from './views/home'
+import FAQ from './views/FAQ';
+import AboutUs from './views/about';
+import Privacy from './views/privacy';
+import Terms from './views/terms&conditions';
 import ProductPage from './views/product-page';
-import ForgotPassword from './views/ForgotPassword';
-import SentNotification from './views/SentNotification';
+import Account from './views/Account';
+import PhotographerView from './views/PhotographerView';
+import ProductList from './views/product-list';
+import Login from './views/Login';
+import AccountRegister from './views/AccountRegister';
+import RecoverAccount from './views/RecoverAccount';
 import ShoppingCart from './views/ShoppingCart';
+import ShopForm from './views/ShopForm'
 
 
-
-function App() {
-
-
-
+function App({ store }) {
   return (
-
-    <>
-      <BrowserRouter>
+    <BrowserRouter>
+      <>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/FAQ" element={<FAQ />} />
           <Route path="/product-page" element={<ProductPage />} />
-          <Route path={"login"} element={<Login />} />
-          <Route path={"register"} element={<Register />} />
-          <Route path={"forgotpassword"} element={<ForgotPassword />} />
-          <Route path={"shoppingcart"} element={<ShoppingCart />} />
-          <Route path={"sentnotification"} element={<SentNotification />} />
-
+          <Route path="/account" element={<Account />} />
+          <Route path="/profile" element={<PhotographerView />} />
+          <Route path="/about_us" element={<AboutUs />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/product-page/:id" element={<ProductPage />} />
+          <Route path="/product-list" element={<ProductList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/accountregister" element={<AccountRegister />} />
+          <Route path="/recoveraccount" element={<RecoverAccount />} />
+          <Route path="/shoppingcart" element={<ShoppingCart />} />
+          <Route to path='shopform' element={<ShopForm />} />
         </Routes>
-      </BrowserRouter>
-
-    </>
-
-  )
+      </>
+    </BrowserRouter>
+  );
 }
-
 
 export default injectContext(App);

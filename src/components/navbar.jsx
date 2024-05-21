@@ -1,5 +1,6 @@
-import "../App.css";
+/*import "../App.css";*/
 import LogoM from "../assets/img-logo/logo-M.png"
+import './components styles/Navbar.css'
 const Navbar = () => {
   return (
     <>
