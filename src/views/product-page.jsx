@@ -10,10 +10,16 @@ const ProductPage = () => {
     const { products, cart } = store;
 
     useEffect(() => {
-        actions.loadProducts(); // Cargar productos al iniciar
-    }, [actions]);
+        if (products.length === 0) { // Solo cargar productos si la lista está vacía
+            actions.loadProducts();
+        }
+    }, [actions, products.length]);
 
     const product = products.find(product => product.id === parseInt(id));
+
+    if (products.length === 0) {
+        return <p>Cargando productos...</p>;
+    }
 
     if (!product) {
         return <p>Producto no encontrado</p>;
@@ -21,19 +27,19 @@ const ProductPage = () => {
 
     const addToCart = () => {
         actions.addToCart(product);
-    }
+    };
 
     const removeFromCart = (productId) => {
         actions.removeFromCart(productId);
-    }
+    };
 
     const incrementQuantity = () => {
         actions.incrementQuantity(product.id);
-    }
+    };
 
     const decrementQuantity = () => {
         actions.decrementQuantity(product.id);
-    }
+    };
 
     return (
         <>
@@ -49,7 +55,7 @@ const ProductPage = () => {
                     <div className="rightContainer col-5 mt-5 container fontColor">
                         <div className="mt-3 product-name">
                             <div className="row">
-                                <div className="col-8 ">
+                                <div className="col-8">
                                     <p className="fs-4 fw-semibold"> {product.name}</p>
                                 </div>
                                 <div className="col-4">
@@ -71,7 +77,7 @@ const ProductPage = () => {
                             </div>
                         </div>
                         <div className="mt-5">
-                            <button onClick={addToCart} className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page"><i className="fa-solid fa-cart-shopping"></i>  Agregar al carrito</button>
+                            <button onClick={addToCart} className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page"><i className="fa-solid fa-cart-shopping"></i> Agregar al carrito</button>
                         </div>
                         {cart.length > 0 && (
                             <div className="mt-5">

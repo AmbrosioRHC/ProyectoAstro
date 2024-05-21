@@ -10,11 +10,12 @@ const ProductList = () => {
     const { id } = useParams(); // Obtener el parámetro de ruta "id"
 
     useEffect(() => {
-        actions.loadProducts(); // Cargar productos al iniciar
-    }, [actions]);
+        if (products.length === 0) { // Solo cargar productos si la lista está vacía
+            actions.loadProducts();
+        }
+    }, [actions, products.length]);
 
     const product = products.find(product => product.id === parseInt(id));
-
     return (
         <>
             <div>
