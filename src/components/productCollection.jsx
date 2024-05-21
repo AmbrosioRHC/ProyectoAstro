@@ -1,11 +1,10 @@
 import "../App.css";
-
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const ProductCollection = () => {
-    const { store, actions } = useContext(Context);
+    const { store } = useContext(Context);
     const { products } = store;
 
     return (

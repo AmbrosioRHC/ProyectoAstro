@@ -1,6 +1,6 @@
 import Navbar from "../components/navbar";
 import ProductImage from "../components/productImage";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
@@ -8,6 +8,10 @@ const ProductPage = () => {
     const { id } = useParams();
     const { store, actions } = useContext(Context);
     const { products, cart } = store;
+
+    useEffect(() => {
+        actions.loadProducts(); // Cargar productos al iniciar
+    }, [actions]);
 
     const product = products.find(product => product.id === parseInt(id));
 
@@ -21,10 +25,6 @@ const ProductPage = () => {
 
     const removeFromCart = (productId) => {
         actions.removeFromCart(productId);
-    }
-
-    const clearCart = () => {
-        actions.clearCart();
     }
 
     const incrementQuantity = () => {
@@ -46,10 +46,10 @@ const ProductPage = () => {
                             <span>rating {product.rating} <i className="fa-solid fa-star"></i></span>
                         </div>
                     </div>
-                    <div className="rightContainer col-5 mt-5 container">
-                        <div className="mt-3 product-name" >
+                    <div className="rightContainer col-5 mt-5 container fontColor">
+                        <div className="mt-3 product-name">
                             <div className="row">
-                                <div className="col-8">
+                                <div className="col-8 ">
                                     <p className="fs-4 fw-semibold"> {product.name}</p>
                                 </div>
                                 <div className="col-4">
@@ -60,20 +60,20 @@ const ProductPage = () => {
                         </div>
                         <div className="mt-3 product-price">
                             <div className="row">
-                            <div className="col-8">
-                                <div className="price fs-1 fw-semibold">
-                                    <p>$ {product.price.toFixed(0)}</p>
+                                <div className="col-8">
+                                    <div className="price fs-1 fw-semibold">
+                                        <p>$ {product.price.toFixed(0)}</p>
+                                    </div>
+                                </div>
+                                <div className="col-4">
+                                    <p className="reviews float-end mt-3 m-2"><i className="fa-regular fa-comment-dots"></i> {product.reviews} reviews</p>
                                 </div>
                             </div>
-                            <div className="col-4">
-                                <p className=" reviews float-end mt-3 m-2"><i className="fa-regular fa-comment-dots"></i> {product.reviews} reviews</p>
-                            </div>
-                            </div>
                         </div>
-                        <div className=" mt-5">
+                        <div className="mt-5">
                             <button onClick={addToCart} className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page"><i className="fa-solid fa-cart-shopping"></i>  Agregar al carrito</button>
                         </div>
-                        {cart.length > 0 && ( // Mostrar el botón de eliminar solo si hay elementos en el carrito
+                        {cart.length > 0 && (
                             <div className="mt-5">
                                 <button onClick={() => removeFromCart(product.id)} className="btn btn-danger rounded-pill" id="btn-product-page"><i className="fa-solid fa-trash"></i> Eliminar del carrito</button>
                             </div>
@@ -88,12 +88,12 @@ const ProductPage = () => {
                             )}
                         </div>
                         <div className="product-footer container">
-                        <div className="shippingPolicies mt-3">
-                            <p><i className="fa-solid fa-truck"></i> Envío gratis desde $200</p>
-                        </div>
-                        <div className="shippingPolicies mt-3">
-                            <p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p>
-                        </div>
+                            <div className="shippingPolicies mt-3">
+                                <p><i className="fa-solid fa-truck"></i> Envío gratis desde $200</p>
+                            </div>
+                            <div className="shippingPolicies mt-3">
+                                <p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p>
+                            </div>
                         </div>
                     </div>
                 </div>

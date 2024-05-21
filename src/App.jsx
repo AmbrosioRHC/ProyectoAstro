@@ -13,29 +13,33 @@ import ProductPage from './views/product-page';
 import Account from './views/Account';
 import PhotographerView from './views/PhotographerView';
 import ProductList from './views/product-list';
+import Login from './views/Login';
+import AccountRegister from './views/AccountRegister';
+import RecoverAccount from './views/RecoverAccount';
+import ShoppingCart from './views/ShoppingCart';
+import ShopForm from './views/ShopForm'
 
 
-  function App({ store }) {
+function App({ store }) {
   return (
     <BrowserRouter>
       <>
-       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/FAQ" element={<FAQ/>}/>
-        <Route path="/product-page" element={<ProductPage/>}/>
-        <Route path="/account" element={<Account/>} />
-        <Route path="/profile" element={<PhotographerView />} />
-        <Route path="/about_us" element={<AboutUs/>}/>
-        <Route path="/privacy" element={<Privacy/>}/>
-        <Route path="/terms" element={<Terms/>}/>
-        <Route path="/" element={<Home/>}/>
-       </Routes>
         <Routes>
           <Route path="/" element={<Home />} />
-            <Route
-              path="/product-page/:id" element={<ProductPage />}
-            />
-            <Route path="/product-list" element={<ProductList />}/>
+          <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/product-page" element={<ProductPage />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/profile" element={<PhotographerView />} />
+          <Route path="/about_us" element={<AboutUs />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/product-page/:id" element={<ProductPage />} />
+          <Route path="/product-list" element={<ProductList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/accountregister" element={<AccountRegister />} />
+          <Route path="/recoveraccount" element={<RecoverAccount />} />
+          <Route path="/shoppingcart" element={<ShoppingCart />} />
+          <Route to path='shopform' element={<ShopForm />} />
         </Routes>
       </>
     </BrowserRouter>
