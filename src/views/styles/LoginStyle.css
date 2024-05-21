@@ -1,0 +1,155 @@
+.logos {
+    width: 100px;
+    height: 25px;
+}
+
+
+
+/* view ForgotPassword */
+
+.container-fluid {
+
+    background-position: center;
+    background: #00010c;
+    color: white;
+
+
+}
+
+form {
+    background: none;
+}
+
+
+#footer {
+    background: #00010c;
+    padding: 10px;
+    font-size: 50px;
+}
+
+
+
+
+
+/* view ShopForm */
+
+.formbuy {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #111111;
+  background-color: #17181a;
+  color : white;
+}
+
+h6, .form-label {
+  color: white;
+}
+
+.payment-options {
+  background-color: #020000; /* Fondo más oscuro */
+}
+
+
+
+.btn {
+  width: 100px;
+  height: 50px;
+}
+
+
+
+
+/* register*/
+
+/* Estilos para el contenedor del input de contraseña */
+.password-input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+
+.password-input {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+
+/* shoppingcart */
+
+/* ShoppingCart.css */
+
+.shopping-cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #282c34;
+  }
+  
+  .cart-items-container {
+    width: 80%;
+    background-color: #343a40;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .cart-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .card-body {
+    background-color: #495057;
+    color: white;
+  }
+  
+  .card-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .btn-danger {
+    opacity: 1;
+    margin-top: 10px;
+  }
+  
+  .cart-summary {
+    margin-top: 20px;
+    text-align: center;
+    background-color: #495057;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .breadcrumb {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  .breadcrumb-item.active {
+    color: #ffc107;
+  }
+  
+  

@@ -36,3 +36,56 @@ const injectContext = (PassedComponent) => {
 };
 
 export default injectContext;
+
+/* codigo de shopping cart 
+
+const getState = ({ getStore, getActions, setStore }) => {
+  return {
+    store: {
+      products: [],
+      cart: []
+    },
+    actions: {
+      loadProducts: () => {
+        // Lógica para cargar productos
+      },
+      addToCart: (product) => {
+        const store = getStore();
+        const itemIndex = store.cart.findIndex(item => item.id === product.id);
+        if (itemIndex > -1) {
+          store.cart[itemIndex].quantity += 1;
+        } else {
+          product.quantity = 1;
+          setStore({ cart: [...store.cart, product] });
+        }
+      },
+      removeFromCart: (id) => {
+        const store = getStore();
+        setStore({ cart: store.cart.filter(item => item.id !== id) });
+      },
+      incrementQuantity: (id) => {
+        const store = getStore();
+        const cart = store.cart.map(item => {
+          if (item.id === id) {
+            return { ...item, quantity: item.quantity + 1 };
+          }
+          return item;
+        });
+        setStore({ cart });
+      },
+      decrementQuantity: (id) => {
+        const store = getStore();
+        const cart = store.cart.map(item => {
+          if (item.id === id && item.quantity > 1) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return item;
+        });
+        setStore({ cart });
+      }
+    }
+  };
+};
+
+export default getState;
+*/
