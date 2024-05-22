@@ -13,7 +13,6 @@ import ProductPage from './views/product-page';
 import Account from './views/Account';
 import PhotographerView from './views/PhotographerView';
 import ProductList from './views/product-list';
-import Contact from './views/Contact'
 
 
 function App({ store }) {
@@ -26,7 +25,6 @@ function App({ store }) {
           <Route path="/about_us" element={<AboutUs/>}/>
           <Route path="/privacy" element={<Privacy/>}/>
           <Route path="/terms" element={<Terms/>}/>
-          <Route path="/contact" element={<Contact/>}/>
           <Route path="/product-list" element={<ProductList />}/>
           <Route path="/product-page" element={<ProductPage />} />
           <Route path="/account" element={<Account />} />

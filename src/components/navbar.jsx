@@ -23,28 +23,11 @@ const Navbar = () => {
                 <Link className="nav-link" href="#">Perfiles</Link>
               </li>
               <li className="nav-item">
-                <Link to="/contact" className="nav-link" aria-disabled="true">Contactanos</Link>
-              </li>
-              <li className="nav-item">
-                <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                  <ul className="navbar-nav">
-                    <li className="nav-item dropdown">
-                      <button className="btn btn-dark dropdown-toggle dropdown-tex" data-bs-toggle="dropdown" aria-expanded="false">
-                        <p>Ingresa</p>
-                      </button>
-                      <ul className="dropdown-menu dropdown-menu-dark">
-                        <li><a className="dropdown-item" href="#">Soy cliente</a></li>
-                        <li><a className="dropdown-item" href="#">Soy vendedor</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
+                <Link to="/" className="nav-link" aria-disabled="true">Ingresar</Link>
               </li>
             </ul>
             <form className="d-flex ms-auto" role="search">
               <button type="button" className="btn btn-dark subs-bot">Registrarse</button>
-              <input className="form-control me-2" type="search" placeholder="Escribe una categoría" aria-label="Search"/>
-              <button type="button" className="btn btn-primary">Buscar</button>
               <div className="text-light mini-cart">
                 <FontAwesomeIcon icon={faCartShopping} />
               </div>

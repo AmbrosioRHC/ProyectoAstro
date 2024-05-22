@@ -1,4 +1,4 @@
-import "./FAQ.css"
+
 
 
 
