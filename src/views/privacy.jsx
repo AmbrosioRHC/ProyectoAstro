@@ -1,8 +1,10 @@
 import './styles/Documents.css'
+import Navbar from "../components/navbar"
 
 const Privacy = () => {
     return (
   <>
+    <Navbar/>
     <div className="container mt-4">
       <div className="document overflow-y-auto">
         <h1>Política de privacidad de AstroSnap</h1>

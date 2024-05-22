@@ -7,7 +7,7 @@ const ForgotPassword = () => {
     return (
 
 
-        <div className="container-fluid">
+        <div className="container-fluid div-fluid1">
             <div className="row align-items">
                 <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
                     <img src={LogoXl} alt="Astronap" />

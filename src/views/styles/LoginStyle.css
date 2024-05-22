@@ -7,7 +7,7 @@
 
 /* view ForgotPassword */
 
-.container-fluid {
+.div-fluid {
 
     background-position: center;
     background: #00010c;
@@ -53,7 +53,7 @@ h6, .form-label {
 
 
 
-.btn {
+.btn1 {
   width: 100px;
   height: 50px;
 }

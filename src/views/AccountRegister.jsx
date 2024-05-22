@@ -1,17 +1,14 @@
 import './styles/LoginStyle.css';
 import { Link } from "react-router-dom";
+import Navbar from "../components/navbar"
 
 const AccountRegister = () => {
 
 
     return (
         <>
-            <div className="container-fluid">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link to="/login">Iniciar Sesion</Link>
-            </li>
-          </ul>
+            <Navbar/>
+            <div className="container-fluid div-fluid">
                 <div className="nabvarregister">
                
                 </div>
@@ -60,7 +57,7 @@ const AccountRegister = () => {
                                 </div>
                             </div>
                             <div className="d-grid">
-                                <button type="submit" className="btn btn-primary">Registrarse</button>
+                                <button type="submit" className="btn btn1 btn-primary">Registrarse</button>
                             </div>
                         </form>
                     </div>

@@ -1,11 +1,10 @@
 import LogoXl from '../assets/img-logo/logo-xl.png'
-import './Login.css'
+import './styles/Login.css'
 const Register = () => {
-
 
     return (
         <>
- <div className="container-fluid">
+ <div className="container-fluid div-fluid">
             <div className="row align-items">
                 <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
                 <img src={LogoXl} alt="Astronap" />

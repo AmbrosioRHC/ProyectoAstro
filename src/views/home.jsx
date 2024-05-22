@@ -19,7 +19,6 @@ const Home = () => {
             <h2>El portal de compra y venta de astrofotografía</h2>
             <p>AstroSnap es un portal donde los astofotógrafos ponen en venta sus fotografías.</p>
             <div className="slideshow container w-50 d-flex align-items-center justify-content-center"> 
-              <Link to="/product-list"><button type="button" className="btn btn-lg btn-success boton text-light">Explora</button></Link>
               <button type="button" className="btn btn-lg btn-success boton text-light" onClick={() => window.location.href = 'http://localhost:5173/product-list'}>Explora</button>
             </div>
             <div>
@@ -112,7 +111,7 @@ const Home = () => {
             <div className="subscribe-text align-items-center">
               <h1>¿Eres astrofotógrafo?</h1>
               <p>Crea tu cuenta y comienza a vender tus fotos</p>
-              <button type="button" className="btn btn-lg btn-success boton text-light ">Regístrate</button>
+              <Link to="/accountregister"><button type="button" className="btn btn-lg btn-success boton text-light ">Regístrate</button></Link>
             </div>
           </div>
         </div>

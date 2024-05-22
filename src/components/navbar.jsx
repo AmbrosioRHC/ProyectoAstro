@@ -1,6 +1,4 @@
-/*import "../App.css";*/
-import LogoM from "../assets/img-logo/logo-M.png"
-import './components styles/Navbar.css'
+import './components_styles/Navbar.css'
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping'; 
@@ -22,26 +20,23 @@ const Navbar = () => {
                 <Link to="/product-list" className="nav-link" aria-current="page" href="#">Galeria</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="#">Perfiles</Link>
+                <Link to="/profile" className="nav-link" href="#">Perfiles</Link>
               </li>
               <li className="nav-item">
-                <Link to="/" className="nav-link" aria-disabled="true">Ingresar</Link>
+                <Link to="/login" className="nav-link" aria-disabled="true">Ingresar</Link>
               </li>
             </ul>
             <form className="d-flex ms-auto" role="search">
-              <button type="button" className="btn btn-dark subs-bot">Registrarse</button>
+              <Link to="/accountregister"><button type="button" className="btn btn-dark subs-bot">Registrarse</button></Link>
               <div className="text-light mini-cart">
-                <FontAwesomeIcon icon={faCartShopping} />
+                <Link to="/shoppingcart"><FontAwesomeIcon icon={faCartShopping} /></Link>
               </div>
             </form>
           </div>
-        <div/>
-      </nav >
+        </div>
+      </nav>
     </div>
-  </>
   );
 };
-
-
 
 export default Navbar;
