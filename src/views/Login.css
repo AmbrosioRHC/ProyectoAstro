@@ -48,3 +48,6 @@ form {
     padding: 10px;
     font-size: 50px;
 }
+.btn-primary.w-100 {
+    width: 100% !important; /* Asegura que el ancho se aplique */
+}

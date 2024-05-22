@@ -36,7 +36,7 @@ const Login = () => {
                             </div>
 
                             <div className="d-grid">
-                                <button type="submit" className=" btn btn-primary">Iniciar sesión</button>
+                            <button type="submit" className="btn btn-primary w-100">Iniciar sesión</button>
                             </div>
                             <div className="my-3">
                                 <div className="container">
