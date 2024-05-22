@@ -20,6 +20,7 @@ const Home = () => {
             <p>AstroSnap es un portal donde los astofotógrafos ponen en venta sus fotografías.</p>
             <div className="slideshow container w-50 d-flex align-items-center justify-content-center"> 
               <Link to="/product-list"><button type="button" className="btn btn-lg btn-success boton text-light">Explora</button></Link>
+              <button type="button" className="btn btn-lg btn-success boton text-light" onClick={() => window.location.href = 'http://localhost:5173/product-list'}>Explora</button>
             </div>
             <div>
         

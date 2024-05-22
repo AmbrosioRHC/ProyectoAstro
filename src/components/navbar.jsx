@@ -1,3 +1,5 @@
+/*import "../App.css";*/
+import LogoM from "../assets/img-logo/logo-M.png"
 import './components styles/Navbar.css'
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -33,9 +35,10 @@ const Navbar = () => {
               </div>
             </form>
           </div>
-        </div>
-      </nav>
+        <div/>
+      </nav >
     </div>
+  </>
   );
 };
 
