@@ -1,48 +1,17 @@
-.navbarCustom {
-    width: 100%;
-    top: 0;
-    position: fixed;
-  }
-  
-  .btn-custom {
-    background-color: #52D467
-  }
-  
-  .btn-primary {
-    --bs-btn-color: #fff ;
-    --bs-btn-bg: #52D467!important;
-    --bs-btn-border-color: #52D467!important;
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #52D467 !important;
+    --bs-btn-border-color: #52D467 !important;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #52D467!important;
-    --bs-btn-hover-border-color: #52D467!important;
+    --bs-btn-hover-bg: #3c974b !important;
+    --bs-btn-hover-border-color: #52D467 !important;
     --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #3c974b!important;
-    --bs-btn-active-border-color: #52D467!important;
+    --bs-btn-active-bg: #3c974b !important;
+    --bs-btn-active-border-color: #52D467 !important;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #52D467;
     --bs-btn-disabled-border-color: #52D467;
-}
   
-  .carousel-inner{
-    z-index: -1;
-    position: fixed;
-
   }
-
-  /* .rating {
-    margin-left: 20%;
-  } */
-  
-  
-  /* .rightContainer {
-    width: 100%;
-    margin-top: 20%;
-  } */
-  
-  /* .containerImage {
-    margin-left: 20%;
-    margin-top: 20%;
-    } */
-    
