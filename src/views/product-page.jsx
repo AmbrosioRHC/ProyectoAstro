@@ -84,7 +84,7 @@ const ProductPage = () => {
                                 <button onClick={() => removeFromCart(product.id)} className="btn btn-danger rounded-pill" id="btn-product-page"><i className="fa-solid fa-trash"></i> Eliminar del carrito</button>
                             </div>
                         )}
-                        <div className="mt-3 ms-1">
+                        {/* <div className="mt-3 ms-1">
                             {cart.some(item => item.id === product.id) && (
                                 <div>
                                     <p>En el carrito: {cart.find(item => item.id === product.id).quantity}</p>
@@ -92,7 +92,7 @@ const ProductPage = () => {
                                     <button onClick={decrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">-</button>
                                 </div>
                             )}
-                        </div>
+                        </div> */}
                         <div className="product-footer container">
                             <div className="shippingPolicies mt-3">
                                 <p><i className="fa-solid fa-truck"></i> Envío gratis desde $200</p>
