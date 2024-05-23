@@ -7,10 +7,10 @@ import { Context } from "../store/appContext";
 const ProductPage = () => {
     const { id } = useParams();
     const { store, actions } = useContext(Context);
-    const { products, cart } = store;
+    const { products, cart = [], user_id } = store; // Asumiendo que user_id está disponible en el contexto
 
     useEffect(() => {
-        if (products.length === 0) { // Solo cargar productos si la lista está vacía
+        if (products.length === 0) {
             actions.loadProducts();
         }
     }, [actions, products.length]);
@@ -26,7 +26,7 @@ const ProductPage = () => {
     }
 
     const addToCart = () => {
-        actions.addToCart(product);
+        actions.addToCart(product, user_id); // Pasar user_id a addToCart
     };
 
     const removeFromCart = (productId) => {
@@ -79,21 +79,18 @@ const ProductPage = () => {
                         <div className="mt-5">
                             <button onClick={addToCart} className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page"><i className="fa-solid fa-cart-shopping"></i> Agregar al carrito</button>
                         </div>
-                        {cart.length > 0 && (
+                        {cart.some(item => item.id === product.id) && (
                             <div className="mt-5">
                                 <button onClick={() => removeFromCart(product.id)} className="btn btn-danger rounded-pill" id="btn-product-page"><i className="fa-solid fa-trash"></i> Eliminar del carrito</button>
+                                <div className="mt-3 ms-1">
+                                    <div>
+                                        <p>En el carrito: {cart.find(item => item.id === product.id).quantity}</p>
+                                        <button onClick={incrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">+</button>
+                                        <button onClick={decrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">-</button>
+                                    </div>
+                                </div>
                             </div>
                         )}
-                        <div className="mt-3 ms-1">
-                            {cart.some(item => item.id === product.id) && (
-                                <div>
-                                    <p>En el carrito: {cart.find(item => item.id === product.id).quantity}</p>
-                                    <button onClick={incrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">+</button>
-                                    <button onClick={decrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">-</button>
-                                </div>
-                                
-                            )}
-                        </div>
                         <div className="product-footer container">
                             <div className="shippingPolicies mt-3">
                                 <p><i className="fa-solid fa-truck"></i> Envío gratis desde $200</p>

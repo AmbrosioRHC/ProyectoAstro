@@ -44,12 +44,12 @@ const AccountRegister = () => {
          <Modal show={showModal} />
 
 
-            <Navbar />
-            <div className="container-fluid div-fluid">
-                <div className="nabvarregister"></div>
-                <div className="row align-items-center justify-content-center min-vh-100">
-                    <div className="col-12 col-md-8 col-lg-6">
-                        <h2 className="fw-bold text-center py-5">Crear cuenta AstroSnap</h2>
+            <Navbar/>
+            <div className="container-fluid text-light">
+                <div className="row align-items-center justify-content-center">
+                    <div className="col-12 col-md-8 col-lg-6 login-form">
+                        <h2 className="fw-bold text-center py-5">Crear cuenta Astronap</h2>
+
                         {/* Register */}
                         <form className="row g-3 justify-content-center" onSubmit={handleRegister}>
                             <div className="col-md-6">

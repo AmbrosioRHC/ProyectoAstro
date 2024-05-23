@@ -9,42 +9,39 @@ const RecoverAccount = () => {
 
     return (
 
-        <div className="container-fluid div-fluid">
-            <div className="row align-items">
-                <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
-                    <img src={LogoXl} alt="Astronap" />
-                </div>
-
-                <div className="col ">
-                    <h2 className="fw-bold text-center py-5  ">Recuperar contraseña</h2>
-                    <p className="fw-bold text-center mt-1  ">Escribe tu correo de registro para enviar un enlace de recuperación:</p>
-                    <form action="">
-                        <div className="mb-4 ">
-                            <input type="email" className="form-control" name="email" placeholder="Correo electronico" />
-                        </div>
-                       
-
-                        <div className="d-grid">
-                            <button type="submit" className="btn btn1 btn-primary">Enviar</button>
-                        </div>
-                    </form>
-
-                    <div className="singup mt-4">
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item">
-                                    <Link to="/login">Iniciar Sesion</Link>
-                                </li>
-                            </ul>
-                        </div>
-
-
-
-                    {/* Información y pie de página */}
-
-
-                    <div id="footer" className="d-flex justify-content-between container text-light">
-
+        <div className="container-fluid text-light">
+            <div className="row">
+                <div className="row login-top d-flex align-items-center justify-content-center">
+                    <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
+                        <Link to="/"><img src={LogoXl} alt="Astronap" className='logoprincipal'/></Link>
                     </div>
+
+                    <div className="col login-form">
+                        <h2 className="fw-bold text-center py-5  ">Recuperar contraseña</h2>
+                        <p className="fw-bold text-center mt-1  ">Escribe tu correo de registro para enviar un enlace de recuperación:</p>
+                        <form action="">
+                            <div className="mb-4 ">
+                                <input type="email" className="form-control" name="email" placeholder="Correo electronico" />
+                            </div>
+                        
+
+                            <div className="d-grid">
+                                <button type="submit" className="btn btn1 btn-primary">Enviar</button>
+                            </div>
+                        </form>
+
+                        <div className="singup mt-4">
+                                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li className="nav-item">
+                                        <Link to="/login">Iniciar Sesion</Link>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+
+                        {/* Información y pie de página */}
+                        </div>
                 </div>
                 <div className="info text-light">
                     <div className="row">
