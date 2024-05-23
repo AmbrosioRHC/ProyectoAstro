@@ -2,7 +2,19 @@
     width: 100px;
     height: 25px;
 }
-
+.logoprincipal {
+   margin-left: 250px;
+}
+.login-top {
+  height: 780px;
+}
+.login-form {
+  padding-right: 80px;
+  padding-left: 80px;
+}
+.overview h1{
+  font-size: 70px;
+}
 
 
 /* view ForgotPassword */

@@ -7,21 +7,17 @@ import { Link } from "react-router-dom";
 const Login = () => {
 
     return (
-
         <>
-            <div className="container-fluid">
-                <div className="row align-items">
+            <div className="container-fluid text-light">
+                <div className="row login-top d-flex align-items-center justify-content-center">
                     <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
-                        <img src={LogoXl} alt="Astronap" className='logoprincipal' />
-
+                        <Link to="/"><img src={LogoXl} alt="Astronap" className='logoprincipal' /></Link>
                     </div>
 
-
-                    <div className="col ">
+                    <div className="col overview">
                         <h1 className="fw-bold text-center py-5  ">Bienvenido </h1>
-
                         {/* Login */}
-                        <form action="">
+                        <form className="login-form" action="">
                             <div className="mb-4 ">
                                 <input type="email" className="form-control" name="email" placeholder="Correo electrónico" />
                             </div>
@@ -50,17 +46,13 @@ const Login = () => {
                                 </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
-
-
-
 
                 <div className="info text-light">
                     <div className="row">
                         <div className="col-sm-3 d-flex align-items-center justify-content-center border-end">
-                            <img src={PlanetLogoS} alt="Astronap" className='PlanetLogoS' />
+                            <img src={PlanetLogoS} alt="Astronap" className='PlanetLogoS me-5' />
                             <div>
                                 <h5 className="justify-content-center">Siguenos en redes sociales</h5>
                                 <div className="text-center">

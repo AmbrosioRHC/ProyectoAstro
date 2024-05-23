@@ -3,11 +3,9 @@ import './Login.css'
 const ForgotPassword = () => {
 
 
-
     return (
 
-
-        <div className="container-fluid div-fluid1">
+        <div className="container-fluid">
             <div className="row align-items">
                 <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
                     <img src={LogoXl} alt="Astronap" />
@@ -25,10 +23,7 @@ const ForgotPassword = () => {
                         </div>
                         </form>
 
-
-
                     {/* Información y pie de página */}
-
 
                     <div id="footer" className="d-flex justify-content-between container text-light">
                         {/* Contenido */}
@@ -45,8 +40,6 @@ const ForgotPassword = () => {
                             </div>
                         </div>
                         <div class="col-sm-9 text-center">
-
-
 
                             <div class="row table-title">
                                 <div class="col"><strong>Acerca de</strong></div>

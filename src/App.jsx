@@ -13,11 +13,11 @@ import ProductPage from './views/product-page';
 import Account from './views/Account';
 import PhotographerView from './views/PhotographerView';
 import ProductList from './views/product-list';
-import Login from './views/Login';
 import AccountRegister from './views/AccountRegister';
 import RecoverAccount from './views/RecoverAccount';
 import ShoppingCart from './views/ShoppingCart';
 import ShopForm from './views/ShopForm'
+import Login from './views/newLogin';
 
 
 function App({ store }) {
@@ -35,11 +35,11 @@ function App({ store }) {
           <Route path="/account" element={<Account />} />
           <Route path="/profile" element={<PhotographerView />} />
           <Route path="/product-page/:id" element={<ProductPage />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/accountregister" element={<AccountRegister />} />
           <Route path="/recoveraccount" element={<RecoverAccount />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />
           <Route to path='shopform' element={<ShopForm />} />
+          <Route path="/login" element={<Login/>}/>
         </Routes>
       </>
     </BrowserRouter>
