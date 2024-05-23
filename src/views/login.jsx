@@ -2,6 +2,7 @@ import LogoXl from '../assets/img-logo/logo-xl.png';
 import PlanetLogoS from '../assets/img-logo/logo-planet-S.png';
 import './styles/LoginStyle.css'
 import { Link } from "react-router-dom";
+import Navbar from "../components/navbar"
 
 
 const Login = () => {
@@ -9,14 +10,12 @@ const Login = () => {
     return (
 
         <>
-            <div className="container-fluid">
+            <Navbar/>
+            <div className="container-fluid div-fluid">
                 <div className="row align-items">
                     <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
                         <img src={LogoXl} alt="Astronap" className='logoprincipal' />
-
                     </div>
-
-
                     <div className="col ">
                         <h1 className="fw-bold text-center py-5  ">Bienvenido </h1>
 

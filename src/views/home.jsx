@@ -1,9 +1,6 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCcMastercard, faCcVisa, faCcPaypal, faCcAmazonPay, faCcApplePay, faCcDinersClub} from '@fortawesome/free-brands-svg-icons';
 import { faWhatsapp, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'; 
-import './Landing.css'
-
 import './styles/Landing.css'
 import Navbar from "../components/navbar"
 import { Link } from "react-router-dom";
@@ -22,7 +19,7 @@ const Home = () => {
             <h2>El portal de compra y venta de astrofotografía</h2>
             <p>AstroSnap es un portal donde los astofotógrafos ponen en venta sus fotografías.</p>
             <div className="slideshow container w-50 d-flex align-items-center justify-content-center"> 
-              <button type="button" className="btn btn-lg btn-success boton text-light">Explora</button>
+              <button type="button" className="btn btn-lg btn-success boton text-light" onClick={() => window.location.href = 'http://localhost:5173/product-list'}>Explora</button>
             </div>
             <div>
         
@@ -96,7 +93,7 @@ const Home = () => {
                 <div className="users d-flex align-items-center justify-content-center text-light">
                   <div className="users-text">
                     <h3>Revisa los perfiles y valora el trabajo de nuestros astrofotógrafos</h3>
-                    <button type="button" className="btn boton2 btn-success btn-lg">Perfiles</button>
+                    <Link to="/profile"><button type="button" className="btn boton2 btn-success btn-lg">Perfiles</button></Link>
                   </div>
                 </div>
               </div>
@@ -114,7 +111,7 @@ const Home = () => {
             <div className="subscribe-text align-items-center">
               <h1>¿Eres astrofotógrafo?</h1>
               <p>Crea tu cuenta y comienza a vender tus fotos</p>
-              <button type="button" className="btn btn-lg btn-success boton text-light ">Regístrate</button>
+              <Link to="/accountregister"><button type="button" className="btn btn-lg btn-success boton text-light ">Regístrate</button></Link>
             </div>
           </div>
         </div>

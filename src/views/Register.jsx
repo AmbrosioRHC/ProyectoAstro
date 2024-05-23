@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import LogoXl from '../assets/img-logo/logo-xl.png';
 import './Login.css';
 
@@ -9,6 +10,18 @@ const Register = () => {
                     <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
                         <img src={LogoXl} alt="Astronap" />
                     </div>
+=======
+import LogoXl from '../assets/img-logo/logo-xl.png'
+import './styles/Login.css'
+const Register = () => {
+
+    return (
+        <>
+ <div className="container-fluid div-fluid">
+            <div className="row align-items">
+                <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
+                <img src={LogoXl} alt="Astronap" />
+>>>>>>> 32e7b86804ecf9b0cfee35c2dbcc4848c2d36d56
 
                     <div className="col">
                         <h2 className="fw-bold text-center py-5">Crear cuenta Astronap</h2>

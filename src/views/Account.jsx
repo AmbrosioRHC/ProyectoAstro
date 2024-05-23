@@ -1,22 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import UserAccount from '../components/UserAccount';
+import Navbar from "../components/navbar";
 
 const Account = () => {
-  const user = {
-    name: 'Pepito Pepero',
-    email: 'elpepe@example.com',
+  const [user, setUser] = useState(null);
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    // Fetch user data
+    fetch('api/user')
+      .then(response => response.json())
+      .then(data => setUser(data))
+      .catch(error => console.error('Error fetching user data:', error));
+    
+    // Fetch orders data
+    fetch('api/orders')
+      .then(response => response.json())
+      .then(data => setOrders(data))
+      .catch(error => console.error('Error fetching orders data:', error));
+  }, []);
+
+  const placeholderUser = {
+    name: 'Nombre Apellido',
+    email: 'correo@electronico.com',
     addresses: [
-      'Avenida Pepito 46, Santiago, Chile',
-      'Otra dirección 123, Ciudad, País'
+      'Dirección Placeholder 1',
+      'Dirección Placeholder 2'
     ],
   };
 
-  const orders = [
-    { order: '#61580', date: '24 May 03, 2024', paymentStatus: 'Pagado', fulfillmentStatus: 'Completada', total: '$1.450' },
-    { order: '#61419', date: '24 May 01, 2024', paymentStatus: 'Pagado', fulfillmentStatus: 'Completada', total: '$11.200' },
+  const placeholderOrders = [
+    { order: '#00000', date: '01 Jan 01, 2000', paymentStatus: 'Pendiente', fulfillmentStatus: 'Pendiente', total: '$0.00' },
   ];
 
-  return <UserAccount user={user} orders={orders} />;
+  return (
+    <div>
+      <Navbar />
+      <UserAccount user={user || placeholderUser} orders={orders.length > 0 ? orders : placeholderOrders} />
+    </div>
+  );
 };
 
 export default Account;

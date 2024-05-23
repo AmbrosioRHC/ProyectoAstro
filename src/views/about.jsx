@@ -1,8 +1,10 @@
 import './styles/Documents.css'
+import Navbar from "../components/navbar"
 
 const AboutUs = () => {
     return (
   <>
+    <Navbar/>
     <div className="container mt-4">
       <div className="overflow-y-auto document">
         <h1>Acerca de nosotros</h1>
@@ -13,7 +15,6 @@ const AboutUs = () => {
         <p>En resumen, AstroSnap no es solo una tienda en línea, sino una comunidad para aquellos que aman el cosmos. A través de sus impresionantes imágenes y su compromiso con la educación, AstroSnap está haciendo que el universo sea más accesible para todos.</p>
         <div className="d-flex align-items-center justify-content-center p-5"><img src="../src/assets/img-logo/logo-planet-S.png" id="icon2"/></div>
       </div>
-    
     </div>
     
   </>

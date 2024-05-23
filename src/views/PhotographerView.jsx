@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PhotographerProfile from '../components/PhotographerProfile';
+import Navbar from "../components/navbar"
 
 const PhotographerView = ({ photographerId }) => {
   const [photographer, setPhotographer] = useState({});
@@ -11,7 +12,12 @@ const PhotographerView = ({ photographerId }) => {
       .catch(error => console.error('Error fetching photographer data:', error));
   }, [photographerId]);
 
-  return <PhotographerProfile name={photographer.name} photo={photographer.photo} aboutMe={photographer.aboutMe} />;
+  return (
+  <div>
+    <Navbar />
+    <PhotographerProfile name={photographer.name} photo={photographer.photo} aboutMe={photographer.aboutMe} />;
+  </div>
+  )
 };
 
 export default PhotographerView;

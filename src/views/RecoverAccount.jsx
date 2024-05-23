@@ -3,15 +3,13 @@ import PlanetLogoS from '../assets/img-logo/logo-planet-S.png';
 import './styles/LoginStyle.css'
 import { Link } from "react-router-dom";
 
-
 const RecoverAccount = () => {
 
 
 
     return (
 
-
-        <div className="container-fluid">
+        <div className="container-fluid div-fluid">
             <div className="row align-items">
                 <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
                     <img src={LogoXl} alt="Astronap" />
@@ -27,7 +25,7 @@ const RecoverAccount = () => {
                        
 
                         <div className="d-grid">
-                            <button type="submit" className="btn btn-primary">Enviar</button>
+                            <button type="submit" className="btn btn1 btn-primary">Enviar</button>
                         </div>
                     </form>
 
