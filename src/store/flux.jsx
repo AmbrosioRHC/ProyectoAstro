@@ -1,120 +1,80 @@
 const getState = ({ getStore, setStore }) => {
   return {
     store: {
-      counter: 0,
+      // Otros estados existentes...
       user: null,
-      products: [],
-      cart: [],
-      contactForm:{
-        email: "",
-        message: ""
-      },
-      contactMail: [],
-      notifications:""
+      // Otros estados existentes...
     },
     actions: {
+      // Otras acciones existentes...
 
-      handleChangeMail: (e)=>{
-        console.log(e.target.value)
-        setStore({contactForm:{email: e.target.value}})
-      },
-      
-      handleChangeMessage: (e)=>{
-        console.log(e.target.value)
-        setStore({contactForm:{message: e.target.value}})
-      },
-
-      handleOnClick: (e, contactForm)=>{
-        console.log(contactForm)
-        const {contactMail} = getStore()
-        setStore({contactMail:[...contactMail, contactForm]})
-      },
-
-      contactFetch: ()=>{
-        fetch()
-          .then((resp) => {
-            return resp.json();
-          })
-          .then((data)=>{
-            setStore({contactMail: data});
-          })
-          .catch((error)=>{console.log(error)})
-      },
-      postContactFetch: (contact)=>{
-        fetch("",{
-          method:"POST",
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify(contact)
-        })
-          .then((resp)=>resp.json())
-          .then((data)=>
-            {setStore({notifications:data});
-              console.log(data)})
-          .fetch((error)=>{console.log(error)})
-
-      },
-
-
-      incrementCounter: () => {
-        const store = getStore();
-        setStore({ counter: store.counter + 1 });
-      },
-
-      setUser: (user) => {
-        setStore({ user: user });
-      },
-      
-      loadProducts: async () => {
+      // login
+      login: async (email, password) => {
         try {
-          const response = await fetch('http://127.0.0.1:5000/photos');
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
+          const response = await fetch("http://127.0.0.1:5000/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, password })
+          });
+          if (response.ok) {
+            const data = await response.json();
+            setStore({ user: data.user, loginError: null }); // Limpiamos cualquier error previo en el login y almacenamos el usuario
+            // Aquí puedes guardar el token de acceso en el almacenamiento local del navegador o en el estado global
+            // setStore({ token: data.token });
+            return data;
+          } else {
+            const errorData = await response.json();
+            setStore({ loginError: errorData.message }); // Almacenamos el mensaje de error en el estado
+            throw new Error("Failed to login");
           }
-          const data = await response.json();
-          setStore({ products: data.photos });
         } catch (error) {
-          console.error('Error loading products:', error);
+          console.error("Error logging in:", error);
         }
       },
 
-      addToCart: (product) => {
-        const store = getStore();
-        const existingProductIndex = store.cart.findIndex(item => item.id === product.id);
-        if (existingProductIndex >= 0) {
-          const updatedCart = [...store.cart];
-          updatedCart[existingProductIndex].quantity += 1;
-          setStore({ cart: updatedCart });
-        } else {
-          setStore({ cart: [...store.cart, { ...product, quantity: 1 }] });
+      // Register
+
+      register: async (name, email, password) => {
+        try {
+          const response = await fetch("http://127.0.0.1:5000/create_user", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, email, password })
+          });
+          if (response.ok) {
+            const data = await response.json();
+            // Aquí puede realizar acciones adicionales después del registro
+            return data;
+          } else {
+            throw new Error("Failed to register");
+          }
+        } catch (error) {
+          console.error("Error registering:", error);
         }
       },
 
-      removeFromCart: (productId) => {
-        const store = getStore();
-        setStore({ cart: store.cart.filter(item => item.id !== productId) });
-      },
-      clearCart: () => {
-        setStore({ cart: [] });
-      },
-      incrementQuantity: (productId) => {
-        const store = getStore();
-        const updatedCart = store.cart.map(item => {
-          if (item.id === productId) {
-            return { ...item, quantity: item.quantity + 1 };
+      // Recuperar contraseña
+      recoverPassword: async (email) => {
+        try {
+          const response = await fetch("URL_DE_TU_API/recover_password", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email })
+          });
+          if (response.ok) {
+            return await response.json();
+          } else {
+            throw new Error("Failed to recover password");
           }
-          return item;
-        });
-        setStore({ cart: updatedCart });
-      },
-      decrementQuantity: (productId) => {
-        const store = getStore();
-        const updatedCart = store.cart.map(item => {
-          if (item.id === productId && item.quantity > 1) {
-            return { ...item, quantity: item.quantity - 1 };
-          }
-          return item;
-        });
-        setStore({ cart: updatedCart });
+        } catch (error) {
+          console.error("Error recovering password:", error);
+        }
       }
     }
   };

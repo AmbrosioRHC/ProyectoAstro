@@ -13,7 +13,7 @@ import ProductPage from './views/product-page';
 import Account from './views/Account';
 import PhotographerView from './views/PhotographerView';
 import ProductList from './views/product-list';
-import Login from './views/login';
+import Login from './views/newLogin';
 import AccountRegister from './views/AccountRegister';
 import RecoverAccount from './views/RecoverAccount';
 import ShoppingCart from './views/ShoppingCart';
