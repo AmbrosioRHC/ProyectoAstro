@@ -19,6 +19,8 @@ import AccountRegister from './views/AccountRegister';
 import RecoverAccount from './views/RecoverAccount';
 import ShoppingCart from './views/ShoppingCart';
 import ShopForm from './views/ShopForm'
+import Login from './views/newLogin';
+
 
 
 function App({ store }) {
@@ -43,6 +45,7 @@ function App({ store }) {
           <Route path="/recoveraccount" element={<RecoverAccount />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />
           <Route to path='shopform' element={<ShopForm />} />
+          <Route path="/login" element={<Login/>}/>
         </Routes>
       </>
     </BrowserRouter>

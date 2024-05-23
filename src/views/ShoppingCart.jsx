@@ -9,7 +9,7 @@ function ShoppingCart() {
   const { cart } = store;
 
   const removeFromCart = (id) => {
-    actions.removeFromCart(id);
+      actions.removeFromCart(id);
   };
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
