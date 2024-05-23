@@ -15,6 +15,8 @@ const Login = () => {
                         <img src={LogoXl} alt="Astronap" className='logoprincipal' />
 
                     </div>
+
+
                     <div className="col ">
                         <h1 className="fw-bold text-center py-5  ">Bienvenido </h1>
 
