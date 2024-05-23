@@ -1,22 +1,16 @@
 import './styles/LoginStyle.css';
 import { Link } from "react-router-dom";
+import Navbar from "../components/navbar"
 
 const AccountRegister = () => {
 
 
     return (
         <>
-            <div className="container-fluid">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link to="/login">Iniciar Sesion</Link>
-            </li>
-          </ul>
-                <div className="nabvarregister">
-               
-                </div>
-                <div className="row align-items-center justify-content-center min-vh-100">
-                    <div className="col-12 col-md-8 col-lg-6">
+            <Navbar/>
+            <div className="container-fluid text-light">
+                <div className="row align-items-center justify-content-center">
+                    <div className="col-12 col-md-8 col-lg-6 login-form">
                         <h2 className="fw-bold text-center py-5">Crear cuenta Astronap</h2>
 
                         {/* Register */}
@@ -60,7 +54,7 @@ const AccountRegister = () => {
                                 </div>
                             </div>
                             <div className="d-grid">
-                                <button type="submit" className="btn btn-primary">Registrarse</button>
+                                <button type="submit" className="btn btn1 btn-primary">Registrarse</button>
                             </div>
                         </form>
                     </div>

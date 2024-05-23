@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
 import './styles/LoginStyle.css'
+import Navbar from "../components/navbar"
 
 function ShoppingCart() {
   const { store, actions } = useContext(Context);
@@ -15,7 +16,7 @@ function ShoppingCart() {
 
   return (
     <>
-  
+      <Navbar/>
       <div className="shopping-cart-container">
         <div className="cart-items-container">
           <h2 className="cart-heading">Carrito de Compras</h2>
@@ -40,7 +41,7 @@ function ShoppingCart() {
                           <p className="card-text">Formato: {item.format}</p>
                           <p className="card-text">Precio: ${item.price.toFixed(2)}</p>
                           <p className="card-text">Cantidad: {item.quantity}</p>
-                          <button className="btn btn-danger" onClick={() => removeFromCart(item.id)}>
+                          <button className="btn btn1 btn-danger" onClick={() => removeFromCart(item.id)}>
                             Eliminar
                           </button>
                         </div>
@@ -53,7 +54,7 @@ function ShoppingCart() {
           )}
           <div className="cart-summary">
             <h4>Total a Pagar: ${total.toFixed(2)}</h4>
-            <Link to="/shopform" className="btn btn-primary d-block mx-auto">Ir a Pagar</Link>
+            <Link to="/shopform" className="btn btn1 btn-primary d-block mx-auto">Ir a Pagar</Link>
           </div>
         </div>
       </div>

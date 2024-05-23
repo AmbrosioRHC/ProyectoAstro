@@ -1,4 +1,64 @@
 const getState = ({ getStore, setStore }) => {
+//   return {
+//     store: {
+//       counter: 0,
+//       user: null,
+//       products: [],
+//       cart: [],
+//       contactForm:{
+//         email: "",
+//         message: ""
+//       },
+//       contactMail: [],
+//       notifications:""
+//     },
+//     actions: {
+
+//       handleChangeMail: (e)=>{
+//         console.log(e.target.value)
+//         setStore({contactForm:{email: e.target.value}})
+//       },
+      
+//       handleChangeMessage: (e)=>{
+//         console.log(e.target.value)
+//         setStore({contactForm:{message: e.target.value}})
+//       },
+
+//       handleOnClick: (e, contactForm)=>{
+//         console.log(contactForm)
+//         const {contactMail} = getStore()
+//         setStore({contactMail:[...contactMail, contactForm]})
+//       },
+
+//       contactFetch: ()=>{
+//         fetch()
+//           .then((resp) => {
+//             return resp.json();
+//           })
+//           .then((data)=>{
+//             setStore({contactMail: data});
+//           })
+//           .catch((error)=>{console.log(error)})
+//       },
+//       postContactFetch: (contact)=>{
+//         fetch("",{
+//           method:"POST",
+//           headers: {"Content-Type": "application/json"},
+//           body: JSON.stringify(contact)
+//         })
+//           .then((resp)=>resp.json())
+//           .then((data)=>
+//             {setStore({notifications:data});
+//               console.log(data)})
+//           .fetch((error)=>{console.log(error)})
+
+//       },
+
+
+//       incrementCounter: () => {
+//         const store = getStore();
+//         setStore({ counter: store.counter + 1 });
+//       },
 
       // Establecer un user_id estático por ahora
       const staticUserId = 123;
