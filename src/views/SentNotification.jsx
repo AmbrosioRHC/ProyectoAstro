@@ -8,7 +8,7 @@ const sentNotification = () =>{
 
 <div className="container-send" >
     <div className="content">
-        <img src={LogoXl} alt="Astronap" class="imagen-principal"/>
+        <img src={LogoXl} alt="Astronap" class="logoprincipal"/>
     </div>
     <h3>Se ha enviado un enlace a su correo electrónico <br /> para recuperar su contraseña<br /> </h3>
     <span><a href="#">Volver al inicio</a></span>
@@ -26,8 +26,6 @@ const sentNotification = () =>{
                         </div>
                     </div>
                     <div className="col-sm-9 text-center">
-
-
 
                         <div className="row table-title">
                             <div className="col"><strong>Acerca de</strong></div>

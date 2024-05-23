@@ -8,12 +8,9 @@ const AccountRegister = () => {
     return (
         <>
             <Navbar/>
-            <div className="container-fluid div-fluid">
-                <div className="nabvarregister">
-               
-                </div>
-                <div className="row align-items-center justify-content-center min-vh-100">
-                    <div className="col-12 col-md-8 col-lg-6">
+            <div className="container-fluid text-light">
+                <div className="row align-items-center justify-content-center">
+                    <div className="col-12 col-md-8 col-lg-6 login-form">
                         <h2 className="fw-bold text-center py-5">Crear cuenta Astronap</h2>
 
                         {/* Register */}

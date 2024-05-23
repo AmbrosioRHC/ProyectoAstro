@@ -12,6 +12,12 @@
   padding-right: 80px;
   padding-left: 80px;
 }
+.login-form h2{
+  font-size: 60px;
+}
+.login-form p{
+  font-size: 20px;
+}
 .overview h1{
   font-size: 70px;
 }
