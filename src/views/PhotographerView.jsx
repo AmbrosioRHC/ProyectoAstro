@@ -47,5 +47,3 @@ const PhotographerView = () => {
 };
 
 export default PhotographerView;
-
-
