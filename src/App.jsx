@@ -14,7 +14,6 @@ import Account from './views/Account';
 import ProfilesView from './views/ProfilesView';
 import PhotographerView from './views/PhotographerView';
 import ProductList from './views/product-list';
-import Login from './views/login';
 import AccountRegister from './views/AccountRegister';
 import RecoverAccount from './views/RecoverAccount';
 import ShoppingCart from './views/ShoppingCart';
@@ -45,7 +44,6 @@ function App({ store }) {
           <Route path="/recoveraccount" element={<RecoverAccount />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />
           <Route to path='shopform' element={<ShopForm />} />
-          <Route path="/login" element={<Login/>}/>
         </Routes>
       </>
     </BrowserRouter>
