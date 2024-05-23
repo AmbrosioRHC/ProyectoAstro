@@ -91,6 +91,7 @@ const ProductPage = () => {
                                     <button onClick={incrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">+</button>
                                     <button onClick={decrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">-</button>
                                 </div>
+                                
                             )}
                         </div>
                         <div className="product-footer container">
