@@ -1,10 +1,33 @@
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Context } from "../store/appContext"; // Asegúrate de que este es el contexto correcto
 import LogoXl from '../assets/img-logo/logo-xl.png';
 import PlanetLogoS from '../assets/img-logo/logo-planet-S.png';
-import './styles/LoginStyle.css'
-import { Link } from "react-router-dom";
+import './styles/LoginStyle.css';
 
 
 const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const { actions } = useContext(Context); // Usa el contexto
+    const navigate = useNavigate(); // Hook para navegación
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await actions.login(email, password);
+            if (response) {
+                // Redirige a la página de productos en caso de éxito
+                navigate("/product-page"); // Aquí usamos useNavigate
+            } else {
+                setErrorMessage("Usuario o contraseña incorrectos");
+            }
+        } catch (error) {
+            setErrorMessage("Error al iniciar sesión");
+            console.error("Error al iniciar sesión:", error);
+        }
+    };
 
     return (
         <>
@@ -15,16 +38,36 @@ const Login = () => {
                     </div>
 
                     <div className="col overview">
-                        <h1 className="fw-bold text-center py-5  ">Bienvenido </h1>
+                        <h1 className="fw-bold text-center py-5">Bienvenido</h1>
                         {/* Login */}
-                        <form className="login-form" action="">
-                            <div className="mb-4 ">
-                                <input type="email" className="form-control" name="email" placeholder="Correo electrónico" />
+                        <form className="login-form" onSubmit={handleLogin}>
+                            <div className="mb-4">
+                                <input 
+                                    type="email" 
+                                    className="form-control" 
+                                    name="email" 
+                                    placeholder="Correo electrónico" 
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)} 
+                                />
                             </div>
 
-                            <div className="mb-4 ">
-                                <input type="password" className="form-control" name="password" placeholder="Contraseña" />
+                            <div className="mb-4">
+                                <input 
+                                    type="password" 
+                                    className="form-control" 
+                                    name="password" 
+                                    placeholder="Contraseña" 
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)} 
+                                />
                             </div>
+
+                            {errorMessage && (
+                                <div className="mb-4 text-danger">
+                                    {errorMessage}
+                                </div>
+                            )}
 
                             <div className="mb-4 form-check">
                                 <input type="checkbox" name="connected" className="form-check-input" id="connected" />
@@ -32,7 +75,7 @@ const Login = () => {
                             </div>
 
                             <div className="d-grid">
-                                <button type="submit" className=" btn btn-primary">Iniciar sesión</button>
+                                <button type="submit" className="btn btn-primary">Iniciar sesión</button>
                             </div>
                             <div className="my-3">
                                 <div className="container">
@@ -61,11 +104,7 @@ const Login = () => {
                             </div>
                         </div>
 
-
                         <div className="col-sm-9 text-center">
-
-
-
                             <div className="row table-title">
                                 <div className="col"><strong>Acerca de</strong></div>
                                 <div className="col"><strong>Enlaces</strong></div>
@@ -91,7 +130,6 @@ const Login = () => {
             </div>
         </>
     );
-
 };
 
 export default Login;
