@@ -72,8 +72,7 @@ const ShopForm = () => {
                         </div>
                     </div>
                     <div className="col-md-12 my-3 d-flex justify-content-end">
-                        <button type="button" className="btn btn-danger mx-2">Cancelar</button>
-                        
+                        <button type="button" className="btn btn-danger mx-2">Cancelar</button>                        
                         <button type="button" className="btn btn-success mx-2">Enviar</button>
                     </div>
                 </form>

@@ -36,7 +36,6 @@ function App({ store }) {
           <Route path="/product-page" element={<ProductPage />} />
           <Route path="/account" element={<Account />} />
           <Route path="/profiles" element={<ProfilesView />} />
-          {/* <Route path="/profile" element={<PhotographerView />} /> */}
           <Route path="/profile/:id" element={<PhotographerView />} />
           <Route path="/product-page/:id" element={<ProductPage />} />
           <Route path="/login" element={<Login />} />

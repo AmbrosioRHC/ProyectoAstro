@@ -43,12 +43,11 @@ const AccountRegister = () => {
         <>
          <Modal show={showModal} />
 
-
             <Navbar/>
             <div className="container-fluid text-light">
                 <div className="row align-items-center justify-content-center">
                     <div className="col-12 col-md-8 col-lg-6 login-form">
-                        <h2 className="fw-bold text-center py-5">Crear cuenta Astronap</h2>
+                        <h2 className="fw-bold text-center py-5">Crear cuenta AstroSnap</h2>
 
                         {/* Register */}
                         <form className="row g-3 justify-content-center" onSubmit={handleRegister}>
@@ -77,7 +76,7 @@ const AccountRegister = () => {
                                 <input type="text" className="form-control" name="city" onChange={handleInputChange} />
                             </div>
                             <div className="col-md-12">
-                                <label htmlFor="street" className="form-label">Calle numero sector</label>
+                                <label htmlFor="street" className="form-label">Dirección</label>
                                 <input type="text" className="form-control" name="street" onChange={handleInputChange} />
                             </div>
                             <div className="col-12">

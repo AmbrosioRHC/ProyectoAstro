@@ -62,7 +62,7 @@ const Home = () => {
               </div>
               <div className="col-6 col-md-4 d-flex align-items-center justify-content-center">
                 <div className= "description">
-                  <h1 className="d-flex text-light">Revisa y compra miles de imagenes</h1>
+                  <h1 className="d-flex text-light">Revisa y compra miles de imágenes</h1>
                 </div>
               </div>
             </div>
@@ -133,7 +133,7 @@ const Home = () => {
               <div className="col"><strong>Acerca de</strong></div>
               <div className="col"><strong>Enlaces</strong></div>
               <div className="col"><strong>Copyright</strong></div>
-              <div className="col"><strong>Contactanos</strong></div>
+              <div className="col"><strong>Contáctanos</strong></div>
             </div>
             <div className="row table-body">
               <div className="col">Es una plataforma de compra y venta de astrofotografía, donde astrofotógrafos tienen la posibilidad de exponer y ser valorizados por su trabajo.</div>
@@ -142,10 +142,10 @@ const Home = () => {
                 <Link to="/terms"><div className="col">Condiciones de uso</div></Link>
                 <Link to="/privacy"><div className="col">Política de privacidad</div></Link>
               </div>
-              <div className="col">Todas las imágenes de ofrecidas en este sitio web son de propiedad de los usuarios que las ofecen.</div>
+              <div className="col">Todas las imágenes ofrecidas en este sitio web son de propiedad de los usuarios que las ofrecen.</div>
               <div className="col">
                 <div className="col">Email: astrosnapd@gmail.com</div>
-                <div className="col">Teléfono: 9 544653218</div>
+                <div className="col">Teléfono: +569 544653218</div>
               </div>
               </div>
             </div>

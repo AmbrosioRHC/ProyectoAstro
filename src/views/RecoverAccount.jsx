@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 
 const RecoverAccount = () => {
 
-
-
     return (
 
         <div className="container-fluid text-light">
@@ -23,8 +21,6 @@ const RecoverAccount = () => {
                             <div className="mb-4 ">
                                 <input type="email" className="form-control" name="email" placeholder="Correo electronico" />
                             </div>
-                        
-
                             <div className="d-grid">
                                 <button type="submit" className="btn btn1 btn-primary">Enviar</button>
                             </div>
@@ -37,9 +33,6 @@ const RecoverAccount = () => {
                                     </li>
                                 </ul>
                             </div>
-
-
-
                         {/* Información y pie de página */}
                         </div>
                 </div>
@@ -55,8 +48,6 @@ const RecoverAccount = () => {
                             </div>
                         </div>
                         <div className="col-sm-9 text-center">
-
-
 
                             <div className="row table-title">
                                 <div className="col"><strong>Acerca de</strong></div>
@@ -81,10 +72,7 @@ const RecoverAccount = () => {
                     </div>
                 </div>
             </div>
-
         </div>
-
-
 
     )
 }
