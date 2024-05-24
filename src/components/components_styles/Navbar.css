@@ -1,6 +1,7 @@
 .navbar-logo {
-    height: 25px;
-    width: 100px;
+    /* height: 25px;
+    width: 100px; */
+    padding-left: 5px;
 }
 .subs-bot {
     font-size: 20px;
