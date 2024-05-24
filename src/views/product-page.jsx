@@ -98,10 +98,10 @@ const ProductPage = () => {
                         )}
                         <div className="product-footer container">
                             <div className="shippingPolicies mt-3">
-                                <p><i className="fa-solid fa-truck"></i> Envío gratis desde $200</p>
+                                {/* <p><i className="fa-solid fa-truck"></i> Envío gratis desde $200</p> */}
                             </div>
                             <div className="shippingPolicies mt-3">
-                                <p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p>
+                            <a href="http://localhost:5173/privacy" className="termsProduct"><p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p></a>
                             </div>
                         </div>
                     </div>
