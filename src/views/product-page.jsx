@@ -52,7 +52,7 @@ const ProductPage = () => {
             <div className="container m-5 p-1 textColorProductPage">
                 <div className="row justify-content-around m-2 mt-5">
                     <div className="containerImage col-5 container">
-                        <ProductImage imageUrl={product.image} />
+                    <img src={product.image} alt={product.name} className="img-fluid" />
                         <div className="rating mt-3 m-2">
                             <span>rating {product.rating} <i className="fa-solid fa-star"></i></span>
                         </div>
