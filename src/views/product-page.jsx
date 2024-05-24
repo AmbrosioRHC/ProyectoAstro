@@ -7,7 +7,7 @@ import { Context } from "../store/appContext";
 const ProductPage = () => {
     const { id } = useParams();
     const { store, actions } = useContext(Context);
-    const { products, cart = [], user_id } = store; // Asumiendo que user_id está disponible en el contexto
+    const { products, cart = [], user_id } = store;
 
     useEffect(() => {
         if (products.length === 0) {
@@ -26,7 +26,7 @@ const ProductPage = () => {
     }
 
     const addToCart = () => {
-        actions.addToCart(product, user_id); // Pasar user_id a addToCart
+        actions.addToCart(product, user_id);
     };
 
     const removeFromCart = (productId) => {
@@ -41,13 +41,18 @@ const ProductPage = () => {
         actions.decrementQuantity(product.id);
     };
 
+    // Formatear el precio como pesos chilenos
+    const formatPrice = (price) => {
+        return price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
+    };
+
     return (
         <>
             <Navbar />
-            <div className="container m-5 p-1 text-light">
+            <div className="container m-5 p-1">
                 <div className="row justify-content-around m-2 mt-5">
                     <div className="containerImage col-5 container">
-                        <ProductImage />
+                        <ProductImage imageUrl={product.image} />
                         <div className="rating mt-3 m-2">
                             <span>rating {product.rating} <i className="fa-solid fa-star"></i></span>
                         </div>
@@ -68,7 +73,7 @@ const ProductPage = () => {
                             <div className="row">
                                 <div className="col-8">
                                     <div className="price fs-1 fw-semibold">
-                                        <p>$ {product.price.toFixed(0)}</p>
+                                        <p>{formatPrice(product.price)}</p>
                                     </div>
                                 </div>
                                 <div className="col-4">
