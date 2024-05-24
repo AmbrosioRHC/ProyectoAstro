@@ -16,6 +16,10 @@
   
   }
 
+.textColorProductPage{
+  color:#fff
+}
+
   .thumbnailGrid {
     display: flex;
     flex-wrap: wrap;

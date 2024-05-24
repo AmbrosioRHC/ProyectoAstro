@@ -49,7 +49,7 @@ const ProductPage = () => {
     return (
         <>
             <Navbar />
-            <div className="container m-5 p-1">
+            <div className="container m-5 p-1 textColorProductPage">
                 <div className="row justify-content-around m-2 mt-5">
                     <div className="containerImage col-5 container">
                         <ProductImage imageUrl={product.image} />
