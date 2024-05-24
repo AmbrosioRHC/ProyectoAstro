@@ -1,7 +1,4 @@
 const getState = ({ getStore, setStore }) => {
-  // Establecer un user_id estático por ahora
-  const staticUserId = 123;
-
   return {
     store: {
       counter: 0,
@@ -16,7 +13,6 @@ const getState = ({ getStore, setStore }) => {
       notifications: ""
     },
     actions: {
-      // Login
       login: async (email, password) => {
         try {
           const response = await fetch("http://127.0.0.1:5000/login", {
@@ -29,6 +25,7 @@ const getState = ({ getStore, setStore }) => {
           if (response.ok) {
             const data = await response.json();
             setStore({ user: data.user, loginError: null });
+            localStorage.setItem('token', data.token); // Almacena el token JWT en el almacenamiento local
             return data;
           } else {
             const errorData = await response.json();
@@ -139,16 +136,16 @@ const getState = ({ getStore, setStore }) => {
       },
 
       // Cart actions
-      addToCart: async (product) => {
+       addToCart: async (product) => {
         try {
-          const response = await fetch(`http://127.0.0.1:5000/cart/${staticUserId}/add`, {
+          const token = localStorage.getItem('token'); // Obtiene el token JWT almacenado
+          const response = await fetch('http://127.0.0.1:5000/cart/add', {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
             },
-            // Aca puede ser user.id en vez de staticUserId
             body: JSON.stringify({
-              user_id: staticUserId,
               photo_id: product.id,
               quantity: 1
             })
