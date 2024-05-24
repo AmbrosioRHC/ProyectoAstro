@@ -8,14 +8,9 @@ const getState = ({ getStore, setStore }) => {
       user: null,
       products: [],
       cart: [],
-      contactForm: {
-        email: "",
-        message: ""
-      },
-      contactMail: [],
-      notifications: ""
     },
     actions: {
+    
       // Login
       login: async (email, password) => {
         try {
