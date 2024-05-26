@@ -1,0 +1,22 @@
+.thumbnailLink {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .thumbnailContainer {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .thumbnailImage {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .thumbnailName {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  

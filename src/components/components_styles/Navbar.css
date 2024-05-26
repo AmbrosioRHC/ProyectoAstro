@@ -1,0 +1,35 @@
+.navbar-logo {
+    /* height: 25px;
+    width: 100px; */
+    padding-left: 5px;
+}
+.subs-bot {
+    font-size: 20px;
+    margin-right: 20px;
+}
+.nav-link {
+    font-size: 20px;
+}
+.navbar-body li{
+    padding-right: 20px;
+}
+.mini-cart {
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+.dropdown-text p{
+    font-size: 100px;
+}
+.dropdown {
+    margin-top: 6px;
+}
+.navbarCustom {
+    z-index: 0;
+}
+.footer-body h5{
+    font-size: 17px;
+}
+.footer-body p{
+    font-size: 12px;
+}
