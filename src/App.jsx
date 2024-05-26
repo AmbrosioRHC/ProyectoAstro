@@ -19,6 +19,9 @@ import RecoverAccount from './views/RecoverAccount';
 import ShoppingCart from './views/ShoppingCart';
 import ShopForm from './views/ShopForm'
 import Login from './views/newLogin';
+import ApiStripe from './views/ApiStripe';
+import CheckoutForm from './components/CheckoutForm';
+
 
 
 
@@ -43,6 +46,8 @@ function App({ store }) {
           <Route path="/recoveraccount" element={<RecoverAccount />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />
           <Route to path='shopform' element={<ShopForm />} />
+          <Route path="/stripe" element={<ApiStripe />} />
+          <Route path ="/checkoutForm" element={<CheckoutForm/>}/>
         </Routes>
       </>
     </BrowserRouter>
