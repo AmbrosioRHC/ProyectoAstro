@@ -1,0 +1,198 @@
+/* UserAccountPro.module.css */
+.userAccountContainer {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .header h1 {
+    margin: 0;
+  }
+  
+  .logoutButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .topSection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .accountDetails, .orderHistory {
+    flex: 1;
+    background-color: gray;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .accountDetails {
+    margin-right: 20px;
+  }
+  
+  .viewAddressesButton {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .orderHistory table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .orderHistory th, .orderHistory td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .orderHistory th {
+    background-color: #f2f2f2;
+  }
+  
+  .addressesSection {
+    margin-top: 20px;
+  }
+  
+  .addressesSection ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .addressesSection li {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+  }
+  
+  .addressesSection form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .newAddressInput {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .addAddressButton {
+    padding: 10px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .uploadedImagesSection {
+    background-color: gray;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+  }
+  
+  .uploadedImagesSection h2 {
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .uploadSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .uploadButton {
+    margin-top: 10px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .thumbnailContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .thumbnail {
+    position: relative;
+    margin: 10px;
+    width: 160px; /* Fixed width */
+    height: 90px; /* Fixed height to maintain 16:9 aspect ratio */
+    overflow: hidden;
+  }
+  
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  .deleteButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  .fullscreenClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+  

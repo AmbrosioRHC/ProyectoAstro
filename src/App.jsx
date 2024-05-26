@@ -11,6 +11,7 @@ import Privacy from './views/privacy';
 import Terms from './views/terms&conditions';
 import ProductPage from './views/product-page';
 import Account from './views/Account';
+import AccountPro from './views/AccountPro';
 import ProfilesView from './views/ProfilesView';
 import PhotographerView from './views/PhotographerView';
 import ProductList from './views/product-list';
@@ -35,6 +36,7 @@ function App({ store }) {
           <Route path="/product-list" element={<ProductList />}/>
           <Route path="/product-page" element={<ProductPage />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/account-pro" element={<AccountPro />} />
           <Route path="/profiles" element={<ProfilesView />} />
           <Route path="/profile/:id" element={<PhotographerView />} />
           <Route path="/product-page/:id" element={<ProductPage />} />

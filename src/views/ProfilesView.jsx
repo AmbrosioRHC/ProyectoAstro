@@ -18,7 +18,7 @@ const ProfilesView = () => {
     // Simular una llamada a la API con un retraso
     setTimeout(() => {
       setPhotographers(simulatedPhotographers);
-    }, 1000); // Retraso de 1 segundo para simular la carga de datos
+    }, 500); // Retraso
   }, []);
 
   if (!photographers.length) {
