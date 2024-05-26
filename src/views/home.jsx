@@ -138,25 +138,24 @@ const Home = () => {
                 </div>
               </div>
               <div className="col-sm-9 text-center">
-
-              <div className="row table-title">
-                <div className="col"><strong>Acerca de</strong></div>
-                <div className="col"><strong>Enlaces</strong></div>
-                <div className="col"><strong>Copyright</strong></div>
-                <div className="col"><strong>Contáctanos</strong></div>
-              </div>
-              <div className="row table-body">
-                <div className="col">Es una plataforma de compra y venta de astrofotografía, donde astrofotógrafos tienen la posibilidad de exponer y ser valorizados por su trabajo.</div>
-                <div className="col">
-                  <Link to="/FAQ"><div className="col">FAQ</div></Link>
-                  <Link to="/terms"><div className="col">Condiciones de uso</div></Link>
-                  <Link to="/privacy"><div className="col">Política de privacidad</div></Link>
+                <div className="row table-title">
+                  <div className="col"><strong>Acerca de</strong></div>
+                  <div className="col"><strong>Enlaces</strong></div>
+                  <div className="col"><strong>Copyright</strong></div>
+                  <div className="col"><strong>Contáctanos</strong></div>
                 </div>
-                <div className="col">Todas las imágenes ofrecidas en este sitio web son de propiedad de los usuarios que las ofrecen.</div>
-                <div className="col">
-                  <div className="col">Email: astrosnapd@gmail.com</div>
-                  <div className="col">Teléfono: +569 544653218</div>
-                </div>
+                <div className="row table-body">
+                  <div className="col">Es una plataforma de compra y venta de astrofotografía, donde astrofotógrafos tienen la posibilidad de exponer y ser valorizados por su trabajo.</div>
+                  <div className="col">
+                    <Link to="/FAQ"><div className="col">FAQ</div></Link>
+                    <Link to="/terms"><div className="col">Condiciones de uso</div></Link>
+                    <Link to="/privacy"><div className="col">Política de privacidad</div></Link>
+                  </div>
+                  <div className="col">Todas las imágenes ofrecidas en este sitio web son de propiedad de los usuarios que las ofrecen.</div>
+                  <div className="col">
+                    <div className="col">Email: astrosnapd@gmail.com</div>
+                    <div className="col">Teléfono: +569 544653218</div>
+                  </div>
                 </div>
               </div>
             </div>
