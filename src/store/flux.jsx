@@ -2,23 +2,11 @@ const getState = ({ getStore, setStore }) => {
   return {
     store: {
       counter: 0,
-      mail:{
-        email:""
-      },
-      userMail:[{
-        email: "Gabriel@gmail.com"
-      }],
       user: null,
       products: [],
       cart: [],
     },
     actions: {
-
-      handleUser:(e)=>{
-        console.log(e)
-        const {mail} = getStore();
-        setStore({mail:{email: e.target.value}})
-      },
 
       login: async (email, password) => {
         try {

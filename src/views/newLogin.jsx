@@ -32,7 +32,7 @@ const Login = () => {
 
     return (
         <>
-            <Navbar email={email}/>
+            <Navbar email={email} setEmail={setEmail}/>
             <div className="container-fluid text-light">
                 <div className="row login-top d-flex align-items-center justify-content-center">
                     <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
