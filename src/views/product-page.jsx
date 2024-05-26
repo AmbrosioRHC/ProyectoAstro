@@ -1,8 +1,8 @@
 import Navbar from "../components/navbar";
-import ProductImage from "../components/productImage";
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 const ProductPage = () => {
     const { id } = useParams();
@@ -52,7 +52,7 @@ const ProductPage = () => {
             <div className="container m-5 p-1 textColorProductPage">
                 <div className="row justify-content-around m-2 mt-5">
                     <div className="containerImage col-5 container">
-                    <img src={product.image} alt={product.name} className="img-fluid" />
+                        <img src={product.image} alt={product.name} className="img-fluid" />
                         <div className="rating mt-3 m-2">
                             <span>rating {product.rating} <i className="fa-solid fa-star"></i></span>
                         </div>
@@ -82,7 +82,9 @@ const ProductPage = () => {
                             </div>
                         </div>
                         <div className="mt-5">
-                            <button onClick={addToCart} className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page"><i className="fa-solid fa-cart-shopping"></i> Agregar al carrito</button>
+                            <Link to="/stripe" className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page">
+                                <i className="fa-solid fa-cart-shopping"></i> Agregar al carrito
+                            </Link>
                         </div>
                         {cart.some(item => item.id === product.id) && (
                             <div className="mt-5">
@@ -101,7 +103,7 @@ const ProductPage = () => {
                                 {/* <p><i className="fa-solid fa-truck"></i> Envío gratis desde $200</p> */}
                             </div>
                             <div className="shippingPolicies mt-3">
-                            <a href="http://localhost:5173/privacy" className="termsProduct"><p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p></a>
+                                <a href="http://localhost:5173/privacy" className="termsProduct"><p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p></a>
                             </div>
                         </div>
                     </div>
