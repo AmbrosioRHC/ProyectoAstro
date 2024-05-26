@@ -4,6 +4,7 @@ import { Context } from "../store/appContext"; // Asegúrate de que este es el c
 import LogoXl from '../assets/img-logo/logo-xl.png';
 import PlanetLogoS from '../assets/img-logo/logo-planet-S.png';
 import './styles/LoginStyle.css';
+import Navbar from "../components/navbar"
 
 
 const Login = () => {
@@ -31,6 +32,7 @@ const Login = () => {
 
     return (
         <>
+            <Navbar email={email}/>
             <div className="container-fluid text-light">
                 <div className="row login-top d-flex align-items-center justify-content-center">
                     <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
@@ -48,7 +50,7 @@ const Login = () => {
                                     name="email" 
                                     placeholder="Correo electrónico" 
                                     value={email}
-                                    onChange={(e) => setEmail(e.target.value)} 
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
 

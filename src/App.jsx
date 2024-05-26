@@ -1,5 +1,6 @@
 
 import './App.css'
+import React, { useEffect, useContext, useState } from "react";
 import injectContext from './store/appContext'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -23,6 +24,7 @@ import Login from './views/newLogin';
 
 
 function App({ store }) {
+
   return (
     <BrowserRouter>
       <>
@@ -38,7 +40,7 @@ function App({ store }) {
           <Route path="/profiles" element={<ProfilesView />} />
           <Route path="/profile/:id" element={<PhotographerView />} />
           <Route path="/product-page/:id" element={<ProductPage />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login/>} />
           <Route path="/accountregister" element={<AccountRegister />} />
           <Route path="/recoveraccount" element={<RecoverAccount />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />

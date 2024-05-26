@@ -1,9 +1,15 @@
 import './components_styles/Navbar.css'
+import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping'; 
+import { Context } from '../store/appContext';
 
-const Navbar = () => {
+const Navbar = ({email}) => {
+
+  const {store, actions} =useContext(Context)
+  console.log(store.userMail)
+
   return (
     <>
       <div className="navbarCustom">
@@ -28,6 +34,13 @@ const Navbar = () => {
                 </li>
               </ul>
               <form className="d-flex ms-auto" role="search">
+                <div className='userWelcome text-light'>
+                  <p>{email}</p>
+        
+                  {Array.isArray(store.userMail) && store.userMail.map((userMail, index) => {
+                    return <p key={index}>{userMail.email}</p>
+                  })}
+                </div>
                 <Link to="/accountregister"><button type="button" className="btn btn-dark subs-bot">Registrarse</button></Link>
                 <div className="text-light mini-cart">
                   <Link to="/shoppingcart"><FontAwesomeIcon icon={faCartShopping} /></Link>
