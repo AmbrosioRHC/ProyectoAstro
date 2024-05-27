@@ -139,7 +139,7 @@ const getState = ({ getStore, setStore }) => {
             photo_name: product.name, // Agrega el nombre de la foto al cuerpo de la solicitud
             photo_price: product.price // Agrega el precio de la foto al cuerpo de la solicitud
           };
-          console.log('Request Body:', requestBody);
+          console.log('Request Body addToCart:', requestBody);
           const response = await fetch('http://127.0.0.1:5000/cart/add', {
             method: 'POST',
             headers: {
@@ -237,7 +237,7 @@ const getState = ({ getStore, setStore }) => {
           }
   
           const data = await response.json();
-          console.log('Datos del carrito recibidos de LOAD:', data);
+          console.log('Datos del carrito recibidos de loadCart:', data);
 
           setStore({ cart: data.cart }); // Actualizar el estado del carrito en el store
         } catch (error) {

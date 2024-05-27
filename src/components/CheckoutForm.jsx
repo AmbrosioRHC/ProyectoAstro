@@ -1,24 +1,47 @@
+import React, { useEffect, useContext, useState } from 'react';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { Context } from '../store/appContext';
 
-
-const CheckoutForm = ({cart}) => {
-
+const CheckoutForm = () => {
   const stripe = useStripe();
-  const element = useElements();
+  const elements = useElements();
+  const { store, actions } = useContext(Context);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    actions.loadCart();
+  }, []);
+
+  useEffect(() => {
+    setCartItems(store.cart);
+  }, [store.cart]);
 
   const handleSubmit = async (e) => {
-    e.prevenDefault
-
+    e.preventDefault();
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
-      card: element.getElement(CardElement)
+      card: elements.getElement(CardElement),
     });
 
     if (!error) {
-      console.log(paymentMethod)
+      console.log(paymentMethod);
+      // Add further payment processing logic here
+    } else {
+      console.error(error);
     }
   };
+
+  const calculateTotal = () => {
+    // Check if cartItems is undefined or null
+    if (!cartItems || !cartItems.length) {
+      return 0;
+    }
+  
+    // Use reduce to sum up the total price of all items in the cart
+    return cartItems.reduce((total, item) => total + item.photo_price * item.quantity, 0);
+  };
+  
 
   return (
     <div className="d-flex justify-content-center mt-5">
@@ -26,28 +49,31 @@ const CheckoutForm = ({cart}) => {
         <div className="card-body">
           <form onSubmit={handleSubmit}>
             <div className="form-group text-center mb-4">
+              {cartItems && cartItems.length > 0 ? (
+                // If cartItems is not undefined and has items, render them
+                cartItems.map((item, index) => (
+                  <div key={index}>
+                    <p>Foto: {item.photo_name}</p>
+                    <p>Precio: {item.photo_price}</p>
+                    <p>Cantidad: {item.quantity}</p>
+                    <p>Total: {item.photo_price * item.quantity}</p>
+                    {item.photo_url && <img src={item.photo_url} alt={item.photo_name} className="img-fluid mb-3" />}
+                  </div>
+                ))
+              ) : (
+                // If cartItems is empty or undefined, display a message
+                <p>No hay elementos en el carrito</p>
+              )}
               <div>
-                <p>Fotos: { } </p>
-                <p>Precio: { } </p>
-                <p>Cantidad: { } </p>
-                <p>Total: { } </p>
-
+                <p><strong>Total a pagar: {calculateTotal()}</strong></p>
               </div>
-              <img src="https://www.canva.com/design/DAGGYe7pUTM/-SPh2e3x9HtGP9sIAWJOWg/edit?utm_content=DAGGYe7pUTM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" alt="Volcán Lincabur" className="img-fluid mb-3" />            </div>
-            <div className="form-group mb-3">
-              <CardElement className="form-control" />
             </div>
-            <div className="text-center">
-              <button type="submit" className="btn btn-primary">
-                Buy
-              </button>
-            </div>
+            {/* Remaining code... */}
           </form>
         </div>
       </div>
     </div>
   );
 };
-
 
 export default CheckoutForm;
