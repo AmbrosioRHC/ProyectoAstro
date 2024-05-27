@@ -82,7 +82,7 @@ const ProductPage = () => {
                         </div>
                         <div className="mt-5">
                             <Link to="/stripe" onClick={addToCart} className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page">
-                                <i className="fa-solid fa-cart-shopping"></i> Agregar al carrito
+                                <i className="fa-solid fa-cart-shopping"></i> Comprar Ahora
                             </Link>
                         </div>
                         {cart.some(item => item.id === product.id) && (
