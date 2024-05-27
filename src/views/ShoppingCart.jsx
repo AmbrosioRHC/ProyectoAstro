@@ -9,8 +9,8 @@ function ShoppingCart() {
   const { cart } = store;
 
   useEffect(() => {
-    actions.loadCart(); // Cargar el carrito cuando el componente se monta
-  }, []); // El segundo argumento [] asegura que se ejecute solo una vez cuando el componente se monta
+    actions.loadCart(); 
+  }, []); 
 
   const removeFromCart = (id) => {
     actions.removeFromCart(id);

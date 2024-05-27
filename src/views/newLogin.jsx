@@ -1,17 +1,18 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Context } from "../store/appContext"; // Asegúrate de que este es el contexto correcto
+import { Context } from "../store/appContext"; 
 import LogoXl from '../assets/img-logo/logo-xl.png';
 import PlanetLogoS from '../assets/img-logo/logo-planet-S.png';
 import './styles/LoginStyle.css';
+import Navbar from "../components/navbar"
 
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    const { actions } = useContext(Context); // Usa el contexto
-    const navigate = useNavigate(); // Hook para navegación
+    const { actions } = useContext(Context); 
+    const navigate = useNavigate(); 
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -19,7 +20,7 @@ const Login = () => {
             const response = await actions.login(email, password);
             if (response) {
                 // Redirige a la página de productos en caso de éxito
-                navigate("/product-list"); // Aquí usamos useNavigate
+                navigate("/product-list"); 
             } else {
                 setErrorMessage("Usuario o contraseña incorrectos");
             }
@@ -31,6 +32,7 @@ const Login = () => {
 
     return (
         <>
+            <Navbar email={email} setEmail={setEmail}/>
             <div className="container-fluid text-light">
                 <div className="row login-top d-flex align-items-center justify-content-center">
                     <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
