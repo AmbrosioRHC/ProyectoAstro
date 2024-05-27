@@ -1,0 +1,105 @@
+.userAccountContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.logoutButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accountDetails {
+  flex: 1;
+  background-color: gray;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin-right: 20px;
+}
+
+.viewAddressesButton {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.orderHistory {
+  flex: 2;
+  border: 1px solid #ddd;
+  padding: 20px;
+  background-color: gray;
+}
+
+.orderHistory table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orderHistory th, .orderHistory td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.orderHistory th {
+  background-color: #f2f2f2;
+}
+
+.addressesSection {
+  margin-top: 20px;
+}
+
+.addressesSection ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.addressesSection li {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.addressesSection form {
+  display: flex;
+  flex-direction: column;
+}
+
+.newAddressInput {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.addAddressButton {
+  padding: 10px;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}

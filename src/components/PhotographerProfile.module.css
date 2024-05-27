@@ -1,0 +1,74 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  max-width: 1146px;
+  margin: auto;
+  color: white; 
+}
+
+.profileTitle {
+  text-align: center;
+  font-size: 48px;
+  color: white;
+  margin-top: 20px;
+}
+
+.profileImageContainer {
+  width: 100%;
+  padding-top: 62.65%; 
+  position: relative;
+  background-color: black;
+}
+
+.profileImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileDescription {
+  text-indent: 2em;
+  margin-top: 20px;
+  font-size: 18px;
+  color: white;
+  padding: 10px;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .profileContainer {
+    max-width: 95%; /* Ajuste del ancho máximo para pantallas más pequeñas */
+  }
+
+  .profileTitle {
+    font-size: 32px; /* Tamaño de fuente más pequeño para pantallas más pequeñas */
+    margin-top: 10px; /* Menos espacio en la parte superior */
+  }
+
+  .profileImageContainer {
+    padding-top: 80%; /* Mayor proporción de altura a ancho para pantallas más estrechas */
+  }
+
+  .profileDescription {
+    font-size: 16px; /* Tamaño de fuente más pequeño para mejor legibilidad */
+    text-indent: 1em; /* Menor indentación */
+  }
+}
+
+@media (max-width: 480px) {
+  .profileTitle {
+    font-size: 24px; /* Tamaño de fuente más pequeño para pantallas muy pequeñas */
+  }
+
+  .profileDescription {
+    font-size: 14px; /* Tamaño de fuente más pequeño para pantallas muy pequeñas */
+    text-indent: 0.5em; /* Menor indentación */
+  }
+}
