@@ -130,20 +130,25 @@ const getState = ({ getStore, setStore }) => {
       },
 
       // Cart actions
-       addToCart: async (product) => {
+      addToCart: async (product) => {
         try {
-          const token = localStorage.getItem('token'); // Obtiene el token JWT almacenado
+          const token = localStorage.getItem('token');
+          const requestBody = {
+            photo_id: product.id,
+            quantity: 1,
+            photo_name: product.name, // Agrega el nombre de la foto al cuerpo de la solicitud
+            photo_price: product.price // Agrega el precio de la foto al cuerpo de la solicitud
+          };
+          console.log('Request Body:', requestBody);
           const response = await fetch('http://127.0.0.1:5000/cart/add', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({
-              photo_id: product.id,
-              quantity: 1
-            })
+            body: JSON.stringify(requestBody)
           });
+          
           if (!response.ok) {
             throw new Error('Error adding product to cart');
           }
@@ -151,7 +156,10 @@ const getState = ({ getStore, setStore }) => {
         } catch (error) {
           console.error('Error adding product to cart:', error);
         }
-      },
+      }
+      ,
+
+      
 
       removeFromCart: async (productId) => {
         try {
@@ -216,19 +224,29 @@ const getState = ({ getStore, setStore }) => {
 
       loadCart: async () => {
         try {
-          const response = await fetch(`http://127.0.0.1:5000/cart/${staticUserId}`);
+          const token = localStorage.getItem('token'); // Obtener el token JWT almacenado
+          const response = await fetch('http://127.0.0.1:5000/cartuser', {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+  
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
+  
           const data = await response.json();
-          setStore({ cart: data.cart });
+          console.log('Datos del carrito recibidos de LOAD:', data);
+
+          setStore({ cart: data.cart }); // Actualizar el estado del carrito en el store
         } catch (error) {
           console.error('Error loading cart:', error);
         }
       }
     }
-  };
-};
+  }
+;}
 
 export default getState;
 

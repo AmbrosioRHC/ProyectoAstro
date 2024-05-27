@@ -5,17 +5,9 @@ import { faWhatsapp, faInstagram, faFacebook } from '@fortawesome/free-brands-sv
 import './styles/Landing.css'
 import Navbar from "../components/navbar"
 import { Link } from "react-router-dom";
-import { Footer } from '../components/Footer';
 
 const Home = () => {
-  const [supporters, setSupporters] = useState([])
-    useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then((response) => {return response.json()})
-        .then((data) => {setSupporters(data)})
-        .catch((error)=>{console.log(error)})
-    }, [])
-    console.log("supporters", supporters)
+
     return (
       <>
  
@@ -159,14 +151,6 @@ const Home = () => {
                 </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="row text-light">
-            <h3 className="pt-3 pb-3 ps-4">Sponsors</h3>
-            <div className="col d-flex justify-content-evenly">
-              {supporters.map((supporter) => {
-              return <Footer key={supporter.id} supporter={supporter} />;
-              })}
             </div>
           </div>
         </div>

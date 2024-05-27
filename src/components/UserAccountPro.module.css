@@ -1,4 +1,3 @@
-/* UserAccountPro.module.css */
 .userAccountContainer {
     width: 90%;
     margin: 0 auto;
@@ -144,8 +143,8 @@
   .thumbnail {
     position: relative;
     margin: 10px;
-    width: 160px; /* Fixed width */
-    height: 90px; /* Fixed height to maintain 16:9 aspect ratio */
+    width: 160px;
+    height: 90px; 
     overflow: hidden;
   }
   

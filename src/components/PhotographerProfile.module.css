@@ -19,7 +19,7 @@
 
 .profileImageContainer {
   width: 100%;
-  padding-top: 62.65%; /* Aspect ratio para la imagen */
+  padding-top: 62.65%; 
   position: relative;
   background-color: black;
 }

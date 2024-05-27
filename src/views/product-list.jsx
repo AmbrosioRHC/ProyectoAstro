@@ -4,11 +4,10 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 
 const ProductList = () => {
-    const { actions, store } = useContext(Context); // Obtener el estado y las acciones del contexto
-    const { products } = store; // Obtener productos del estado global
-
+    const { actions, store } = useContext(Context); 
+    const { products } = store; 
     useEffect(() => {
-        if (products.length === 0) { // Solo cargar productos si la lista está vacía
+        if (products.length === 0) { 
             actions.loadProducts();
         }
     }, [actions, products.length]);

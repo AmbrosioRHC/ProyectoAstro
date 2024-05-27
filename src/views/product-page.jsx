@@ -41,11 +41,10 @@ const ProductPage = () => {
         actions.decrementQuantity(product.id);
     };
 
-    // Formatear el precio como pesos chilenos
     const formatPrice = (price) => {
         return price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
     };
-
+    // Acá parte la lógica
     return (
         <>
             <Navbar />
@@ -82,7 +81,7 @@ const ProductPage = () => {
                             </div>
                         </div>
                         <div className="mt-5">
-                            <Link to="/stripe" className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page">
+                            <Link to="/stripe" onClick={addToCart} className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page">
                                 <i className="fa-solid fa-cart-shopping"></i> Agregar al carrito
                             </Link>
                         </div>
@@ -100,12 +99,11 @@ const ProductPage = () => {
                         )}
                         <div className="product-footer container">
                             <div className="shippingPolicies mt-3">
-                                {/* <p><i className="fa-solid fa-truck"></i> Envío gratis desde $200</p> */}
-                            </div>
-                            <div className="shippingPolicies mt-3">
-                                <a href="http://localhost:5173/privacy" className="termsProduct"><p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p></a>
-                            </div>
                         </div>
+                        </div>
+                                <div className="shippingPolicies mt-3">
+                                    <a href="http://localhost:5173/privacy" className="termsProduct"><p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p></a>
+                                </div>
                     </div>
                 </div>
             </div>
