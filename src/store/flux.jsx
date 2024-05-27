@@ -237,7 +237,7 @@ const getState = ({ getStore, setStore }) => {
           }
   
           const data = await response.json();
-          console.log('Datos del carrito recibidos:', data);
+          console.log('Datos del carrito recibidos de LOAD:', data);
 
           setStore({ cart: data.cart }); // Actualizar el estado del carrito en el store
         } catch (error) {
