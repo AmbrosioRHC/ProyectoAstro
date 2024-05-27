@@ -33,7 +33,7 @@ const CheckoutForm = ({cart}) => {
             </div>
             <div className="text-center">
               <button type="submit" className="btn btn-primary">
-                Buy
+               Comprar
               </button>
             </div>
           </form>
