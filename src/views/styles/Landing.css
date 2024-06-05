@@ -1,12 +1,13 @@
-*{
-    margin: o;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
+
 body {
     background-color: #00010ce7;
 }
+
 #header {
     height: 850px;
     width: 100%;
@@ -18,29 +19,37 @@ body {
     position: relative;
     overflow: hidden;
 }
+
 .header-text {
-    height: 700px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
-.header-text img{
+
+.header-text img {
     padding-left: 12px;
     padding-top: 6px;
 }
-.header-text h2{
+
+.header-text h2 {
     font-size: 40px;
 }
-.header-text h1{
+
+.header-text h1 {
     font-size: 80px;
 }
-.header-text p{
+
+.header-text p {
     font-size: 25px;
 }
+
 .slideshow {
     margin-top: 20px;
 }
+
 .learn {
     height: 533px;
     background-image: url("https://www.astrofotografía.com/wp-content/uploads/2020/12/Chica-observando-la-Luna-con-su-telescopio-1024x640.jpg");
@@ -48,6 +57,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 #footer {
     padding: 10px;
     font-size: 50px;
@@ -56,26 +66,30 @@ body {
 .product-section {
     margin-top: 20px;
     margin-bottom: 20px;
-
 }
+
 .img-carrusel {
     height: 533px;
-	object-fit: cover;
+    object-fit: cover;
 }
-.description h1{
+
+.description h1 {
     font-size: 50px;
 }
+
 .boton {
-    background-color:rgba(58, 58, 121, 0.726);
+    background-color: rgba(58, 58, 121, 0.726);
     border-radius: 8px;
-    padding: 30px 80px;
+    padding: 15px 40px;
 }
+
 .svg-landing {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
 }
+
 .subscribe {
     height: 500px;
     background-image: linear-gradient(to top, hsla(180, 63%, 50%, 0.692) 0%, hsla(267, 86%, 22%, 0.63) 100%), url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?cs=srgb&dl=pexels-felixmittermeier-956981.jpg&fm=jpg");
@@ -86,16 +100,20 @@ body {
     position: relative;
     overflow: hidden;
 }
+
 .subscribe-text {
-    height: 500px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
-.subscribe-text p{
+
+.subscribe-text p {
     font-size: 20px;
 }
+
 .users {
     height: 533px;
     background-image: url("https://tvazteca.brightspotcdn.com/dims4/default/114bada/2147483647/strip/true/crop/1280x728+0+0/resize/968x551!/format/jpg/quality/80/?url=http%3A%2F%2Ftv-azteca-brightspot.s3.amazonaws.com%2F28%2Fb4%2F12d3a33a4a6cbcd13149863ae7bc%2Flluvia-de-estrellas.jpg");
@@ -103,35 +121,158 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.users-text { 
-    width:300px;
-}
-.users-text h3{
-    padding-bottom: 10px;
 
-} 
-.product-info h5{
+.users-text {
+    width: 300px;
+}
+
+.users-text h3 {
+    padding-bottom: 10px;
+}
+
+.product-info h5 {
     width: 300px;
     padding-bottom: 10px;
 }
-.title h1{
+
+.title h1 {
     font-size: 50px;
 }
+
 .product-info {
-    padding-left: 50px
-} 
+    padding-left: 50px;
+}
+
 .table-title {
     padding-top: 10px;
     font-size: 20px;
 }
+
 .table-body {
     padding: 10px;
     padding-bottom: 20px;
 }
+
 .boton2 {
-    background-color:rgba(58, 58, 121, 0.726);
+    background-color: rgba(58, 58, 121, 0.726);
     border-radius: 8px;
 }
+
 #icon {
     padding-right: 20px;
+}
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 1200px) {
+    .header-text h1 {
+        font-size: 60px;
+    }
+
+    .header-text h2 {
+        font-size: 30px;
+    }
+
+    .header-text p {
+        font-size: 20px;
+    }
+
+    .description h1 {
+        font-size: 40px;
+    }
+
+    .title h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-text h1 {
+        font-size: 50px;
+    }
+
+    .header-text h2 {
+        font-size: 25px;
+    }
+
+    .header-text p {
+        font-size: 18px;
+    }
+
+    .description h1 {
+        font-size: 35px;
+    }
+
+    .title h1 {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-text h1 {
+        font-size: 40px;
+    }
+
+    .header-text h2 {
+        font-size: 20px;
+    }
+
+    .header-text p {
+        font-size: 16px;
+    }
+
+    .description h1 {
+        font-size: 30px;
+    }
+
+    .title h1 {
+        font-size: 30px;
+    }
+
+    .product-info {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .users-text, .product-info h5 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-text h1 {
+        font-size: 30px;
+    }
+
+    .header-text h2 {
+        font-size: 18px;
+    }
+
+    .header-text p {
+        font-size: 14px;
+    }
+
+    .description h1 {
+        font-size: 25px;
+    }
+
+    .title h1 {
+        font-size: 25px;
+    }
+
+    .boton {
+        padding: 10px 20px;
+    }
+
+    .boton2 {
+        padding: 10px 20px;
+    }
+
+    .product-info, .users-text {
+        text-align: center;
+    }
+
+    .subscribe-text p {
+        font-size: 16px;
+    }
 }

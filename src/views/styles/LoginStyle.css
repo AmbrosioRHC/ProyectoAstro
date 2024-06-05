@@ -1,26 +1,88 @@
 .logos {
-    width: 100px;
-    height: 25px;
+  width: 100px;
+  height: 25px;
 }
+
 .logoprincipal {
-   margin-left: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
 }
+
 .login-top {
-  height: 780px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
+
 .login-form {
-  padding-right: 80px;
-  padding-left: 80px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
-.login-form h2{
-  font-size: 60px;
+
+.overview h1 {
+  font-size: 36px;
 }
-.login-form p{
-  font-size: 20px;
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .login-form {
+      padding: 20px;
+  }
+  .overview h1 {
+      font-size: 32px;
+  }
 }
-.overview h1{
-  font-size: 70px;
+
+@media (max-width: 992px) {
+  .overview h1 {
+      font-size: 28px;
+  }
 }
+
+@media (max-width: 768px) {
+  .overview h1 {
+      font-size: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .overview h1 {
+      font-size: 20px;
+  }
+}
+
+/* Additional media queries for iPad and larger screens */
+@media (min-width: 768px) and (max-width: 1368px) {
+  .login-form {
+    max-width: 800px; /* Increase max-width significantly for iPads and similar devices */
+    padding: 50px; /* Increase padding for better spacing */
+    min-height: 600px; /* Increase min-height for better vertical spacing */
+  }
+
+  .overview h1 {
+    font-size: 32px; /* Adjust font-size */
+  }
+}
+
+@media (min-width: 1368px) {
+  .login-form {
+    max-width: 900px; /* Increase max-width for larger screens */
+    padding: 60px; /* Increase padding for better spacing */
+    min-height: 700px; /* Increase min-height for better vertical spacing */
+  }
+
+  .overview h1 {
+    font-size: 36px; /* Keep font-size larger */
+  }
+}
+
 
 
 /* view ForgotPassword */

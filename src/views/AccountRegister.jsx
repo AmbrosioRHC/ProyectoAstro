@@ -87,6 +87,13 @@ const AccountRegister = () => {
                                         <Link to="/terms"><div className="col">Condiciones de uso</div></Link>
                                     </label>
                                 </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="gridCheck" />
+                                    <label className="form-check-label" htmlFor="gridCheck">
+                                     Soy fotógrafo
+                                       
+                                    </label>
+                                </div>
                             </div>
                             <div className="d-grid">
                                 <button type="submit" className="btn btn1 btn-primary">Registrarse</button>
