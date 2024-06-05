@@ -30,12 +30,12 @@ const AccountRegister = () => {
         const { name, email, password, phone, country, city, street } = formData;
         try {
             const response = await actions.register(name, email, password, phone, country, city, street);
-            // Aquí puedes manejar la respuesta, por ejemplo, mostrar un modal de éxito.
+            // modal de registro exitoso.
             console.log("Registro exitoso:", response);
             setShowModal(true); // Mostrar el modal de registro exitoso
         } catch (error) {
             console.error("Error al registrar:", error);
-            // Aquí puedes manejar el error, por ejemplo, mostrar un mensaje de error.
+          
         }
     };
 
@@ -85,6 +85,13 @@ const AccountRegister = () => {
                                     <label className="form-check-label" htmlFor="gridCheck">
                                         Al registrarte, aceptas nuestras Condiciones, nuestra Política de privacidad y nuestra Política de cookies.
                                         <Link to="/terms"><div className="col">Condiciones de uso</div></Link>
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="gridCheck" />
+                                    <label className="form-check-label" htmlFor="gridCheck">
+                                        Soy fotógrafo
+                                       
                                     </label>
                                 </div>
                             </div>

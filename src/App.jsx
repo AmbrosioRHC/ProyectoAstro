@@ -12,6 +12,7 @@ import Privacy from './views/privacy';
 import Terms from './views/terms&conditions';
 import ProductPage from './views/product-page';
 import Account from './views/Account';
+import AccountPro from './views/AccountPro';
 import ProfilesView from './views/ProfilesView';
 import PhotographerView from './views/PhotographerView';
 import ProductList from './views/product-list';
@@ -20,6 +21,9 @@ import RecoverAccount from './views/RecoverAccount';
 import ShoppingCart from './views/ShoppingCart';
 import ShopForm from './views/ShopForm'
 import Login from './views/newLogin';
+import ApiStripe from './views/ApiStripe';
+import CheckoutForm from './components/CheckoutForm';
+
 
 
 
@@ -37,6 +41,7 @@ function App({ store }) {
           <Route path="/product-list" element={<ProductList />}/>
           <Route path="/product-page" element={<ProductPage />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/account-pro" element={<AccountPro />} />
           <Route path="/profiles" element={<ProfilesView />} />
           <Route path="/profile/:id" element={<PhotographerView />} />
           <Route path="/product-page/:id" element={<ProductPage />} />
@@ -45,6 +50,8 @@ function App({ store }) {
           <Route path="/recoveraccount" element={<RecoverAccount />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />
           <Route to path='shopform' element={<ShopForm />} />
+          <Route path="/stripe" element={<ApiStripe />} />
+          <Route path ="/checkoutForm" element={<CheckoutForm/>}/>
         </Routes>
       </>
     </BrowserRouter>
