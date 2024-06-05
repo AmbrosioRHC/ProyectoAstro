@@ -13,14 +13,15 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const { actions } = useContext(Context); // Usa el contexto
     const navigate = useNavigate(); // Hook para navegación
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
             const response = await actions.login(email, password);
             if (response) {
-                // Redirige a la página de productos en caso de éxito
-                navigate("/product-list"); // Aquí usamos useNavigate
+                navigate("/login");
+                setIsLoggedIn(true);
             } else {
                 setErrorMessage("Usuario o contraseña incorrectos");
             }
@@ -32,7 +33,7 @@ const Login = () => {
 
     return (
         <>
-            <Navbar email={email} setEmail={setEmail}/>
+            <Navbar email={email} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
             <div className="container-fluid text-light">
                 <div className="row login-top d-flex align-items-center justify-content-center">
                     <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">

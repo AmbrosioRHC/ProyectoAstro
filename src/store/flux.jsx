@@ -21,11 +21,12 @@ const getState = ({ getStore, setStore }) => {
             const data = await response.json();
             setStore({ user: data.user, loginError: null });
             localStorage.setItem('token', data.token); // Almacena el token JWT en el almacenamiento local
-            return data;
+            return true;
           } else {
             const errorData = await response.json();
             setStore({ loginError: errorData.message });
-            throw new Error("Failed to login");
+            return false
+            //throw new Error("Failed to login");
           }
         } catch (error) {
           console.error("Error logging in:", error);

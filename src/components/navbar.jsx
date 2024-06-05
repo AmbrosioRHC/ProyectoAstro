@@ -3,14 +3,10 @@ import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping'; 
-import { Context } from '../store/appContext';
 
-const Navbar = ({email, setEmail}) => {
-  const logout = () => {
-    setEmail("")
-  }
-
-
+const Navbar = ({email, isLoggedIn, setIsLoggedIn }) => {
+ 
+  console.log({isLoggedIn, setIsLoggedIn })
   return (
     <>
       <div className="navbarCustom">
@@ -39,13 +35,9 @@ const Navbar = ({email, setEmail}) => {
                 <div className="text-light mini-cart">
                   <Link to="/shoppingcart"><FontAwesomeIcon icon={faCartShopping} /></Link>
                 </div>
-                <div className='userWelcome text-light'>
-                  {
-                    !email !== null
-                      ?<p></p>
-                      :<p>{email}<button onClick={logout} type="button" className="btn btn-dark subs-bot">Cerrar sesión</button></p>
-                  }
-                </div>
+                {isLoggedIn && (<div className='userWelcome text-light ms-5'>
+                  {email !== null && <p>Hola {email}</p>}
+                </div>)}
               </form>
             </div>
           </div>
