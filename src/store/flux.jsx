@@ -161,22 +161,29 @@ const getState = ({ getStore, setStore }) => {
 
       
 
-      removeFromCart: async (productId) => {
+      removeFromCart: async (photo_id) => {
         try {
-          const response = await fetch(`http://127.0.0.1:5000/cart/${staticUserId}/${productId}`, {
+          const token = localStorage.getItem('token'); // Obtener el token JWT almacenado
+          const response = await fetch('http://127.0.0.1:5000/cart/remove', {
             method: 'DELETE',
             headers: {
-              'Content-Type': 'application/json'
-            }
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ photo_id })
           });
+
           if (!response.ok) {
-            throw new Error('Error removing product from cart');
+            throw new Error('Network response was not ok');
           }
-          await getState({ getStore, setStore }).actions.loadCart();
+
+          const data = await response.json();
+          console.log('Datos del carrito después de REMOVE:', data);
+
+          setStore({ cart_items: data.cart_items }); // Almacenar cart_items actualizados en el estado
         } catch (error) {
-          console.error('Error removing product from cart:', error);
-        }
-      },
+          console.error('Error removing item from cart:', error);
+        }},
 
       clearCart: () => {
         setStore({ cart: [] });
@@ -231,22 +238,22 @@ const getState = ({ getStore, setStore }) => {
               'Authorization': `Bearer ${token}`
             }
           });
-  
+
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
-  
+
           const data = await response.json();
           console.log('Datos del carrito recibidos de LOAD:', data);
 
-          setStore({ cart: data.cart }); // Actualizar el estado del carrito en el store
+          setStore({ cart_items: data.cart_items }); // Almacenar cart_items en el estado
         } catch (error) {
           console.error('Error loading cart:', error);
         }
-      }
+      },
+      
     }
-  }
-;}
-
+  };
+};
 export default getState;
 
