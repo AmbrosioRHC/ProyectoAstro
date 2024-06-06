@@ -27,7 +27,6 @@ const ProfilesView = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="thumbnailGrid text-light">
         {photographers.map(photographer => (
           <ProfileThumbnail 

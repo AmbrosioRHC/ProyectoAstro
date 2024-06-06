@@ -14,9 +14,6 @@ const ProductList = () => {
 
     return (
         <>
-            <div>
-                <Navbar />
-            </div>
             <div className="container mt-5 paddingTop">
                 <ProductCollection products={products} />
             </div>

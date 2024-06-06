@@ -7,6 +7,7 @@ const getState = ({ getStore, setStore }) => {
       cart: [],
     },
     actions: {
+
       login: async (email, password) => {
         try {
           const response = await fetch("http://127.0.0.1:5000/login", {
@@ -20,11 +21,12 @@ const getState = ({ getStore, setStore }) => {
             const data = await response.json();
             setStore({ user: data.user, loginError: null });
             localStorage.setItem('token', data.token); // Almacena el token JWT en el almacenamiento local
-            return data;
+            return true;
           } else {
             const errorData = await response.json();
             setStore({ loginError: errorData.message });
-            throw new Error("Failed to login");
+            return false
+            //throw new Error("Failed to login");
           }
         } catch (error) {
           console.error("Error logging in:", error);
@@ -112,7 +114,7 @@ const getState = ({ getStore, setStore }) => {
 
       // User action
       setUser: (user) => {
-        setStore({ user: user });
+        setStore({ user: user});
       },
 
       // Load products
@@ -256,3 +258,8 @@ const getState = ({ getStore, setStore }) => {
   };
 };
 export default getState;
+
+
+/*{isLoggedIn && (<div className='userWelcome text-light ms-4 me-2 mt-3'>
+                  {email !== null && <p>Hola {email} <Link to="/account-pro"><button type="button" class="btn btn-primary ms-3">Tu cuenta</button></Link></p>}
+                </div>)}*/

@@ -1,5 +1,6 @@
 
 import './App.css'
+import React, { useEffect, useContext, useState } from "react";
 import injectContext from './store/appContext'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -22,16 +23,22 @@ import ShopForm from './views/ShopForm'
 import Login from './views/newLogin';
 import ApiStripe from './views/ApiStripe';
 import CheckoutForm from './components/CheckoutForm';
+import Navbar from './components/navbar';
 
 
 
 
-function App({ store }) {
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [email, setEmail] = useState("");
+  console.log(isLoggedIn,setIsLoggedIn)
   return (
     <BrowserRouter>
       <>
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} email={email} setEmail={setEmail} />
        <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Home />}/>
           <Route path="/FAQ" element={<FAQ/>}/>
           <Route path="/about_us" element={<AboutUs/>}/>
           <Route path="/privacy" element={<Privacy/>}/>
@@ -39,11 +46,11 @@ function App({ store }) {
           <Route path="/product-list" element={<ProductList />}/>
           <Route path="/product-page" element={<ProductPage />} />
           <Route path="/account" element={<Account />} />
-          <Route path="/account-pro" element={<AccountPro />} />
+          <Route path="/account-pro" element={<AccountPro setIsLoggedIn={setIsLoggedIn}/>} />
           <Route path="/profiles" element={<ProfilesView />} />
           <Route path="/profile/:id" element={<PhotographerView />} />
           <Route path="/product-page/:id" element={<ProductPage />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} email={email} setEmail={setEmail}/>} />
           <Route path="/accountregister" element={<AccountRegister />} />
           <Route path="/recoveraccount" element={<RecoverAccount />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />

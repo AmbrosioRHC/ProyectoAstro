@@ -1,10 +1,16 @@
 import './components_styles/Navbar.css'
+import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping'; 
 
-const Navbar = () => {
-    
+const Navbar = ({isLoggedIn, setIsLoggedIn, email}) => {
+  const Logout = () => {
+    setIsLoggedIn(false)
+  };
+  
+ 
+  console.log()
   return (
     <>
       <div className="navbarCustom">
@@ -24,15 +30,25 @@ const Navbar = () => {
                 <li className="nav-item">
                   <Link to="/profiles" className="nav-link" href="#">Perfiles</Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/login" className="nav-link" aria-disabled="true">Ingresar</Link>
-                </li>
+                {isLoggedIn ? (
+                    <li className="nav-item">
+                      <button className="nav-link" onClick={Logout}>Salir</button>
+                    </li>
+                  ) : (
+                    <li className="nav-item">
+                      <Link to="/login" className="nav-link">Ingresar</Link>
+                    </li>
+                  )}
+
               </ul>
               <form className="d-flex ms-auto" role="search">
-                <Link to="/accountregister"><button type="button" className="btn btn-dark subs-bot">Registrarse</button></Link>
-                <div className="text-light mini-cart">
+                <Link to="/accountregister"><button type="button" className="btn btn-dark subs-bot mt-2">Registrarse</button></Link>
+                <div className="text-light mini-cart mt-2">
                   <Link to="/shoppingcart"><FontAwesomeIcon icon={faCartShopping} /></Link>
                 </div>
+                {isLoggedIn && (<div className='userWelcome text-light ms-4 me-2 mt-3'>
+                {email !== null && <p>Hola {email} <Link to="/account-pro"><button type="button" class="btn btn-primary ms-3">Tu cuenta</button></Link></p>}
+                </div>)}
               </form>
             </div>
           </div>

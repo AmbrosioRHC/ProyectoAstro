@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './UserAccountPro.module.css';
 
-const UserAccountPro = ({ user, orders }) => {
+const UserAccountPro = ({ user, orders, setIsLoggedIn }) => {
   const [addresses, setAddresses] = useState(user.addresses);
   const [showForm, setShowForm] = useState(false);
   const [newAddress, setNewAddress] = useState('');
@@ -26,6 +26,7 @@ const UserAccountPro = ({ user, orders }) => {
 
   const handleLogout = () => {
     navigate('/');
+    setIsLoggedIn(false)
   };
 
   const handleFileChange = (event) => {

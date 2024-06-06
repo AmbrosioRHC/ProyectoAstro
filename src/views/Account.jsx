@@ -35,7 +35,6 @@ const Account = () => {
 
   return (
     <div>
-      <Navbar />
       <UserAccount user={user || placeholderUser} orders={orders.length > 0 ? orders : placeholderOrders} />
     </div>
   );
