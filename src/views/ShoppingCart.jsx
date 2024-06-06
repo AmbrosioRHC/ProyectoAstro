@@ -1,23 +1,22 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
 import './styles/LoginStyle.css';
 import Navbar from '../components/navbar';
 
-
 function ShoppingCart() {
   const { store, actions } = useContext(Context);
   const { cart_items } = store;
+  const [refresh, setRefresh] = useState(false); // Estado local para forzar la actualización de la interfaz
 
   useEffect(() => {
     actions.loadCart();
-  }, []);
+  }, [refresh]); // Volvemos a cargar el carrito cada vez que cambia el estado "refresh"
 
   const removeFromCart = (photo_id) => {
     actions.removeFromCart(photo_id);
+    setRefresh(!refresh); // Cambiamos el estado "refresh" para forzar la actualización de la interfaz
   };
-
-  console.log('Cart Items:', cart_items);
 
   const total = cart_items ? cart_items.reduce((acc, item) => acc + item.photo_price * item.quantity, 0) : 0;
 

@@ -1,13 +1,15 @@
-import Navbar from "../components/navbar";
-import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import Navbar from "../components/navbar";
 
 const ProductPage = () => {
     const { id } = useParams();
     const { store, actions } = useContext(Context);
     const { products, cart = [], user_id } = store;
+
+    const [quantity, setQuantity] = useState(1);
+    const [notification, setNotification] = useState({ isVisible: false, message: '' });
 
     useEffect(() => {
         if (products.length === 0) {
@@ -26,89 +28,88 @@ const ProductPage = () => {
     }
 
     const addToCart = () => {
-        actions.addToCart(product, user_id);
-    };
-
-    const removeFromCart = (productId) => {
-        actions.removeFromCart(productId);
+        actions.addToCart(product, user_id, quantity);
+        showNotification(`${product.name} se ha agregado al carrito.`);
     };
 
     const incrementQuantity = () => {
-        actions.incrementQuantity(product.id);
+        setQuantity(prevQuantity => prevQuantity + 1);
     };
 
     const decrementQuantity = () => {
-        actions.decrementQuantity(product.id);
+        setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+    };
+
+    const showNotification = (message) => {
+        setNotification({ isVisible: true, message });
+        setTimeout(() => {
+            setNotification({ isVisible: false, message: '' });
+        }, 3000);
     };
 
     const formatPrice = (price) => {
         return price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
     };
-    // Acá parte la lógica
+
     return (
         <>
             <Navbar />
-            <div className="container m-5 p-1 textColorProductPage">
-                <div className="row justify-content-around m-2 mt-5">
-                    <div className="containerImage col-5 container">
+            <div className="container container-product-page my-5 py-3 textColorProductPage">
+                {notification.isVisible && <div className="alert alert-success">{notification.message}</div>}
+                
+                <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item"><Link to="/">Inicio</Link></li>
+                        <li className="breadcrumb-item"><Link to="/product-list">Productos</Link></li>
+                        <li className="breadcrumb-item active" aria-current="page">{product.name}</li>
+                    </ol>
+                </nav>
+
+                <div className="row justify-content-around my-3">
+                    <div className="containerImage col-lg-5 col-md-6 col-12">
                         <img src={product.image} alt={product.name} className="img-fluid" />
-                        <div className="rating mt-3 m-2">
-                            <span>rating {product.rating} <i className="fa-solid fa-star"></i></span>
-                        </div>
                     </div>
-                    <div className="rightContainer col-5 mt-5 container fontColor">
-                        <div className="mt-3 product-name">
+                    <div className="rightContainer col-lg-5 col-md-6 col-12 mt-md-0 mt-3">
+                        <div className="product-name">
                             <div className="row">
                                 <div className="col-8">
-                                    <p className="fs-4 fw-semibold"> {product.name}</p>
+                                    <p className="fs-4 fw-semibold">{product.name}</p>
                                 </div>
-                                <div className="col-4">
-                                    <p className="float-end m-2 share"><i className="fa-regular fa-share-from-square"></i></p>
-                                    <p className="float-end m-2 likes"><i className="fa-solid fa-heart"></i>{product.likes}</p>
+                                <div className="col-4 text-end">
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-3 product-price">
+                        <div className="product-price">
                             <div className="row">
                                 <div className="col-8">
                                     <div className="price fs-1 fw-semibold">
                                         <p>{formatPrice(product.price)}</p>
                                     </div>
                                 </div>
-                                <div className="col-4">
-                                    <p className="reviews float-end mt-3 m-2"><i className="fa-regular fa-comment-dots"></i> {product.reviews} reviews</p>
-                                </div>
                             </div>
                         </div>
-                        <div className="mt-5">
-                            <Link to="/stripe"  className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page">
+                        <div className="quantity-controls mt-3">
+                            <button onClick={decrementQuantity} className="btn btn-primary rounded-pill">-</button>
+                            <span className="mx-3">{quantity}</span>
+                            <button onClick={incrementQuantity} className="btn btn-primary rounded-pill">+</button>
+                        </div>
+                        <div className="mt-3">
+                            <Link to="/stripe" className="btn btn-primary rounded-pill btn-product-page">
                                 <i className="fa-solid fa-cart-shopping"></i> Comprar Ahora
                             </Link>
                         </div>
-                        <div>
-                            <button className="btn btn-primary rounded-pill btn-product-page" id="btn-product-page" onClick={addToCart}> 
-                            <p> agregar al carrito </p>
+                        <div className="mt-2">
+                            <button className="btn btn-primary rounded-pill btn-product-page" onClick={addToCart}>
+                                <p className="m-0">Agregar al carrito</p>
                             </button>
                         </div>
-                        {cart.some(item => item.id === product.id) && (
-                            <div className="mt-5">
-                                <button onClick={() => removeFromCart(product.id)} className="btn btn-danger rounded-pill" id="btn-product-page"><i className="fa-solid fa-trash"></i> Eliminar del carrito</button>
-                                <div className="mt-3 ms-1">
-                                    <div>
-                                        <p>En el carrito: {cart.find(item => item.id === product.id).quantity}</p>
-                                        <button onClick={incrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">+</button>
-                                        <button onClick={decrementQuantity} className="btn btn-primary rounded-pill" id="btn-product-page">-</button>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                        <div className="product-footer container">
+                        <div className="product-footer mt-3">
                             <div className="shippingPolicies mt-3">
+                                <a href="http://localhost:5173/privacy" className="termsProduct">
+                                    <p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p>
+                                </a>
+                            </div>
                         </div>
-                        </div>
-                                <div className="shippingPolicies mt-3">
-                                    <a href="http://localhost:5173/privacy" className="termsProduct"><p><i className="fa-solid fa-cart-shopping"></i> Términos y condiciones</p></a>
-                                </div>
                     </div>
                 </div>
             </div>
