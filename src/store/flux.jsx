@@ -256,4 +256,3 @@ const getState = ({ getStore, setStore }) => {
   };
 };
 export default getState;
-

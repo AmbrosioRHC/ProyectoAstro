@@ -25,3 +25,19 @@
     font-size: 18px; /* Reducir el tamaño del texto */
     line-height: 1.5; /* Ajustar el espaciado entre líneas */
 }
+
+/* Media queries para resoluciones específicas */
+@media (max-width: 375px) and (max-height: 667px),
+       (max-width: 360px) and (max-height: 740px),
+       (max-width: 344px) and (max-height: 882px) {
+    .faq-title h1,
+    .document h1 {
+        font-size: 30px; /* Reducir aún más el tamaño del título para resoluciones pequeñas */
+        padding: 10px 0; /* Ajustar el espaciado alrededor del título para resoluciones pequeñas */
+    }
+
+    .document ul,
+    .document p {
+        font-size: 16px; /* Reducir el tamaño del texto aún más para resoluciones pequeñas */
+    }
+}
