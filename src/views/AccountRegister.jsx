@@ -1,6 +1,5 @@
 import './styles/LoginStyle.css';
 import { Link } from "react-router-dom";
-import Navbar from "../components/navbar";
 import Modal from '../components/modal';
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
@@ -43,7 +42,7 @@ const AccountRegister = () => {
         <>
          <Modal show={showModal} />
 
-            <Navbar/>
+    
             <div className="container-fluid text-light">
                 <div className="row align-items-center justify-content-center">
                     <div className="col-12 col-md-8 col-lg-6 login-form">

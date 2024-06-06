@@ -4,23 +4,21 @@ import { Context } from "../store/appContext";
 import LogoXl from '../assets/img-logo/logo-xl.png';
 import PlanetLogoS from '../assets/img-logo/logo-planet-S.png';
 import './styles/LoginStyle.css';
-import Navbar from "../components/navbar"
 
 
-const Login = () => {
-    const [email, setEmail] = useState("");
+const Login = ({ setIsLoggedIn, email, setEmail }) => {
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const { actions } = useContext(Context); // Usa el contexto
     const navigate = useNavigate(); // Hook para navegación
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
             const response = await actions.login(email, password);
             if (response) {
-                navigate("/login");
+                navigate("/");
                 setIsLoggedIn(true);
             } else {
                 setErrorMessage("Usuario o contraseña incorrectos");
@@ -33,7 +31,6 @@ const Login = () => {
 
     return (
         <>
-            <Navbar email={email} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
             <div className="container-fluid text-light">
                 <div className="row login-top d-flex align-items-center justify-content-center">
                     <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">

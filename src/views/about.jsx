@@ -1,10 +1,8 @@
 import './styles/Documents.css'
-import Navbar from "../components/navbar"
 
 const AboutUs = () => {
     return (
   <>
-    <Navbar/>
     <div className="container mt-4">
       <div className="overflow-y-auto document">
         <h1>Acerca de nosotros</h1>

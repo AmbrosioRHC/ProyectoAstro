@@ -11,8 +11,6 @@ const Home = () => {
   
     return (
       <>
- 
-        <Navbar/>
         <div className="body-landing">
           <div id="header" className="text-light">
             <div className="header-text">

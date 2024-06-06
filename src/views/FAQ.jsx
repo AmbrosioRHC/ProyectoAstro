@@ -1,10 +1,8 @@
 import './styles/Documents.css'
-import Navbar from "../components/navbar"
 
 const FAQ = () => {
     return (
   <>
-    <Navbar/>
     <div className="faq text-light"> 
         <div className="container p-2 mt-5">
             <div className="row text-light">
