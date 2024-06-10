@@ -1,29 +1,69 @@
+/* Botón primario */
 .btn-primary {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: #52D467 !important;
-    --bs-btn-border-color: #52D467 !important;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #3c974b !important;
-    --bs-btn-hover-border-color: #52D467 !important;
-    --bs-btn-focus-shadow-rgb: 49, 132, 253;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #3c974b !important;
-    --bs-btn-active-border-color: #52D467 !important;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #52D467;
-    --bs-btn-disabled-border-color: #52D467;
-  
-  }
-
-.textColorProductPage, .termsProduct{
-  color:#fff
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #52D467 !important;
+  --bs-btn-border-color: #52D467 !important;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #3c974b !important;
+  --bs-btn-hover-border-color: #52D467 !important;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #3c974b !important;
+  --bs-btn-active-border-color: #52D467 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #52D467;
+  --bs-btn-disabled-border-color: #52D467;
 }
 
-  .thumbnailGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+/* Texto en página de producto y términos */
+.textColorProductPage, .termsProduct {
+  color: #fff;
+}
+
+/* Rejilla de miniaturas */
+.thumbnailGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Tarjeta */
+.card {
+  border: none !important; /* Elimina el borde de la tarjeta */
+  width: 100%;
+  background: #343a40;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Página de producto */
+.container-product-page {
+  background: #343a40;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  color: #fff;
+}
+
+.containerImage img {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-product-page {
+  --bs-btn-bg: #52D467 !important;
+  --bs-btn-border-color: #52D467 !important;
+  --bs-btn-hover-bg: #3c974b !important;
+  --bs-btn-active-bg: #3c974b !important;
+  width: 50%;
+  padding: 0.75rem 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .container-product-page .row > div {
+    margin-bottom: 20px;
   }
+}
