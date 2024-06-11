@@ -1,5 +1,4 @@
 import ProductCollection from "../components/productCollection";
-import Navbar from "../components/navbar";
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 

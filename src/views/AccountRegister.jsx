@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import Modal from '../components/modal';
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { useForm } from "react-hook-form";
+import countries from "country-list";
+import Select from 'react-select';
+
 
 const AccountRegister = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [showModal, setShowModal] = useState(false);
     const { actions } = useContext(Context);
     const [formData, setFormData] = useState({
@@ -16,6 +21,8 @@ const AccountRegister = () => {
         city: "",
         street: ""
     });
+
+    const countrySuggestions = countries.getNames();
 
     const handleInputChange = (e) => {
         setFormData({
@@ -49,49 +56,99 @@ const AccountRegister = () => {
                         <h2 className="fw-bold text-center py-5">Crear cuenta AstroSnap</h2>
 
                         {/* Register */}
-                        <form className="row g-3 justify-content-center" onSubmit={handleRegister}>
+                        <form className="row g-3 justify-content-center" onSubmit={handleSubmit(handleRegister)}>
                             <div className="col-md-6">
                                 <label htmlFor="name" className="form-label">Nombre completo</label>
-                                <input type="text" className="form-control" name="name" onChange={handleInputChange} />
+                                <input type="text" className="form-control" name="name" onChange={handleInputChange} {...register("name", { 
+                                    required: "Este campo es requerido",
+                                    minLength: {
+                                        value: 2,
+                                        message: "El nombre debe tener al menos 2 caracteres"
+                                    },
+                                    maxLength: {
+                                        value: 100,
+                                        message: "El nombre no puede superar los 100 caracteres"
+                                    }
+
+                                 })}/>
+                                {errors.name && <span className="text-danger">{errors.name.message}</span>}
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="email" className="form-label">Correo</label>
-                                <input type="email" className="form-control" name="email" onChange={handleInputChange} />
+                                <input type="email" className="form-control" name="email" onChange={handleInputChange} {...register("email", { 
+                                    required: "Este campo es requerido",
+                                    pattern: {
+                                        value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                                        message: "Correo inválido"
+                                    },
+
+                                 })}/>
+                                 {errors.email && <span className="text-danger">{errors.email.message}</span>}
                             </div>
                             <div className="col-md-6 password-container">
                                 <label htmlFor="password" className="form-label">Contraseña</label>
-                                <input type="password" className="form-control" name="password" onChange={handleInputChange} />
+                                <input type="password" className="form-control" name="password" onChange={handleInputChange} {...register("password", { 
+                                    required: "Este campo es requerido",
+                                    pattern: {
+                                        value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
+                                        message: "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.NO puede tener otros símbolos."
+                                    },
+                                 })}/>
+                                 {errors.password && <span className="text-danger">{errors.password.message}</span>}
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="phone" className="form-label">Teléfono</label>
-                                <input type="text" className="form-control" name="phone" onChange={handleInputChange} />
+                                <input type="text" className="form-control" name="phone" onChange={handleInputChange} {...register("phone", { 
+                                    required: "Este campo es requerido",
+                                    pattern: {
+                                        value: /[\(]?[\+]?(\d{2}|\d{3})[\)]?[\s]?((\d{6}|\d{8})|(\d{3}[\*\.\-\s]){3}|(\d{2}[\*\.\-\s]){4}|(\d{4}[\*\.\-\s]){2})|\d{8}|\d{10}|\d{12}/,
+                                        message: "Teléfono inválido"
+                                    },
+                                 })}/>
+                                 {errors.phone && <span className="text-danger">{errors.phone.message}</span>}
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="country" className="form-label">País</label>
-                                <input type="text" className="form-control" name="country" onChange={handleInputChange} />
+                                <Select
+                                    options={countrySuggestions.map(country => ({ value: country, label: country }))}
+                                    className="text-black"
+                                    onChange={selectedOption => console.log(selectedOption)}
+                                    placeholder="Selecciona un país..."
+                                />
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="inputCity" className="form-label">Ciudad</label>
-                                <input type="text" className="form-control" name="city" onChange={handleInputChange} />
+                                <input type="text" className="form-control" name="city" onChange={handleInputChange} {...register("city", { 
+                                    required: "Este campo es requerido",
+                                    pattern: {
+                                        value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s.'\-]+$/,
+                                        message: "Ciudad inválida"
+                                    },
+                                 })}/>
+                                 {errors.city && <span className="text-danger">{errors.city.message}</span>} 
+
                             </div>
                             <div className="col-md-12">
                                 <label htmlFor="street" className="form-label">Dirección</label>
-                                <input type="text" className="form-control" name="street" onChange={handleInputChange} />
+                                <input type="text" className="form-control" name="street" onChange={handleInputChange} {...register("street", { 
+                                    required: "Este campo es requerido",
+                                    pattern: {
+                                        value: /^[a-zA-Z0-9\s.,#\-]+$/,
+                                        message: "Dirección no válida"
+                                    },
+                                 })}/>
+                                 {errors.street && <span className="text-danger">{errors.street.message}</span>} 
                             </div>
-                            <div className="col-12">
-                                <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" id="gridCheck" />
-                                    <label className="form-check-label" htmlFor="gridCheck">
+                            <div className="col-12 g-3 needs-validation" novalidate>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required/>
+                                    <label class="form-check-label" for="invalidCheck">
                                         Al registrarte, aceptas nuestras Condiciones, nuestra Política de privacidad y nuestra Política de cookies.
                                         <Link to="/terms"><div className="col">Condiciones de uso</div></Link>
                                     </label>
-                                </div>
-                                <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" id="gridCheck" />
-                                    <label className="form-check-label" htmlFor="gridCheck">
-                                        Soy fotógrafo
-                                       
-                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree before submitting.
+                                    </div>
                                 </div>
                             </div>
                             <div className="d-grid">

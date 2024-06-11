@@ -40,7 +40,7 @@ const Login = ({ setIsLoggedIn, email, setEmail }) => {
                     <div className="col overview">
                         <h1 className="fw-bold text-center py-5">Bienvenido</h1>
                         {/* Login */}
-                        <form className="login-form" onSubmit={handleLogin}>
+                        <form className="login-form g-3 needs-validation" onSubmit={handleLogin}>
                             <div className="mb-4">
                                 <input 
                                     type="email" 
@@ -48,6 +48,7 @@ const Login = ({ setIsLoggedIn, email, setEmail }) => {
                                     name="email" 
                                     placeholder="Correo electrónico" 
                                     value={email}
+                                    required
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
@@ -59,6 +60,7 @@ const Login = ({ setIsLoggedIn, email, setEmail }) => {
                                     name="password" 
                                     placeholder="Contraseña" 
                                     value={password}
+                                    required
                                     onChange={(e) => setPassword(e.target.value)} 
                                 />
                             </div>

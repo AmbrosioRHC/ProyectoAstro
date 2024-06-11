@@ -1,5 +1,4 @@
 import './styles/Documents.css'
-import Navbar from "../components/navbar"
 
 const Privacy = () => {
     return (

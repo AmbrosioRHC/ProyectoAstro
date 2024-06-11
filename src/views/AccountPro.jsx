@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UserAccountPro from '../components/UserAccountPro'; // Asegúrate de que la ruta sea correcta
-import Navbar from "../components/navbar";
+
 
 const AccountPro = ({setIsLoggedIn}) => {
   const [user, setUser] = useState(null);
