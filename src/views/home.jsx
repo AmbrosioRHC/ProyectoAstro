@@ -1,11 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'; 
-<<<<<<< HEAD
-import './styles/Landing.css'
-=======
 import './styles/Landing.css';
->>>>>>> e2e10175e36cc3696c3ad72fc4a9c928d6e1056c
 import { Link } from "react-router-dom";
 
 const Home = () => {

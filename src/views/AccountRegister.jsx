@@ -23,11 +23,7 @@ const AccountRegister = () => {
         termsAccepted: false,
     });
 
-<<<<<<< HEAD
     const countrySuggestions = countries.getNames();
-=======
-    const [errors, setErrors] = useState({});
->>>>>>> e2e10175e36cc3696c3ad72fc4a9c928d6e1056c
 
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -109,7 +105,6 @@ const AccountRegister = () => {
                 <div className="row align-items-center justify-content-center">
                     <div className="col-12 col-md-8 col-lg-6 login-form">
                         <h2 className="fw-bold text-center py-5">Crear cuenta AstroSnap</h2>
-<<<<<<< HEAD
 
                         {/* Register */}
                         <form className="row g-3 justify-content-center" onSubmit={handleSubmit(handleRegister)}>
@@ -140,22 +135,9 @@ const AccountRegister = () => {
 
                                  })}/>
                                  {errors.email && <span className="text-danger">{errors.email.message}</span>}
-=======
-                        <form className="row g-3 justify-content-center" onSubmit={handleRegister}>
-                            <div className="col-md-6">
-                                <label htmlFor="name" className="form-label">Nombre completo</label>
-                                <input type="text" className="form-control" name="name" onChange={handleInputChange} />
-                                {errors.name && <p className="error-text">{errors.name}</p>}
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="email" className="form-label">Correo</label>
-                                <input type="email" className="form-control" name="email" onChange={handleInputChange} />
-                                {errors.email && <p className="error-text">{errors.email}</p>}
->>>>>>> e2e10175e36cc3696c3ad72fc4a9c928d6e1056c
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="password" className="form-label">Contraseña</label>
-<<<<<<< HEAD
                                 <input type="password" className="form-control" name="password" onChange={handleInputChange} {...register("password", { 
                                     required: "Este campo es requerido",
                                     pattern: {
@@ -218,45 +200,6 @@ const AccountRegister = () => {
                                     <div class="invalid-feedback">
                                         You must agree before submitting.
                                     </div>
-=======
-                                <input type="password" className="form-control" name="password" onChange={handleInputChange} />
-                                {errors.password && <p className="error-text">{errors.password}</p>}
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="phone" className="form-label">Teléfono</label>
-                                <input type="text" className="form-control" name="phone" onChange={handleInputChange} />
-                                {errors.phone && <p className="error-text">{errors.phone}</p>}
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="country" className="form-label">País</label>
-                                <input type="text" className="form-control" name="country" onChange={handleInputChange} />
-                                {errors.country && <p className="error-text">{errors.country}</p>}
-                            </div>
-                            <div className="col-md-6">
-                                <label htmlFor="city" className="form-label">Ciudad</label>
-                                <input type="text" className="form-control" name="city" onChange={handleInputChange} />
-                                {errors.city && <p className="error-text">{errors.city}</p>}
-                            </div>
-                            <div className="col-md-12">
-                                <label htmlFor="street" className="form-label">Dirección</label>
-                                <input type="text" className="form-control" name="street" onChange={handleInputChange} />
-                                {errors.street && <p className="error-text">{errors.street}</p>}
-                            </div>
-                            <div className="col-12">
-                                <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" id="termsAccepted" name="termsAccepted" onChange={handleInputChange} />
-                                    <label className="form-check-label" htmlFor="termsAccepted">
-                                        Al registrarte, aceptas nuestras Condiciones, nuestra Política de privacidad y nuestra Política de cookies.
-                                        <Link to="/terms"><div className="col">Condiciones de uso</div></Link>
-                                    </label>
-                                    {errors.termsAccepted && <p className="error-text">{errors.termsAccepted}</p>}
-                                </div>
-                                <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" id="isPhotographer" name="isPhotographer" onChange={handleInputChange} />
-                                    <label className="form-check-label" htmlFor="isPhotographer">
-                                        Soy fotógrafo
-                                    </label>
->>>>>>> e2e10175e36cc3696c3ad72fc4a9c928d6e1056c
                                 </div>
                             </div>
                             <div className="d-grid">
