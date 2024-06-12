@@ -1,9 +1,37 @@
+import React, { useState } from 'react';
 import LogoXl from '../assets/img-logo/logo-xl.png';
 import PlanetLogoS from '../assets/img-logo/logo-planet-S.png';
 import './styles/LoginStyle.css'
 import { Link } from "react-router-dom";
 
 const RecoverAccount = () => {
+  
+        const [email, setEmail] = useState('');
+        const [message, setMessage] = useState('');
+    
+        const handleSubmit = async (event) => {
+            event.preventDefault();
+    
+            try {
+                const response = await fetch('/recover_password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                });
+    
+                const data = await response.json();
+    
+                if (response.ok) {
+                    setMessage(data.message);
+                } else {
+                    setMessage(data.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
 
     return (
 
@@ -17,9 +45,16 @@ const RecoverAccount = () => {
                     <div className="col login-form">
                         <h2 className="fw-bold text-center py-5  ">Recuperar contraseña</h2>
                         <p className="fw-bold text-center mt-1  ">Escribe tu correo de registro para enviar un enlace de recuperación:</p>
-                        <form action="">
+                        <form onSubmit={handleSubmit}>
                             <div className="mb-4 ">
-                                <input type="email" className="form-control" name="email" placeholder="Correo electronico" />
+                            <input
+                                    type="email"
+                                    className="form-control"
+                                    name="email"
+                                    placeholder="Correo electrónico"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
                             </div>
                             <div className="d-grid">
                                 <button type="submit" className="btn btn1 btn-primary">Enviar</button>

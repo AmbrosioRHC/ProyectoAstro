@@ -259,6 +259,13 @@ const getState = ({ getStore, setStore }) => {
 };
 export default getState;
 
+<<<<<<< HEAD
 /*npm install react-select
 npm install country-list
 npm install react-hook-form*/
+=======
+
+/*{isLoggedIn && (<div className='userWelcome text-light ms-4 me-2 mt-3'>
+                  {email !== null && <p>Hola {email} <Link to="/account-pro"><button type="button" class="btn btn-primary ms-3">Tu cuenta</button></Link></p>}
+                </div>)}*/
+>>>>>>> e2e10175e36cc3696c3ad72fc4a9c928d6e1056c

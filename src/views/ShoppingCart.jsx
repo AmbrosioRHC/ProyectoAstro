@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
 import './styles/LoginStyle.css';
-import Navbar from '../components/navbar';
+
 
 function ShoppingCart() {
   const { store, actions } = useContext(Context);
@@ -27,6 +27,10 @@ function ShoppingCart() {
 
   return (
     <>
+<<<<<<< HEAD
+=======
+
+>>>>>>> e2e10175e36cc3696c3ad72fc4a9c928d6e1056c
       <div className="shopping-cart-container">
         <div className="cart-items-container">
           <h2 className="cart-heading">Carrito de Compras</h2>

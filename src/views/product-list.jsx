@@ -14,6 +14,10 @@ const ProductList = () => {
 
     return (
         <>
+<<<<<<< HEAD
+=======
+       
+>>>>>>> e2e10175e36cc3696c3ad72fc4a9c928d6e1056c
             <div className="shopping-cart-container">
                 <div className="cart-items-container">
                     <h2 className="cart-heading">Productos Disponibles</h2>

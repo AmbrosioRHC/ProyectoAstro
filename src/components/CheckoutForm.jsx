@@ -1,6 +1,6 @@
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import imgbuy from '../assets/img-logo/tu_compra.png'
-
+import imgbuy from '../assets/img-logo/imgcompra.png'
+import { Link } from 'react-router-dom';
 const CheckoutForm = ({cart}) => {
 
   const stripe = useStripe();
@@ -32,10 +32,10 @@ const CheckoutForm = ({cart}) => {
               <CardElement className="form-control" />
             </div>
             <div className="text-center">
-              <button type="submit" className="btn btn-primary">
-               Comprar
-              </button>
-            </div>
+      <Link to="/product-list" className="btn btn-primary">
+        Seguir Comprando
+      </Link>
+    </div>
           </form>
         </div>
       </div>

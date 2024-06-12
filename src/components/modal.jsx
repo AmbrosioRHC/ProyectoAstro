@@ -25,3 +25,5 @@ const Modal = ({ show }) => {
 }
 
 export default Modal;
+
+
