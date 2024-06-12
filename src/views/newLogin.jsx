@@ -68,11 +68,11 @@ const Login = ({ setIsLoggedIn, email, setEmail }) => {
                                     {errorMessage}
                                 </div>
                             )}
-
+{/*
                             <div className="mb-4 form-check">
                                 <input type="checkbox" name="connected" className="form-check-input" id="connected" />
                                 <label htmlFor="connected" className="form-check-label">Mantenerme conectado</label>
-                            </div>
+                            </div>*/}
 
                             <div className="d-grid">
                                 <button type="submit" className="btn btn-primary">Iniciar sesión</button>

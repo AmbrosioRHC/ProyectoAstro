@@ -144,6 +144,12 @@ h6, .form-label {
 /* register*/
 
 /* Estilos para el contenedor del input de contraseña */
+
+.error-text {
+  color: red;
+  font-size: 0.875em;
+}
+
 .password-input-container {
     position: relative;
     width: 100%;

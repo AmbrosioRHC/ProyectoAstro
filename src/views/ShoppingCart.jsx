@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
 import './styles/LoginStyle.css';
-import Navbar from '../components/navbar';
+
 
 function ShoppingCart() {
   const { store, actions } = useContext(Context);
@@ -27,7 +27,7 @@ function ShoppingCart() {
 
   return (
     <>
-      <Navbar />
+
       <div className="shopping-cart-container">
         <div className="cart-items-container">
           <h2 className="cart-heading">Carrito de Compras</h2>
