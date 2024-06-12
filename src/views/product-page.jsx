@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import Navbar from "../components/navbar";
 
 const ProductPage = () => {
     const { id } = useParams();
@@ -53,7 +52,6 @@ const ProductPage = () => {
 
     return (
         <>
-            <Navbar />
             <div className="container container-product-page my-5 py-3 textColorProductPage">
                 {notification.isVisible && <div className="alert alert-success">{notification.message}</div>}
                 

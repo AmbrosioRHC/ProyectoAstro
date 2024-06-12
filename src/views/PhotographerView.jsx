@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PhotographerProfile from '../components/PhotographerProfile';
-import Navbar from '../components/navbar';
 
 const PhotographerView = () => {
   const { id } = useParams();
@@ -33,7 +32,6 @@ const PhotographerView = () => {
   if (id) {
     return (
       <div>
-        <Navbar />
         <PhotographerProfile 
           name={photographer.name} 
           profile_pic={photographer.profile_pic} 

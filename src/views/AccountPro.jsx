@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import UserAccountPro from '../components/UserAccountPro'; // Asegúrate de que la ruta sea correcta
-import Navbar from "../components/navbar";
 
-const AccountPro = () => {
+
+const AccountPro = ({setIsLoggedIn}) => {
   const [user, setUser] = useState(null);
   const [orders, setOrders] = useState([]);
 
@@ -35,8 +35,7 @@ const AccountPro = () => {
 
   return (
     <div>
-      <Navbar />
-      <UserAccountPro user={user || placeholderUser} orders={orders.length > 0 ? orders : placeholderOrders} />
+      <UserAccountPro user={user || placeholderUser} orders={orders.length > 0 ? orders : placeholderOrders} setIsLoggedIn={setIsLoggedIn}/>
     </div>
   );
 };

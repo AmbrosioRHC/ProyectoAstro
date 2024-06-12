@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UserAccount from '../components/UserAccount';
-import Navbar from "../components/navbar";
+
 
 const Account = () => {
   const [user, setUser] = useState(null);
@@ -35,7 +35,6 @@ const Account = () => {
 
   return (
     <div>
-      <Navbar />
       <UserAccount user={user || placeholderUser} orders={orders.length > 0 ? orders : placeholderOrders} />
     </div>
   );

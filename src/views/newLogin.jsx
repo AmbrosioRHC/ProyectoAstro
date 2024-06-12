@@ -4,23 +4,22 @@ import { Context } from "../store/appContext";
 import LogoXl from '../assets/img-logo/logo-xl.png';
 import PlanetLogoS from '../assets/img-logo/logo-planet-S.png';
 import './styles/LoginStyle.css';
-import Navbar from "../components/navbar"
 
 
-const Login = () => {
-    const [email, setEmail] = useState("");
+const Login = ({ setIsLoggedIn, email, setEmail }) => {
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    const { actions } = useContext(Context); 
-    const navigate = useNavigate(); 
+    const { actions } = useContext(Context); // Usa el contexto
+    const navigate = useNavigate(); // Hook para navegación
+    
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
             const response = await actions.login(email, password);
             if (response) {
-                // Redirige a la página de productos en caso de éxito
-                navigate("/product-list"); 
+                navigate("/");
+                setIsLoggedIn(true);
             } else {
                 setErrorMessage("Usuario o contraseña incorrectos");
             }
@@ -32,7 +31,6 @@ const Login = () => {
 
     return (
         <>
-            <Navbar email={email} setEmail={setEmail}/>
             <div className="container-fluid text-light">
                 <div className="row login-top d-flex align-items-center justify-content-center">
                     <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
@@ -42,7 +40,7 @@ const Login = () => {
                     <div className="col overview">
                         <h1 className="fw-bold text-center py-5">Bienvenido</h1>
                         {/* Login */}
-                        <form className="login-form" onSubmit={handleLogin}>
+                        <form className="login-form g-3 needs-validation" onSubmit={handleLogin}>
                             <div className="mb-4">
                                 <input 
                                     type="email" 
@@ -50,7 +48,8 @@ const Login = () => {
                                     name="email" 
                                     placeholder="Correo electrónico" 
                                     value={email}
-                                    onChange={(e) => setEmail(e.target.value)} 
+                                    required
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
 
@@ -61,6 +60,7 @@ const Login = () => {
                                     name="password" 
                                     placeholder="Contraseña" 
                                     value={password}
+                                    required
                                     onChange={(e) => setPassword(e.target.value)} 
                                 />
                             </div>

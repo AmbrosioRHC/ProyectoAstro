@@ -3,15 +3,13 @@ import React, { useEffect, useContext, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWhatsapp, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'; 
 import './styles/Landing.css'
-import Navbar from "../components/navbar"
 import { Link } from "react-router-dom";
 
-const Home = () => {
 
+const Home = () => {
+  
     return (
       <>
- 
-        <Navbar/>
         <div className="body-landing">
           <div id="header" className="text-light">
             <div className="header-text">
