@@ -30,14 +30,6 @@
     color: white;
 }
 
-.div-fluid1 {
-
-    background-position: center;
-    background: #00010c;
-    color: white;
-
-
-}
 
 form {
     background: none;
@@ -47,4 +39,7 @@ form {
     background: #00010c;
     padding: 10px;
     font-size: 50px;
+}
+.btn-primary.w-100 {
+    width: 100% !important; /* Asegura que el ancho se aplique */
 }

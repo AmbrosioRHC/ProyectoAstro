@@ -5,65 +5,119 @@ const getState = ({ getStore, setStore }) => {
       user: null,
       products: [],
       cart: [],
-      contactForm:{
-        email: "",
-        message: ""
-      },
-      contactMail: [],
-      notifications:""
     },
     actions: {
 
-      handleChangeMail: (e)=>{
-        console.log(e.target.value)
-        setStore({contactForm:{email: e.target.value}})
-      },
-      
-      handleChangeMessage: (e)=>{
-        console.log(e.target.value)
-        setStore({contactForm:{message: e.target.value}})
+      login: async (email, password) => {
+        try {
+          const response = await fetch("http://127.0.0.1:5000/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, password })
+          });
+          if (response.ok) {
+            const data = await response.json();
+            setStore({ user: data.user, loginError: null });
+            localStorage.setItem('token', data.token); // Almacena el token JWT en el almacenamiento local
+            return true;
+          } else {
+            const errorData = await response.json();
+            setStore({ loginError: errorData.message });
+            return false
+            //throw new Error("Failed to login");
+          }
+        } catch (error) {
+          console.error("Error logging in:", error);
+        }
       },
 
-      handleOnClick: (e, contactForm)=>{
-        console.log(contactForm)
-        const {contactMail} = getStore()
-        setStore({contactMail:[...contactMail, contactForm]})
+      // Register
+      register: async (name, email, password) => {
+        try {
+          const response = await fetch("http://127.0.0.1:5000/create_user", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, email, password })
+          });
+          if (response.ok) {
+            const data = await response.json();
+            return data;
+          } else {
+            throw new Error("Failed to register");
+          }
+        } catch (error) {
+          console.error("Error registering:", error);
+        }
       },
 
-      contactFetch: ()=>{
-        fetch()
-          .then((resp) => {
-            return resp.json();
-          })
-          .then((data)=>{
-            setStore({contactMail: data});
-          })
-          .catch((error)=>{console.log(error)})
+      // Recuperar contraseña
+      recoverPassword: async (email) => {
+        try {
+          const response = await fetch("http://127.0.0.1:5000/recover_password", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email })
+          });
+          if (response.ok) {
+            return await response.json();
+          } else {
+            throw new Error("Failed to recover password");
+          }
+        } catch (error) {
+          console.error("Error recovering password:", error);
+        }
       },
-      postContactFetch: (contact)=>{
-        fetch("",{
-          method:"POST",
-          headers: {"Content-Type": "application/json"},
+
+      // Contact form actions
+      handleChangeMail: (e) => {
+        setStore({ contactForm: { ...getStore().contactForm, email: e.target.value } });
+      },
+
+      handleChangeMessage: (e) => {
+        setStore({ contactForm: { ...getStore().contactForm, message: e.target.value } });
+      },
+
+      handleOnClick: (e, contactForm) => {
+        const { contactMail } = getStore();
+        setStore({ contactMail: [...contactMail, contactForm] });
+      },
+
+      contactFetch: () => {
+        fetch("http://127.0.0.1:5000/contact")
+          .then((resp) => resp.json())
+          .then((data) => setStore({ contactMail: data }))
+          .catch((error) => console.log(error));
+      },
+
+      postContactFetch: (contact) => {
+        fetch("http://127.0.0.1:5000/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(contact)
         })
-          .then((resp)=>resp.json())
-          .then((data)=>
-            {setStore({notifications:data});
-              console.log(data)})
-          .fetch((error)=>{console.log(error)})
-
+          .then((resp) => resp.json())
+          .then((data) => setStore({ notifications: data }))
+          .catch((error) => console.log(error));
       },
 
-
+      // Counter action
       incrementCounter: () => {
         const store = getStore();
         setStore({ counter: store.counter + 1 });
       },
 
+      // User action
       setUser: (user) => {
-        setStore({ user: user });
+        setStore({ user: user});
       },
-      
+
+      // Load products
       loadProducts: async () => {
         try {
           const response = await fetch('http://127.0.0.1:5000/photos');
@@ -77,47 +131,132 @@ const getState = ({ getStore, setStore }) => {
         }
       },
 
-      addToCart: (product) => {
-        const store = getStore();
-        const existingProductIndex = store.cart.findIndex(item => item.id === product.id);
-        if (existingProductIndex >= 0) {
-          const updatedCart = [...store.cart];
-          updatedCart[existingProductIndex].quantity += 1;
-          setStore({ cart: updatedCart });
-        } else {
-          setStore({ cart: [...store.cart, { ...product, quantity: 1 }] });
+      // Cart actions
+      addToCart: async (product) => {
+        try {
+          const token = localStorage.getItem('token');
+          const requestBody = {
+            photo_id: product.id,
+            quantity: 1,
+            photo_name: product.name, 
+            photo_price: product.price 
+          };
+          console.log('Request Body:', requestBody);
+          const response = await fetch('http://127.0.0.1:5000/cart/add', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(requestBody)
+          });
+          
+          if (!response.ok) {
+            throw new Error('Error adding product to cart');
+          }
+          await getState({ getStore, setStore }).actions.loadCart();
+        } catch (error) {
+          console.error('Error adding product to cart:', error);
         }
-      },
+      }
+      ,
 
-      removeFromCart: (productId) => {
-        const store = getStore();
-        setStore({ cart: store.cart.filter(item => item.id !== productId) });
-      },
+      
+
+      removeFromCart: async (photo_id) => {
+        try {
+          const token = localStorage.getItem('token'); // Obtener el token JWT almacenado
+          const response = await fetch('http://127.0.0.1:5000/cart/remove', {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ photo_id })
+          });
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          const data = await response.json();
+          console.log('Datos del carrito después de REMOVE:', data);
+
+          setStore({ cart_items: data.cart_items }); // Almacenar cart_items actualizados en el estado
+        } catch (error) {
+          console.error('Error removing item from cart:', error);
+        }},
+
       clearCart: () => {
         setStore({ cart: [] });
       },
-      incrementQuantity: (productId) => {
-        const store = getStore();
-        const updatedCart = store.cart.map(item => {
-          if (item.id === productId) {
-            return { ...item, quantity: item.quantity + 1 };
+
+      incrementQuantity: async (productId) => {
+        try {
+          const response = await fetch(`http://127.0.0.1:5000/cart/${staticUserId}/${productId}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              quantity: 1
+            })
+          });
+          if (!response.ok) {
+            throw new Error('Error incrementing product quantity in cart');
           }
-          return item;
-        });
-        setStore({ cart: updatedCart });
+          await getState({ getStore, setStore }).actions.loadCart();
+        } catch (error) {
+          console.error('Error incrementing product quantity in cart:', error);
+        }
       },
-      decrementQuantity: (productId) => {
-        const store = getStore();
-        const updatedCart = store.cart.map(item => {
-          if (item.id === productId && item.quantity > 1) {
-            return { ...item, quantity: item.quantity - 1 };
+
+      decrementQuantity: async (productId) => {
+        try {
+          const response = await fetch(`http://127.0.0.1:5000/cart/${staticUserId}/${productId}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              quantity: -1
+            })
+          });
+          if (!response.ok) {
+            throw new Error('Error decrementing product quantity in cart');
           }
-          return item;
-        });
-        setStore({ cart: updatedCart });
-      }
+          await getState({ getStore, setStore }).actions.loadCart();
+        } catch (error) {
+          console.error('Error decrementing product quantity in cart:', error);
+        }
+      },
+
+      loadCart: async () => {
+        try {
+          const token = localStorage.getItem('token'); // Obtener el token JWT almacenado
+          const response = await fetch('http://127.0.0.1:5000/cartuser', {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          const data = await response.json();
+          console.log('Datos del carrito recibidos de LOAD:', data);
+
+          setStore({ cart_items: data.cart_items }); // Almacenar cart_items en el estado
+        } catch (error) {
+          console.error('Error loading cart:', error);
+        }
+      },
+      
     }
   };
 };
-
 export default getState;
+
+

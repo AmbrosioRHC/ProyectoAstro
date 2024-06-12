@@ -1,10 +1,9 @@
 import './styles/Documents.css'
-import Navbar from "../components/navbar"
+
 
 const Terms = () => {
     return (
   <>
-    <Navbar/>
     <div className="container mt-4">
       <div className="overflow-y-auto document">
         <h1>Politicas y condiciones de <strong>AstroSnap</strong></h1>

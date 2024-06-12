@@ -1,31 +1,43 @@
+.faq-title h1 {
+    font-size: 40px; /* Reducir el tamaño del título */
+    text-align: center; /* Centrar el título */
+    padding: 20px 0; /* Ajustar el espaciado alrededor del título */
+}
 
-.faq-title h1{
-    font-size: 70px;
-    padding-bottom: 10px;
+#icon2 {
+    width: 80px; /* Redimensionar el ícono */
+    height: auto; /* Mantener la proporción */
 }
-.faq-title p{
-    padding-top: 10px;
-    font-size: 20px;
-}
+
 .document {
     background-color: white;
-    padding-left: 100px;
-    padding-right:100px;
-    padding-bottom: 30px;
+    padding: 20px; /* Ajustar el espaciado en dispositivos móviles */
+}
 
+.document h1 {
+    font-size: 40px; /* Reducir el tamaño del título */
+    text-align: center; /* Centrar el título */
+    padding: 20px 0; /* Ajustar el espaciado alrededor del título */
 }
-.document h1{
-    text-align: center;
-    font-size: 50px;
-    padding: 30px;
+
+.document ul,
+.document p {
+    font-size: 18px; /* Reducir el tamaño del texto */
+    line-height: 1.5; /* Ajustar el espaciado entre líneas */
 }
-.document ul{
-    font-size: 20px;
-}
-.document p{
-    font-size: 20px;
-}
-#icon2 {
-    width: 130px;
-    height:100px;
+
+/* Media queries para resoluciones específicas */
+@media (max-width: 375px) and (max-height: 667px),
+       (max-width: 360px) and (max-height: 740px),
+       (max-width: 344px) and (max-height: 882px) {
+    .faq-title h1,
+    .document h1 {
+        font-size: 30px; /* Reducir aún más el tamaño del título para resoluciones pequeñas */
+        padding: 10px 0; /* Ajustar el espaciado alrededor del título para resoluciones pequeñas */
+    }
+
+    .document ul,
+    .document p {
+        font-size: 16px; /* Reducir el tamaño del texto aún más para resoluciones pequeñas */
+    }
 }

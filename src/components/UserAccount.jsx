@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import styles from './UserAccount.module.css';
 
 const UserAccount = ({ user, orders }) => {
   const [addresses, setAddresses] = useState(user.addresses);
   const [showForm, setShowForm] = useState(false);
   const [newAddress, setNewAddress] = useState('');
+  const navigate = useNavigate(); 
 
   const handleViewAddresses = () => {
     setShowForm(!showForm);
@@ -19,11 +21,17 @@ const UserAccount = ({ user, orders }) => {
     }
   };
 
+  const handleLogout = () => {
+
+
+    navigate('/'); 
+  };
+
   return (
     <div className={styles.userAccountContainer}>
       <div className={styles.header}>
         <h1>Mi Cuenta</h1>
-        <button onClick={() => console.log('Logout')} className={styles.logoutButton}>Log out</button>
+        <button onClick={handleLogout} className={styles.logoutButton}>Log out</button>
       </div>
       <div className={styles.content}>
         <div className={styles.accountDetails}>
@@ -85,6 +93,5 @@ const UserAccount = ({ user, orders }) => {
 };
 
 export default UserAccount;
-
 
 

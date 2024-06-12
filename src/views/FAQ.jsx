@@ -1,17 +1,14 @@
 import './styles/Documents.css'
-import Navbar from "../components/navbar"
 
 const FAQ = () => {
     return (
   <>
-    <Navbar/>
     <div className="faq text-light"> 
         <div className="container p-2 mt-5">
             <div className="row text-light">
                 <div className="faq-title col-6 col-md-4 d-flex align-items-center justify-content-center">
                     <div>
                     <h1 className="border-bottom">Preguntas frecuentes</h1>
-                    <p>Por favor, tenga en cuenta que estas son preguntas frecuentes genéricas y pueden necesitar ser adaptadas para cumplir con las necesidades específicas de su empresa. Le recomendamos que consulte con un asesor legal para asegurarse de que cumple con todas las obligaciones legales necesarias.</p>
                     </div>
                 </div>
                 <div className="col-md-8 text-light">

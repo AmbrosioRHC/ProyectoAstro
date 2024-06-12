@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import UserAccount from '../components/UserAccount';
+import UserAccountPro from '../components/UserAccountPro'; // Asegúrate de que la ruta sea correcta
 
 
-const Account = () => {
+const AccountPro = ({setIsLoggedIn}) => {
   const [user, setUser] = useState(null);
   const [orders, setOrders] = useState([]);
 
@@ -35,9 +35,11 @@ const Account = () => {
 
   return (
     <div>
-      <UserAccount user={user || placeholderUser} orders={orders.length > 0 ? orders : placeholderOrders} />
+      <UserAccountPro user={user || placeholderUser} orders={orders.length > 0 ? orders : placeholderOrders} setIsLoggedIn={setIsLoggedIn}/>
     </div>
   );
 };
 
-export default Account;
+export default AccountPro; // Asegúrate de exportar por defecto
+
+

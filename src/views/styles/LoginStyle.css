@@ -1,6 +1,86 @@
 .logos {
-    width: 100px;
-    height: 25px;
+  width: 100px;
+  height: 25px;
+}
+
+.logoprincipal {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.login-top {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-form {
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.overview h1 {
+  font-size: 36px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .login-form {
+      padding: 20px;
+  }
+  .overview h1 {
+      font-size: 32px;
+  }
+}
+
+@media (max-width: 992px) {
+  .overview h1 {
+      font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .overview h1 {
+      font-size: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .overview h1 {
+      font-size: 20px;
+  }
+}
+
+/* Additional media queries for iPad and larger screens */
+@media (min-width: 768px) and (max-width: 1368px) {
+  .login-form {
+    max-width: 800px; /* Aumentar el ancho máximo para tablets */
+    padding: 50px; /* Aumentar el espacio interno para mejor legibilidad */
+    margin-top: 50px; /* Añadir margen superior para centrar verticalmente */
+  }
+
+  .overview h1 {
+    font-size: 32px; /* Adjust font-size */
+  }
+}
+
+@media (min-width: 1368px) {
+  .login-form {
+    max-width: 900px; /* Increase max-width for larger screens */
+    padding: 60px; /* Increase padding for better spacing */
+    min-height: 700px; /* Increase min-height for better vertical spacing */
+  }
+
+  .overview h1 {
+    font-size: 36px; /* Keep font-size larger */
+  }
 }
 
 
@@ -64,6 +144,7 @@ h6, .form-label {
 /* register*/
 
 /* Estilos para el contenedor del input de contraseña */
+
 .password-input-container {
     position: relative;
     width: 100%;
@@ -95,61 +176,115 @@ h6, .form-label {
 /* shoppingcart */
 
 /* ShoppingCart.css */
-
+/* Estilo general para la vista */
+/* Estilo general para la vista */
 .shopping-cart-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #282c34;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  padding: 20px; /* Añade padding para que no toque los bordes de la pantalla */
+}
+
+.cart-items-container {
+  width: 100%;
+  max-width: 1200px;
+  background-color: #343a40;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  box-sizing: border-box; /* Asegura que el padding esté incluido en el ancho */
+}
+
+.cart-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #495057;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden; /* Oculta el desbordamiento para evitar bordes blancos */
+  margin-bottom: 20px; /* Añade margen entre tarjetas */
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.btn-danger {
+  opacity: 1;
+  margin-top: 10px;
+  background-color: #28a745; /* Botón verde */
+  border: none; /* Sin borde */
+  color: white;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  text-align: center;
+  background-color: #495057;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.breadcrumb {
+  background-color: #343a40;
+  color: white;
+}
+
+.breadcrumb-item.active {
+  color: #ffc107;
+}
+
+/* Grid de Productos */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  align-items: stretch; /* Asegura que las tarjetas se estiren uniformemente */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
   .cart-items-container {
-    width: 80%;
-    background-color: #343a40;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
+      width: 90%;
   }
-  
+}
+
+@media (max-width: 992px) {
+  .cart-items-container {
+      width: 95%;
+      padding: 15px; /* Reduce el padding en pantallas medianas */
+  }
   .cart-heading {
-    text-align: center;
-    margin-bottom: 20px;
-    color: white;
+      font-size: 1.75rem; /* Ajusta el tamaño del encabezado */
   }
-  
-  .card-body {
-    background-color: #495057;
-    color: white;
+}
+
+@media (max-width: 768px) {
+  .cart-items-container {
+      width: 100%;
+      padding: 10px; /* Reduce el padding en pantallas pequeñas */
   }
-  
+  .cart-heading {
+      font-size: 1.5rem; /* Ajusta el tamaño del encabezado */
+  }
+}
+
+@media (max-width: 576px) {
+  .cart-heading {
+      font-size: 1.25rem; /* Ajusta el tamaño del encabezado */
+  }
   .card-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+      max-width: 100%; /* Ajusta el tamaño de la imagen en pantallas muy pequeñas */
   }
-  
-  .btn-danger {
-    opacity: 1;
-    margin-top: 10px;
-  }
-  
-  .cart-summary {
-    margin-top: 20px;
-    text-align: center;
-    background-color: #495057;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .breadcrumb {
-    background-color: #343a40;
-    color: white;
-  }
-  
-  .breadcrumb-item.active {
-    color: #ffc107;
-  }
-  
-  
+}
