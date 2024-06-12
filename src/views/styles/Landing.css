@@ -276,3 +276,68 @@ body {
         font-size: 16px;
     }
 }
+
+
+/* responsive 375 x 667 */
+
+/* Media Queries for 375x667 resolution */
+@media (max-width: 375px) and (max-height: 667px) {
+    .header-text h1 {
+        font-size: 25px;
+        margin: 0 10px;  /* Agrega un margen para evitar que se corte */
+    }
+
+    .header-text img {
+        width: 250px;  /* Ajusta el tamaño de la imagen si es necesario */
+        margin-left: 5px; /* Asegura un poco de espacio entre el texto y la imagen */
+    }
+
+    .header-text h2 {
+        font-size: 16px;
+    }
+
+    .header-text p {
+        font-size: 14px;
+    }
+
+    .description h1 {
+        font-size: 20px;
+    }
+
+    .title h1 {
+        font-size: 20px;
+    }
+
+    .boton, .boton2 {
+        padding: 8px 16px;
+    }
+
+    .product-info, .users-text {
+        text-align: center;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .subscribe-text h1 {
+        font-size: 24px;
+    }
+
+    .subscribe-text p {
+        font-size: 14px;
+    }
+
+    .info .table-title, .info .table-body {
+        font-size: 12px;
+    }
+
+    .info h5 {
+        font-size: 14px;
+    }
+}
+
+
+.logo-image {
+    width: 50px;  /* Ajusta este tamaño según sea necesario */
+    margin-left: 5px;  /* Asegura un poco de espacio entre el texto y la imagen */
+    vertical-align: middle;  /* Asegura que la imagen esté alineada verticalmente con el texto */
+}
