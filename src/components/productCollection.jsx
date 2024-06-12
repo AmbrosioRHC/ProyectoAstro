@@ -10,7 +10,7 @@ const ProductCollection = ({ products }) => {
     return (
         <div className="row">
             {products.map(product => (
-                <div key={product.id} className="col-4 mb-4">
+                <div key={product.id} className="col-12 col-md-6 col-lg-4 mb-4">
                     <div className="card">
                         <img src={product.image} className="card-img-top" alt={product.name} />
                         <div className="card-body">
