@@ -10,13 +10,13 @@ const ProductCollection = ({ products }) => {
     return (
         <div className="row">
             {products.map(product => (
-                <div key={product.id} className="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div className="card h-100">
+                <div key={product.id} className="col-4 mb-4">
+                    <div className="card">
                         <img src={product.image} className="card-img-top" alt={product.name} />
-                        <div className="card-body d-flex flex-column">
+                        <div className="card-body">
                             <h5 className="card-title">{product.name}</h5>
                             <p className="card-text">{formatPrice(product.price)}</p>
-                            <Link to={`/product-page/${product.id}`} className="btn btn-primary mt-auto">Ver más</Link>
+                            <Link to={`/product-page/${product.id}`} className="btn btn-primary">Ver más</Link>
                         </div>
                     </div>
                 </div>
