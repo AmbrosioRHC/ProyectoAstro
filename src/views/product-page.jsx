@@ -86,6 +86,9 @@ const ProductPage = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className="product-description mt-3">
+                        <p>Este producto de fotografía astronómica de alta calidad está diseñado para capturar la majestuosidad del cosmos. Utilizando equipos de primera clase y una técnica meticulosa, nuestras imágenes ofrecen una durabilidad y detalle excepcionales. ¡Añádelo a tu carrito ahora y lleva la belleza del universo a tu hogar!</p>
+                        </div>
                         <div className="quantity-controls mt-3">
                             <button onClick={decrementQuantity} className="btn btn-primary rounded-pill">-</button>
                             <span className="mx-3">{quantity}</span>
