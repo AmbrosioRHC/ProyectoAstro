@@ -1,3 +1,5 @@
+/* Estilos existentes */
+
 /* Botón primario */
 .btn-primary {
   --bs-btn-color: #fff;
@@ -62,7 +64,17 @@
   padding: 0.75rem 1.25rem;
 }
 
+/* Media Queries para hacer la vista responsive */
 @media (max-width: 768px) {
+  .thumbnailGrid {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
   .container-product-page .row > div {
     margin-bottom: 20px;
   }
