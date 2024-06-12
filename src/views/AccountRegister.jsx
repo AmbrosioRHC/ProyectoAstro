@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import countries from "country-list";
 import Select from 'react-select';
 
-
 const AccountRegister = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [showModal, setShowModal] = useState(false);
@@ -19,88 +18,34 @@ const AccountRegister = () => {
         phone: "",
         country: "",
         city: "",
-        street: "",
-        termsAccepted: false,
+        street: ""
     });
 
     const countrySuggestions = countries.getNames();
 
     const handleInputChange = (e) => {
-        const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
-            [name]: type === "checkbox" ? checked : value
+            [e.target.name]: e.target.value
         });
     };
 
-    const validate = () => {
-        let errors = {};
-
-        if (!formData.name.trim()) {
-            errors.name = 'El nombre es obligatorio';
-        } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(formData.name)) {
-            errors.name = 'El nombre solo puede contener letras';
-        } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}(?:\s[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,})+$/.test(formData.name)) {
-            errors.name = 'Debe contener al menos un nombre y un apellido';
-        }
-
-        if (!formData.email) {
-            errors.email = 'El correo es obligatorio';
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            errors.email = 'El correo no es válido';
-        }
-
-        if (!formData.password) {
-            errors.password = 'La contraseña es obligatoria';
-        } else if (formData.password.length < 6) {
-            errors.password = 'La contraseña debe tener al menos 6 caracteres';
-        }
-
-        if (!formData.phone.trim()) {
-            errors.phone = 'El teléfono es obligatorio';
-        } else if (!/^\d+$/.test(formData.phone)) {
-            errors.phone = 'El teléfono solo puede contener números';
-        }
-
-        if (!formData.country.trim()) {
-            errors.country = 'El país es obligatorio';
-        }
-
-        if (!formData.city.trim()) {
-            errors.city = 'La ciudad es obligatoria';
-        }
-
-        if (!formData.street.trim()) {
-            errors.street = 'La dirección es obligatoria';
-        }
-
-        if (!formData.termsAccepted) {
-            errors.termsAccepted = 'Debes aceptar los términos y condiciones';
-        }
-
-        return errors;
-    };
-
-    const handleRegister = async (e) => {
-        e.preventDefault();
-        const validationErrors = validate();
-        setErrors(validationErrors);
-
-        if (Object.keys(validationErrors).length === 0) {
-            const { name, email, password, phone, country, city, street } = formData;
-            try {
-                const response = await actions.register(name, email, password, phone, country, city, street);
-                console.log("Registro exitoso:", response);
-                setShowModal(true); // Mostrar el modal de registro exitoso
-            } catch (error) {
-                console.error("Error al registrar:", error);
-            }
+    const handleRegister = async (data) => {
+        const { name, email, password, phone, country, city, street } = data;
+        console.log("Datos del formulario:", data);
+        try {
+            const response = await actions.register(name, email, password, phone, country, city, street);
+            console.log("Registro exitoso:", response);
+            setShowModal(true); // Mostrar el modal de registro exitoso
+        } catch (error) {
+            console.error("Error al registrar:", error);
         }
     };
 
     return (
         <>
             <Modal show={showModal} />
+
             <div className="container-fluid text-light">
                 <div className="row align-items-center justify-content-center">
                     <div className="col-12 col-md-8 col-lg-6 login-form">
@@ -120,7 +65,6 @@ const AccountRegister = () => {
                                         value: 100,
                                         message: "El nombre no puede superar los 100 caracteres"
                                     }
-
                                  })}/>
                                 {errors.name && <span className="text-danger">{errors.name.message}</span>}
                             </div>
@@ -129,41 +73,40 @@ const AccountRegister = () => {
                                 <input type="email" className="form-control" name="email" onChange={handleInputChange} {...register("email", { 
                                     required: "Este campo es requerido",
                                     pattern: {
-                                        value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                                        value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                                         message: "Correo inválido"
-                                    },
-
+                                    }
                                  })}/>
-                                 {errors.email && <span className="text-danger">{errors.email.message}</span>}
+                                {errors.email && <span className="text-danger">{errors.email.message}</span>}
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-md-6 password-container">
                                 <label htmlFor="password" className="form-label">Contraseña</label>
                                 <input type="password" className="form-control" name="password" onChange={handleInputChange} {...register("password", { 
                                     required: "Este campo es requerido",
                                     pattern: {
-                                        value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
-                                        message: "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.NO puede tener otros símbolos."
-                                    },
+                                        value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/,
+                                        message: "La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, una minúscula y una mayúscula."
+                                    }
                                  })}/>
-                                 {errors.password && <span className="text-danger">{errors.password.message}</span>}
+                                {errors.password && <span className="text-danger">{errors.password.message}</span>}
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="phone" className="form-label">Teléfono</label>
                                 <input type="text" className="form-control" name="phone" onChange={handleInputChange} {...register("phone", { 
                                     required: "Este campo es requerido",
                                     pattern: {
-                                        value: /[\(]?[\+]?(\d{2}|\d{3})[\)]?[\s]?((\d{6}|\d{8})|(\d{3}[\*\.\-\s]){3}|(\d{2}[\*\.\-\s]){4}|(\d{4}[\*\.\-\s]){2})|\d{8}|\d{10}|\d{12}/,
+                                        value: /^[0-9+\s]*$/,
                                         message: "Teléfono inválido"
-                                    },
+                                    }
                                  })}/>
-                                 {errors.phone && <span className="text-danger">{errors.phone.message}</span>}
+                                {errors.phone && <span className="text-danger">{errors.phone.message}</span>}
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="country" className="form-label">País</label>
                                 <Select
                                     options={countrySuggestions.map(country => ({ value: country, label: country }))}
                                     className="text-black"
-                                    onChange={selectedOption => console.log(selectedOption)}
+                                    onChange={selectedOption => setFormData({ ...formData, country: selectedOption.value })}
                                     placeholder="Selecciona un país..."
                                 />
                             </div>
@@ -174,10 +117,9 @@ const AccountRegister = () => {
                                     pattern: {
                                         value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s.'\-]+$/,
                                         message: "Ciudad inválida"
-                                    },
+                                    }
                                  })}/>
-                                 {errors.city && <span className="text-danger">{errors.city.message}</span>} 
-
+                                {errors.city && <span className="text-danger">{errors.city.message}</span>}
                             </div>
                             <div className="col-md-12">
                                 <label htmlFor="street" className="form-label">Dirección</label>
@@ -186,19 +128,19 @@ const AccountRegister = () => {
                                     pattern: {
                                         value: /^[a-zA-Z0-9\s.,#\-]+$/,
                                         message: "Dirección no válida"
-                                    },
+                                    }
                                  })}/>
-                                 {errors.street && <span className="text-danger">{errors.street.message}</span>} 
+                                {errors.street && <span className="text-danger">{errors.street.message}</span>}
                             </div>
-                            <div className="col-12 g-3 needs-validation" novalidate>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required/>
-                                    <label class="form-check-label" for="invalidCheck">
+                            <div className="col-12 g-3 needs-validation">
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" required/>
+                                    <label className="form-check-label">
                                         Al registrarte, aceptas nuestras Condiciones, nuestra Política de privacidad y nuestra Política de cookies.
                                         <Link to="/terms"><div className="col">Condiciones de uso</div></Link>
                                     </label>
-                                    <div class="invalid-feedback">
-                                        You must agree before submitting.
+                                    <div className="invalid-feedback">
+                                        Debes aceptar los términos antes de enviar.
                                     </div>
                                 </div>
                             </div>
