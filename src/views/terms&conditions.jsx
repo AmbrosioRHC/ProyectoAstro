@@ -4,10 +4,6 @@ import './styles/Documents.css'
 const Terms = () => {
     return (
   <>
-<<<<<<< HEAD
-=======
- 
->>>>>>> e2e10175e36cc3696c3ad72fc4a9c928d6e1056c
     <div className="container mt-4">
       <div className="overflow-y-auto document">
         <h1>Politicas y condiciones de <strong>AstroSnap</strong></h1>
